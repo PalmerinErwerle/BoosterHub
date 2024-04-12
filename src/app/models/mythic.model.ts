@@ -21,7 +21,5 @@ export interface Mythic {
     logs_link: string,
 
     //Boost economic data
-    price: number,
-    booster_cut: number,
-    adviser_cut: number
+    price: number
 }

@@ -1,5 +1,8 @@
 export interface Raid {
     id: string,
+    
+    //Raid specific data
+    raid_level: string;
 
     //Boosting team
     tank1_id: string,
@@ -23,7 +26,5 @@ export interface Raid {
     logs_link: string,
 
     //Boost economic data
-    price: number,
-    booster_cut: number,
-    adviser_cut: number
+    price: number
 }

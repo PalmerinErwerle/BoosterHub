@@ -1,5 +1,8 @@
 export interface Legacy {
     id: string,
+    
+    //Legacy raid specific data
+    raid_name: string;
 
     //Boosting team
     tank1_id: string,
@@ -17,14 +20,11 @@ export interface Legacy {
     adviser_id: string,
 
     //Boost in-game data
-    raid_name: string,
     status: string,
     description: string,
     feedback: string,
     logs_link: string,
 
     //Boost economic data
-    price: number,
-    booster_cut: number,
-    adviser_cut: number
+    price: number
 }
