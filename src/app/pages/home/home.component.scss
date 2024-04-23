@@ -1,0 +1,33 @@
+.header {
+    background-color: #F77E65;
+}
+
+.header-title {
+    margin-left: 10px;
+    font-size: 28px;
+}
+
+mat-drawer-container {
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    top: 64.49px;
+}
+
+@media (max-width: 600px) {
+    mat-drawer-container {
+        top: 56.49px;
+    }
+}
+
+.main-content {
+    background-size: cover;
+    background-image: url("../../../assets/img/login-background.jpg");
+}
+
+#bg-blur{
+    background-size: cover;
+    background: rgba(255, 255, 255, 0.5);
+    height: 100%;
+}
