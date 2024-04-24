@@ -10,19 +10,34 @@
     <mat-drawer class="sidenav" #drawer [opened]="screenWidth > 598" [mode]="(screenWidth > 598) ? 'side' : 'over'">
         <mat-nav-list>
             <mat-list-item>
-                <button mat-button><mat-icon>person</mat-icon>My Profile</button>
+                <button mat-button>
+                    <mat-icon class="nav-button">person</mat-icon>
+                    <span class="nav-button">My Profile</span>
+                </button>
             </mat-list-item>
             <mat-list-item>
-                <button mat-button><mat-icon>work</mat-icon>Booster Menu</button>
+                <button mat-button>
+                    <mat-icon class="nav-button">work</mat-icon>
+                    <span class="nav-button">Booster Menu</span>
+                </button>
             </mat-list-item>
             <mat-list-item>
-                <button mat-button><mat-icon>assignment_ind</mat-icon>Adviser Menu</button>
+                <button mat-button>
+                    <mat-icon class="nav-button">assignment_ind</mat-icon>
+                    <span class="nav-button">Adviser Menu</span>
+                </button>
             </mat-list-item>
             <mat-list-item>
-                <button mat-button><mat-icon>security</mat-icon>Admin Menu</button>
+                <button mat-button>
+                    <mat-icon class="nav-button">security</mat-icon>
+                    <span class="nav-button">Admin Menu</span>
+                </button>
             </mat-list-item>
             <mat-list-item id="logout">
-                <button mat-button><mat-icon>logout</mat-icon>Log Out</button>
+                <button mat-button>
+                    <mat-icon class="nav-button">logout</mat-icon>
+                    <span class="nav-button">Log Out</span>
+                </button>
             </mat-list-item>
         </mat-nav-list>
     </mat-drawer>
