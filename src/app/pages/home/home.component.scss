@@ -2,9 +2,27 @@
     background-color: #F77E65;
 }
 
+.logo {background-color: #F59A7B;
+    width: 45px;
+    border: solid #F59A7B 3px;
+    border-radius: 100%;
+}
+
 .header-title {
     margin-left: 10px;
     font-size: 28px;
+}
+
+.sidenav {
+    background-color: #F59A7B;
+    border-top: black 1px ;
+}
+
+#logout {
+    background-color: #F77E65;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 mat-drawer-container {
@@ -12,13 +30,7 @@ mat-drawer-container {
     right: 0px;
     left: 0px;
     bottom: 0px;
-    top: 64.49px;
-}
-
-@media (max-width: 600px) {
-    mat-drawer-container {
-        top: 56.49px;
-    }
+    top: 64px;
 }
 
 .main-content {
@@ -29,5 +41,17 @@ mat-drawer-container {
 #bg-blur{
     background-size: cover;
     background: rgba(255, 255, 255, 0.5);
-    height: 100%;
+    min-height: 100%;
+    padding-bottom: 0.013px;
+}
+
+@media (max-width: 599px) {
+
+    .logo {
+        width: 40px;
+    }
+
+    mat-drawer-container {
+        top: 56px;
+    }
 }

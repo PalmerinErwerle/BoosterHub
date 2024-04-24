@@ -1,15 +1,28 @@
 <mat-toolbar class="header">
-    <button mat-icon-button>
+    <button *ngIf="screenWidth <= 598" (click)="drawer.toggle()" mat-icon-button>
         <mat-icon>menu</mat-icon>
     </button>
+    <img class="logo" src="../../../assets/img/boosterhub-logo.png">
     <span class="header-title">{{title}}</span>
 </mat-toolbar>
 
-<mat-drawer-container class="sidenav" autosize>
-    <mat-drawer #drawer opened="true" mode="side">
+<mat-drawer-container autosize>
+    <mat-drawer class="sidenav" #drawer [opened]="screenWidth > 598" [mode]="(screenWidth > 598) ? 'side' : 'over'">
         <mat-nav-list>
             <mat-list-item>
-                <button mat-button><mat-icon>person</mat-icon>Profile</button>
+                <button mat-button><mat-icon>person</mat-icon>My Profile</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button mat-button><mat-icon>work</mat-icon>Booster Menu</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button mat-button><mat-icon>assignment_ind</mat-icon>Adviser Menu</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button mat-button><mat-icon>security</mat-icon>Admin Menu</button>
+            </mat-list-item>
+            <mat-list-item id="logout">
+                <button mat-button><mat-icon>logout</mat-icon>Log Out</button>
             </mat-list-item>
         </mat-nav-list>
     </mat-drawer>
@@ -17,7 +30,7 @@
     <mat-drawer-content class="main-content">
 
         <div id="bg-blur">
-            <p>hay que arreglar el height del blur y seguir con el sidenav...</p>
+            <p>Aquí irá el resto del content.</p>
         </div>
 
     </mat-drawer-content>
