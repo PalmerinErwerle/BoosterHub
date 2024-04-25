@@ -16,11 +16,11 @@ En algún momento haré este readme en condiciones xd.
 
 ### En proceso 🏗️
 
- - Sidebar.
- - Header.
+ - Lógica Login, register & change pwd.
 
 ### Ya terminado ✅
 
  - Estructura de Servicios API y BaaS (por probar).
  - Estructura preliminar de la aplicación.
  - Vista Login, register & change pwd.
+ - Header & Sidebar.
