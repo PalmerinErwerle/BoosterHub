@@ -2,20 +2,29 @@
     <div class="form-title">
         <span>Log In</span>
     </div>
-    <div class="form-inputs">
+    <form class="form-inputs" [formGroup]="form" (ngSubmit)="submit()">
         <div class="input-box">
-            <input type="text" class="input-field" placeholder="Email" required>
+            <input type="email" class="input-field" placeholder="Email" required [formControl]="form.controls.email">
             <i class="bx bx-envelope icon"></i>
         </div>
+        <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
+            <div *ngIf="form.controls.email.errors?.['required']">El campo Correo está vacío</div>
+            <div *ngIf="form.controls.email.errors?.['email']">El formato del correo no es válido</div>
+        </div>
+
         <div class="input-box">
-            <input type="password" class="input-field" placeholder="Password" required>
+            <input type="password" class="input-field" placeholder="Password" required [formControl]="form.controls.password">
             <i class="bx bx-lock-alt icon"></i>
         </div>
+        <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.touched">
+            <div *ngIf="form.controls.password.errors?.['required']">El campo Contraseña está vacío</div>
+        </div>
+
         <div class="input-box">
-            <button class="input-submit">
+            <button class="input-submit" type="submit" [disabled]="form.invalid">
                 <span>Log In</span>
                 <i class="bx bx-right-arrow-alt"></i>
             </button>
         </div>
-    </div>
+    </form>
 </div>
