@@ -9,31 +9,15 @@
 <mat-drawer-container autosize>
     <mat-drawer class="sidenav" #drawer [opened]="screenWidth > 598" [mode]="(screenWidth > 598) ? 'side' : 'over'">
         <mat-nav-list>
-            <mat-list-item>
-                <button mat-button>
-                    <mat-icon class="nav-button">person</mat-icon>
-                    <span class="nav-button">My Profile</span>
+
+            <mat-list-item *ngFor="let p of pages">
+                <button mat-button [routerLink]="p.url" routerDirection="root">
+                    <mat-icon class="nav-button">{{p.icon}}</mat-icon>
+                    <span class="nav-button">{{p.title}}</span>
                 </button>
             </mat-list-item>
-            <mat-list-item>
-                <button mat-button>
-                    <mat-icon class="nav-button">work</mat-icon>
-                    <span class="nav-button">Booster Menu</span>
-                </button>
-            </mat-list-item>
-            <mat-list-item>
-                <button mat-button>
-                    <mat-icon class="nav-button">assignment_ind</mat-icon>
-                    <span class="nav-button">Adviser Menu</span>
-                </button>
-            </mat-list-item>
-            <mat-list-item>
-                <button mat-button>
-                    <mat-icon class="nav-button">security</mat-icon>
-                    <span class="nav-button">Admin Menu</span>
-                </button>
-            </mat-list-item>
-            <mat-list-item id="logout">
+
+            <mat-list-item id="logout" (click)="signOut()">
                 <button mat-button>
                     <mat-icon class="nav-button">logout</mat-icon>
                     <span class="nav-button">Log Out</span>

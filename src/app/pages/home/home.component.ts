@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { FirestoreBaasService } from 'src/app/services/firestore-baas.service';
 
 @Component({
   selector: 'app-home',
@@ -7,14 +8,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  pages = [
+    {
+      title: 'My Profile',
+      url: '/home',
+      icon: 'person'
+    },
+    {
+      title: 'Booster Menu',
+      url: '/home',
+      icon: 'work'
+    },
+    {
+      title: 'Adviser Menu',
+      url: '/home',
+      icon: 'assignment_ind'
+    },
+    {
+      title: 'Admin Menu',
+      url: '/home',
+      icon: 'security'
+    }
+  ]
+
   title = "BoosterHub";
   screenWidth!: number;
+
+  firebaseService = inject(FirestoreBaasService);
 
   ngOnInit() {
     this.screenWidth = window.innerWidth;
     window.onresize = () => {
       this.screenWidth = window.innerWidth;
     };
+  }
+
+  // Cerrar sesión
+  signOut() {
+    this.firebaseService.signOut()
   }
 
 }
