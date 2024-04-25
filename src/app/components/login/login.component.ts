@@ -38,15 +38,15 @@ export class LoginComponent {
         if (user) {
           const userData = user as User;
           this.utilsService.saveInLocalStorage('user', userData);
-          this.utilsService.routerLink('/main/home');
+          this.utilsService.routerLink('/home');
           this.form.reset();
         } else {
-          console.log("error en el getDocument");
+          console.log("getDocument error...");
         }
 
-        console.log("Bienvenido")
+        console.log("Welcome")
       }).catch(er => {
-        console.log("Incorrect login data, try again.");
+        console.log("Incorrect booster data gathering, try again.");
       });
     }
   }
