@@ -2,28 +2,47 @@
     <div class="form-title">
         <span>Register</span>
     </div>
-    <div class="form-inputs">
+    <form class="form-inputs" [formGroup]="form" (ngSubmit)="submit()">
+
         <div class="input-box">
-            <input type="text" class="input-field" placeholder="Character" required>
+            <input type="text" class="input-field" placeholder="Character name" required [formControl]="form.controls.character">
             <i class="bx bx-user icon"></i>
         </div>
+        <div class="validators" *ngIf="form.controls.character.errors && form.controls.character.touched">
+            <div *ngIf="form.controls.character.errors?.['required']">Character name cannot be empty</div>
+        </div>
+        
         <div class="input-box">
-            <input type="text" class="input-field" placeholder="Realm" required>
+            <input type="text" class="input-field" placeholder="Realm name" required [formControl]="form.controls.realm">
             <i class="bx bx-landscape icon"></i>
         </div>
+        <div class="validators" *ngIf="form.controls.realm.errors && form.controls.realm.touched">
+            <div *ngIf="form.controls.realm.errors?.['required']">Realm name cannot be empty</div>
+        </div>
+
         <div class="input-box">
-            <input type="text" class="input-field" placeholder="Email" required>
+            <input type="email" class="input-field" placeholder="Email" required [formControl]="form.controls.email">
             <i class="bx bx-envelope icon"></i>
         </div>
+        <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
+            <div *ngIf="form.controls.email.errors?.['required']">Email cannot be empty</div>
+            <div *ngIf="form.controls.email.errors?.['email']">Incorrect email format</div>
+        </div>
+
         <div class="input-box">
-            <input type="password" class="input-field" placeholder="Password" required>
+            <input type="password" class="input-field" placeholder="Password" required [formControl]="form.controls.password">
             <i class="bx bx-lock-alt icon"></i>
         </div>
+        <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.touched">
+            <div *ngIf="form.controls.password.errors?.['required']">Password cannot be empty</div>
+        </div>
+
         <div class="input-box">
-            <button class="input-submit">
+            <button class="input-submit" type="submit" [disabled]="form.invalid">
                 <span>Register</span>
                 <i class="bx bx-right-arrow-alt"></i>
             </button>
         </div>
-    </div>
+
+    </form>
 </div>
