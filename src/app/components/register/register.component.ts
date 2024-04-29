@@ -40,7 +40,7 @@ export class RegisterComponent {
   async setUserInfo(uid: string) {
     if (this.form.valid) {
       let path = 'users/' + uid;
-      let name = this.form.value.character;
+      let username = this.form.value.character;
       delete this.form.value.password;
 
       this.firebaseService.setDocument(path, this.form.value).then(async res => {
@@ -48,7 +48,8 @@ export class RegisterComponent {
         this.utilsService.routerLink('/home');
         this.form.reset();
 
-        console.log("Welcome")
+        let localUser = this.utilsService.getFromLocalStorage('user');
+        console.log("Welcome " + localUser?.character + "-" + localUser?.realm);
       }).catch(er => {
         console.log("Incorrect booster data gathering, try again.");
       });

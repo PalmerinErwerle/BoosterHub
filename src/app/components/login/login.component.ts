@@ -40,11 +40,12 @@ export class LoginComponent {
           this.utilsService.saveInLocalStorage('user', userData);
           this.utilsService.routerLink('/home');
           this.form.reset();
+
+          let localUser = this.utilsService.getFromLocalStorage('user');
+          console.log("Welcome " + localUser?.character + "-" + localUser?.realm);
         } else {
           console.log("getDocument error...");
         }
-
-        console.log("Welcome")
       }).catch(er => {
         console.log("Incorrect booster data gathering, try again.");
       });
