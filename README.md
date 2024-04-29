@@ -9,18 +9,22 @@ En algún momento haré este readme en condiciones xd.
 
 ### Por hacer 🚧
 
- - Lógica Login, register & change pwd.
- - Paginas en general xd.
- - Logica de datos.
- - Guards.
+ - Actualización registro para uso de Raider.IO API.
+
+ - Creación de subpáginas de Home.
+ - Logica de datos general.
 
 ### En proceso 🏗️
 
- - Lógica Login, register & change pwd.
+ - Lógica de Change pwd.
 
 ### Ya terminado ✅
 
- - Estructura de Servicios API y BaaS (por probar).
+ - Estructura de Servicios BaaS & API (por probar esta última).
  - Estructura preliminar de la aplicación.
- - Vista Login, register & change pwd.
- - Header & Sidebar.
+
+ - Vista, animaciones y responsiveness de Login, register & Change pwd.
+ - Lógica de Login & register.
+ - Guards de control de sesión.
+
+ - Vista, animaciones y responsiveness de Header & Sidebar.
