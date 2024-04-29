@@ -10,13 +10,16 @@ En algún momento haré este readme en condiciones xd.
 ### Por hacer 🚧
 
  - Actualización registro para uso de Raider.IO API.
+ - Lógica de validación de correo en Change pwd.
 
  - Creación de subpáginas de Home.
  - Logica de datos general.
 
+ - Componente loader.
+
 ### En proceso 🏗️
 
- - Lógica de Change pwd.
+ - Toasts de PrimeNG.
 
 ### Ya terminado ✅
 
@@ -24,7 +27,7 @@ En algún momento haré este readme en condiciones xd.
  - Estructura preliminar de la aplicación.
 
  - Vista, animaciones y responsiveness de Login, register & Change pwd.
- - Lógica de Login & register.
+ - Lógica de Login & register & Change pwd (falta validacion de correo en esta ultima).
  - Guards de control de sesión.
 
  - Vista, animaciones y responsiveness de Header & Sidebar.
