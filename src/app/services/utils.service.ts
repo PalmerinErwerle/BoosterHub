@@ -27,4 +27,9 @@ export class UtilsService {
         return JSON.parse(value);
     }
 
+    // LocalStorage Check
+    isLoggedIn() {
+        return localStorage.getItem('user');
+    }
+
 }

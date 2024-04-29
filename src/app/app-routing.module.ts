@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './pages/auth/auth.component';
 import { HomeComponent } from './pages/home/home.component';
+import { NoAuthGuard } from './guards/no-auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -11,11 +13,13 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component:HomeComponent
+    component:HomeComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'auth',
-    component:AuthComponent
+    component:AuthComponent,
+    canActivate:[NoAuthGuard]
   }
 ];
 
