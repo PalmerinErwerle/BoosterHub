@@ -1,4 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { first } from 'rxjs';
+import { SpinnerComponent } from 'src/app/components/spinner/spinner.component';
 import { FirestoreBaasService } from 'src/app/services/firestore-baas.service';
 
 @Component({
@@ -35,6 +37,7 @@ export class HomeComponent implements OnInit {
   screenWidth!: number;
 
   firebaseService = inject(FirestoreBaasService);
+  spinner = inject(SpinnerComponent);
 
   ngOnInit() {
     this.screenWidth = window.innerWidth;
@@ -45,7 +48,9 @@ export class HomeComponent implements OnInit {
 
   // Cerrar sesión
   signOut() {
-    this.firebaseService.signOut()
+    this.spinner.showSpinner();
+    this.firebaseService.signOut();
+    this.spinner.hideSpinner(1000);
   }
 
 }

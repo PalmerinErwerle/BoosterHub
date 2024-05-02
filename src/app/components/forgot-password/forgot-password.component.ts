@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthComponent } from 'src/app/pages/auth/auth.component';
 import { FirestoreBaasService } from 'src/app/services/firestore-baas.service';
 import { UtilsService } from 'src/app/services/utils.service';
+import { SpinnerComponent } from '../spinner/spinner.component';
 
 @Component({
   selector: 'app-forgot-password',
@@ -17,10 +18,13 @@ export class ForgotPasswordComponent {
 
   firebaseService = inject(FirestoreBaasService);
   utilsService = inject(UtilsService);
+  spinner = inject(SpinnerComponent);
   authComponent = inject(AuthComponent);
 
   async submit() {
     if (this.form.valid) {
+      this.spinner.showSpinner();
+
       this.firebaseService.sendRecoveryEmail(this.form.value.email!).then(res => {
         console.log("A password recovery mail has been sent to your email address.");
 
@@ -28,7 +32,9 @@ export class ForgotPasswordComponent {
         this.form.reset();
       }).catch(er => {
         console.log("There is no booster with that email address.");
-      })
+      }).finally(() => {
+        this.spinner.hideSpinner(2000);
+      });
     }
   }
 

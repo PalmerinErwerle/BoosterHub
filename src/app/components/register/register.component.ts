@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { DocumentData } from 'firebase/firestore';
 import { User } from 'src/app/models/user.model';
 import { FirestoreBaasService } from 'src/app/services/firestore-baas.service';
 import { UtilsService } from 'src/app/services/utils.service';
+import { SpinnerComponent } from '../spinner/spinner.component';
 
 @Component({
   selector: 'app-register',
@@ -22,9 +22,12 @@ export class RegisterComponent {
 
   firebaseService = inject(FirestoreBaasService);
   utilsService = inject(UtilsService);
+  spinner = inject(SpinnerComponent);
 
   async submit() {
     if (this.form.valid) {
+      this.spinner.showSpinner();
+
       this.firebaseService.signUp(this.form.value as User).then(async res => {
         await this.firebaseService.updateUser(this.form.value.character);
 
@@ -33,7 +36,9 @@ export class RegisterComponent {
         this.setUserInfo(uid);
       }).catch(er => {
         console.log("Incorrect register, try again.");
-        });
+      }).finally(() => {
+        this.spinner.hideSpinner(2000);
+      });
     }
   }
 

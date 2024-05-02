@@ -4,6 +4,7 @@ import { DocumentData } from 'firebase/firestore';
 import { User } from 'src/app/models/user.model';
 import { FirestoreBaasService } from 'src/app/services/firestore-baas.service';
 import { UtilsService } from 'src/app/services/utils.service';
+import { SpinnerComponent } from '../spinner/spinner.component';
 
 @Component({
   selector: 'app-login',
@@ -19,13 +20,18 @@ export class LoginComponent {
 
   firebaseService = inject(FirestoreBaasService);
   utilsService = inject(UtilsService);
+  spinner = inject(SpinnerComponent);
 
   async submit() {
     if (this.form.valid) {
+      this.spinner.showSpinner();
+
       this.firebaseService.signIn(this.form.value as User).then(res => {
         this.getUserInfo(res.user.uid);
       }).catch(er => {
         console.log("Incorrect login data, try again.");
+      }).finally(() => {
+        this.spinner.hideSpinner(2000);
       });
     }
   }

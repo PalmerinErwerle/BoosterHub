@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from './material.module';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 import { AngularFireModule } from '@angular/fire/compat';
 
@@ -16,7 +17,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { HeaderComponent } from './components/header/header.component';
+import { SpinnerComponent } from "./components/spinner/spinner.component";
 
 
 const firebaseConfig = {
@@ -30,26 +31,27 @@ const firebaseConfig = {
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AuthComponent,
-    LoginComponent,
-    RegisterComponent,
-    ForgotPasswordComponent,
-    HomeComponent,
-    HeaderComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
-    AngularFireModule.initializeApp(firebaseConfig)
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        AuthComponent,
+        LoginComponent,
+        RegisterComponent,
+        ForgotPasswordComponent,
+        HomeComponent,
+        SpinnerComponent
+    ],
+    providers: [SpinnerComponent],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        NgxSpinnerModule,
+        FormsModule,
+        ReactiveFormsModule,
+        AngularFireModule.initializeApp(firebaseConfig)
+    ]
 })
 
 export class AppModule { }
