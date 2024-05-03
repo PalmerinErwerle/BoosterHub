@@ -5,6 +5,7 @@ import { User } from 'src/app/models/user.model';
 import { FirestoreBaasService } from 'src/app/services/firestore-baas.service';
 import { UtilsService } from 'src/app/services/utils.service';
 import { SpinnerComponent } from '../spinner/spinner.component';
+import { ToasterComponent } from '../toaster/toaster.component';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +22,7 @@ export class LoginComponent {
   firebaseService = inject(FirestoreBaasService);
   utilsService = inject(UtilsService);
   spinner = inject(SpinnerComponent);
+  toaster = inject(ToasterComponent);
 
   async submit() {
     if (this.form.valid) {
@@ -29,7 +31,7 @@ export class LoginComponent {
       this.firebaseService.signIn(this.form.value as User).then(res => {
         this.getUserInfo(res.user.uid);
       }).catch(er => {
-        console.log("Incorrect login data, try again.");
+        this.toaster.errorToast("Incorrect email or password, please try again");
       }).finally(() => {
         this.spinner.hideSpinner(2000);
       });
@@ -48,12 +50,13 @@ export class LoginComponent {
           this.form.reset();
 
           let localUser = this.utilsService.getFromLocalStorage('user');
-          console.log("Welcome " + localUser?.character + "-" + localUser?.realm);
+
+          this.toaster.successToast("Welcome " + localUser?.character + "-" + localUser?.realm);
         } else {
           console.log("getDocument error...");
         }
       }).catch(er => {
-        console.log("Incorrect booster data gathering, try again.");
+        this.toaster.errorToast("Incorrect booster data gathering, try again");
       });
     }
   }

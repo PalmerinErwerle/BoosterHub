@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from './material.module';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxSonnerToaster } from 'ngx-sonner';
 
 import { AngularFireModule } from '@angular/fire/compat';
 
@@ -18,6 +19,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { SpinnerComponent } from "./components/spinner/spinner.component";
+import { ToasterComponent } from './components/toaster/toaster.component';
 
 
 const firebaseConfig = {
@@ -38,9 +40,13 @@ const firebaseConfig = {
         RegisterComponent,
         ForgotPasswordComponent,
         HomeComponent,
-        SpinnerComponent
+        SpinnerComponent,
+        ToasterComponent
     ],
-    providers: [SpinnerComponent],
+    providers: [
+        SpinnerComponent,
+        ToasterComponent
+    ],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
@@ -48,6 +54,7 @@ const firebaseConfig = {
         BrowserAnimationsModule,
         MaterialModule,
         NgxSpinnerModule,
+        NgxSonnerToaster,
         FormsModule,
         ReactiveFormsModule,
         AngularFireModule.initializeApp(firebaseConfig)
