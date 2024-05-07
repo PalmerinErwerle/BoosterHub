@@ -42,6 +42,7 @@ mat-drawer-container {
 .main-content {
     background-size: cover;
     background-image: url("../../../assets/img/login-background.jpg");
+    overflow-x: hidden;
 }
 
 #bg-blur{
