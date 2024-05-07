@@ -11,8 +11,10 @@ En algún momento haré este readme en condiciones xd.
 
  - Lógica de validación de correo en Change pwd.
 
- - Creación de subpáginas de Home.
+ - Creación de subvistas de Home.
  - Logica de datos general.
+
+ - Lógica de Guards de status (User).
 
 ### En proceso 🏗️
 
@@ -22,6 +24,9 @@ En algún momento haré este readme en condiciones xd.
 
  - Estructura de Servicios BaaS & API (por probar esta última).
  - Estructura preliminar de la aplicación.
+
+ - Guards de estado de sesión y 404.
+ - VIsta y control de página 404.
  
  - Componente toast.
  - Componente loader.
@@ -31,3 +36,4 @@ En algún momento haré este readme en condiciones xd.
  - Guards de control de sesión.
 
  - Vista, animaciones y responsiveness de Header & Sidebar.
+ - Vista principal de Home.
