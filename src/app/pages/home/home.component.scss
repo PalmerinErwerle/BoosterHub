@@ -45,10 +45,21 @@ mat-drawer-container {
 }
 
 #bg-blur{
+    padding-top: 0.88%;
     background-size: cover;
     background: rgba(255, 255, 255, 0.5);
     min-height: 100%;
-    padding-bottom: 0.013px;
+    padding-bottom: 1%;
+}
+
+#main-block {
+    margin: auto;
+    width: 98%;
+    height: fit-content;
+    min-height: 90vh;
+    background-color: rgba(255, 255, 255, 0.784);
+    border: 3px solid #F77E65;
+    border-radius: 20px;
 }
 
 @media (max-width: 599px) {
@@ -59,5 +70,13 @@ mat-drawer-container {
 
     mat-drawer-container {
         top: 56px;
+    }
+
+    #bg-blur {
+        padding-top: 2%;
+    }
+
+    #main-block {
+        min-height: 92vh;
     }
 }
