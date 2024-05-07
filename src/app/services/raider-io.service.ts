@@ -16,7 +16,7 @@ export class RaiderIoService {
     return this.http.get<RaiderIoCharacter>(url);
   }
 
-  /* getCharacterData(data: RaiderIoCharacter): {
+  getCharacterData(data: RaiderIoCharacter): {
     character_faction: string;
     character_race: string;
     character_role: string;
@@ -32,6 +32,6 @@ export class RaiderIoService {
       character_ilevel: data.gear.item_level_equipped,
       character_rio: data.mythic_plus_scores_by_season[0].scores.all
     };
-  } */
+  }
 
 }
