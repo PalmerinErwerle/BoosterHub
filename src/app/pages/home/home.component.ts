@@ -1,5 +1,4 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { first } from 'rxjs';
 import { SpinnerComponent } from 'src/app/components/spinner/spinner.component';
 import { ToasterComponent } from 'src/app/components/toaster/toaster.component';
 import { FirestoreBaasService } from 'src/app/services/firestore-baas.service';
