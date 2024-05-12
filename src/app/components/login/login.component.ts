@@ -44,13 +44,18 @@ export class LoginComponent {
 
       this.firebaseService.getDocument(path).then((user: DocumentData | undefined) => {
         if (user) {
+          
+          delete user['email'];
+          delete user['character_faction'];
+          delete user['character_race'];
+          delete user['character_role'];
+          delete user['character_class'];
+          delete user['character_ilevel'];
+          delete user['character_rio'];
+
           const userData = user as User;
 
-          let localData!: User;
-          localData.character_name = userData.character_name;
-          localData.character_realm = userData.character_realm;
-
-          this.utilsService.saveInLocalStorage('user', localData);
+          this.utilsService.saveInLocalStorage('user', userData);
           this.utilsService.routerLink('/home');
           this.form.reset();
 
