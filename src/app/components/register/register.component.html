@@ -5,19 +5,19 @@
     <form class="form-inputs" [formGroup]="form" (ngSubmit)="submit()">
 
         <div class="input-box">
-            <input type="text" class="input-field" placeholder="Character name" required [formControl]="form.controls.character">
+            <input type="text" class="input-field" placeholder="Character name" required [formControl]="form.controls.character_name">
             <i class="bx bx-user icon"></i>
         </div>
-        <div class="validators" *ngIf="form.controls.character.errors && form.controls.character.touched">
-            <div *ngIf="form.controls.character.errors?.['required']">Character name cannot be empty</div>
+        <div class="validators" *ngIf="form.controls.character_name.errors && form.controls.character_name.touched">
+            <div *ngIf="form.controls.character_name.errors?.['required']">Character name cannot be empty</div>
         </div>
         
         <div class="input-box">
-            <input type="text" class="input-field" placeholder="Realm name" required [formControl]="form.controls.realm">
+            <input type="text" class="input-field" placeholder="Realm name" required [formControl]="form.controls.character_realm">
             <i class="bx bx-landscape icon"></i>
         </div>
-        <div class="validators" *ngIf="form.controls.realm.errors && form.controls.realm.touched">
-            <div *ngIf="form.controls.realm.errors?.['required']">Realm name cannot be empty</div>
+        <div class="validators" *ngIf="form.controls.character_realm.errors && form.controls.character_realm.touched">
+            <div *ngIf="form.controls.character_realm.errors?.['required']">Realm name cannot be empty</div>
         </div>
 
         <div class="input-box">

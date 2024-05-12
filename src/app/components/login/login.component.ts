@@ -45,13 +45,17 @@ export class LoginComponent {
       this.firebaseService.getDocument(path).then((user: DocumentData | undefined) => {
         if (user) {
           const userData = user as User;
-          this.utilsService.saveInLocalStorage('user', userData);
+
+          let localData!: User;
+          localData.character_name = userData.character_name;
+          localData.character_realm = userData.character_realm;
+
+          this.utilsService.saveInLocalStorage('user', localData);
           this.utilsService.routerLink('/home');
           this.form.reset();
 
           let localUser = this.utilsService.getFromLocalStorage('user');
-
-          this.toaster.successToast("Welcome " + localUser?.character + "-" + localUser?.realm);
+          this.toaster.successToast("Welcome " + localUser?.character_name + "-" + localUser?.character_realm);
         } else {
           console.log("getDocument error...");
         }

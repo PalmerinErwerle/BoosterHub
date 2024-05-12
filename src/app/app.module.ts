@@ -20,6 +20,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { SpinnerComponent } from "./components/spinner/spinner.component";
 import { ToasterComponent } from './components/toaster/toaster.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const firebaseConfig = {
@@ -57,7 +58,8 @@ const firebaseConfig = {
         NgxSonnerToaster,
         FormsModule,
         ReactiveFormsModule,
-        AngularFireModule.initializeApp(firebaseConfig)
+        AngularFireModule.initializeApp(firebaseConfig),
+        HttpClientModule
     ]
 })
 
