@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-profile',
@@ -15,11 +16,16 @@ export class ProfileComponent implements OnInit {
   cards: any[] = [];
 
   route = inject(ActivatedRoute);
+  utilsService = inject(UtilsService);
   userService = inject(UserService);
 
   async ngOnInit(): Promise<void> {
     this.uid = this.route.snapshot.params['uid'];
     this.character = await this.userService.getUserByUid(this.uid);
+
+    if (this.character == null) {
+      this.utilsService.routerLink('/error');
+    }
 
     this.cards = [
       {
