@@ -9,20 +9,20 @@ En algún momento haré este readme en condiciones xd.
 
 ### Por hacer 🚧
 
- - Lógica de validación de correo en Change pwd.
+ - Creación de subvistas de Home restantes.
+ - Logica de datos de subvistas restantes.
 
- - Creación de subvistas de Home.
- - Logica de datos general.
-
+ - Lógica general de status (User).
  - Lógica de Guards de status (User).
 
 ### En proceso 🏗️
 
- - Actualización de lógica de registro para uso de Raider.IO API.
+ - Lógica de validación de correo en BD en Change pwd.
+ - Lógica de validación de personaje en BD en registro.
 
 ### Ya terminado ✅
 
- - Estructura de Servicios BaaS & API (por probar esta última).
+ - Estructura de Servicios BaaS & API.
  - Estructura preliminar de la aplicación.
 
  - Guards de estado de sesión y 404.
@@ -32,8 +32,12 @@ En algún momento haré este readme en condiciones xd.
  - Componente loader.
 
  - Vista, animaciones y responsiveness de Login, register & Change pwd.
- - Lógica preliminar de Login & register & Change pwd (falta validacion de correo en esta ultima).
+ - Lógica de Login & register & Change pwd (falta validacion de correo en esta ultima).
+ - Lógica de registro con Raider.IO API.
  - Guards de control de sesión.
 
  - Vista, animaciones y responsiveness de Header & Sidebar.
  - Vista principal de Home.
+
+ - Vista, cards y responsiveness de Profile.
+ - Lógica de Profile & funcionamiento de "My Profile".
