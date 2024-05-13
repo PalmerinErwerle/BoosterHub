@@ -1,0 +1,18 @@
+<div class="main-block">
+
+    <div class="head-block">
+        <p id="ch-name">{{character?.character_name}}</p>
+        <p id="ch-realm">{{character?.character_realm}}</p>
+    </div>
+
+    <div class="body-block">
+        <mat-card *ngFor="let c of cards" class="card-block">
+            <mat-card-content class="card-content">
+                <img mat-card-sm-image src={{c.image}} *ngIf="c.image != null">
+                <mat-card-title class="card-head" *ngIf="c.head != null">{{c.head}}</mat-card-title>
+                <mat-card-title [ngClass]="(c.head!=null)?'head-title':'card-title'">{{c.title}}</mat-card-title>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+</div>

@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { SpinnerComponent } from 'src/app/components/spinner/spinner.component';
 import { ToasterComponent } from 'src/app/components/toaster/toaster.component';
 import { FirestoreBaasService } from 'src/app/services/firestore-baas.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-home',
@@ -10,41 +11,60 @@ import { FirestoreBaasService } from 'src/app/services/firestore-baas.service';
 })
 export class HomeComponent implements OnInit {
 
-  pages = [
-    {
-      title: 'My Profile',
-      url: '/home',
-      icon: 'person'
-    },
-    {
-      title: 'Booster Menu',
-      url: '/home',
-      icon: 'work'
-    },
-    {
-      title: 'Adviser Menu',
-      url: '/home',
-      icon: 'assignment_ind'
-    },
-    {
-      title: 'Admin Menu',
-      url: '/home',
-      icon: 'security'
-    }
-  ]
-
   title = "BoosterHub";
   screenWidth!: number;
+  uid!: string;
+
+  pages: any[] = [];
 
   firebaseService = inject(FirestoreBaasService);
   spinner = inject(SpinnerComponent);
   toaster = inject(ToasterComponent);
+  utilsService = inject(UtilsService);
 
   ngOnInit() {
     this.screenWidth = window.innerWidth;
     window.onresize = () => {
       this.screenWidth = window.innerWidth;
+      console.log(this.screenWidth)
     };
+
+    this.uid = this.getUserUid();
+
+    this.pages = [
+      {
+        title: 'Home',
+        url: '',
+        icon: 'home'
+      },
+      {
+        title: 'My Profile',
+        url: 'profile/' + this.uid,
+        icon: 'person'
+      },
+      {
+        title: 'Booster Menu',
+        url: 'error',
+        icon: 'work'
+      },
+      {
+        title: 'Adviser Menu',
+        url: 'error',
+        icon: 'assignment_ind'
+      },
+      {
+        title: 'Admin Menu',
+        url: 'error',
+        icon: 'security'
+      }
+    ]
+  }
+  
+
+  getUserUid() {
+    let localUser = this.utilsService.getFromLocalStorage('user');
+    let uid = localUser.uid;
+    return uid;
   }
 
   // Cerrar sesión

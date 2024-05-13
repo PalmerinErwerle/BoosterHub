@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { ErrorComponent } from './error/error.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
       {
         path: '',
         component:WelcomeComponent
+      },
+      {
+        path: 'profile/:uid',
+        component:ProfileComponent
       },
       {
         path: 'error',
