@@ -11,7 +11,7 @@
         <mat-nav-list>
 
             <mat-list-item *ngFor="let p of pages">
-                <button mat-button [routerLink]="p.url" routerDirection="root" (click)="drawer.toggle()">
+                <button mat-button [routerLink]="p.url" routerDirection="root" (click)="this.screenWidth < 599 && drawer.toggle()">
                     <mat-icon class="nav-button">{{p.icon}}</mat-icon>
                     <span class="nav-button">{{p.title}}</span>
                 </button>
