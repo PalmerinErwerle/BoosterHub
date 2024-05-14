@@ -11,8 +11,10 @@ import { UtilsService } from 'src/app/services/utils.service';
 })
 export class ProfileComponent implements OnInit {
 
+  loader = false;
   uid!: string;
   character!: User | null;
+  raiderIoLink!: string;
   cards: any[] = [];
 
   route = inject(ActivatedRoute);
@@ -23,9 +25,16 @@ export class ProfileComponent implements OnInit {
     this.uid = this.route.snapshot.params['uid'];
     this.character = await this.userService.getUserByUid(this.uid);
 
+    setTimeout(() => {
+      this.loader = true;
+    }, 1500);
+
     if (this.character == null) {
       this.utilsService.routerLink('/error');
     }
+
+    let realmName = this.character?.character_realm.split("'").join("");
+    this.raiderIoLink = "https://raider.io/characters/eu/" + realmName + "/" + this.character?.character_name;
 
     this.cards = [
       {

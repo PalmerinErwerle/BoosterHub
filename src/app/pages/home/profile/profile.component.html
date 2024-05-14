@@ -1,8 +1,18 @@
-<div class="main-block">
+<div class="loader" *ngIf="!loader">
+    <img id="spinner" src='../../../../assets/img/spinner.svg' />
+</div>
+
+<div class="main-block" *ngIf="loader">
 
     <div class="head-block">
         <p id="ch-name">{{character?.character_name}}</p>
         <p id="ch-realm">{{character?.character_realm}}</p>
+
+        <div class="raiderio">
+            <a href={{raiderIoLink}} target="_blank">
+                <img id="rio-image" src="../../../../assets/img/raiderio.png" title="{{character?.character_name}}-{{character?.character_realm}}'s Raider.IO profile">
+            </a>
+        </div>
     </div>
 
     <div class="body-block">
