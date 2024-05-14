@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit {
     this.screenWidth = window.innerWidth;
     window.onresize = () => {
       this.screenWidth = window.innerWidth;
-      console.log(this.screenWidth)
     };
 
     this.uid = this.getUserUid();
