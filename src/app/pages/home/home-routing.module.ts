@@ -4,6 +4,9 @@ import { HomeComponent } from './home.component';
 import { ErrorComponent } from './error/error.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ProfileComponent } from './profile/profile.component';
+import { BoosterComponent } from './booster/booster.component';
+import { AdviserComponent } from './adviser/adviser.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   {
@@ -17,6 +20,18 @@ const routes: Routes = [
       {
         path: 'profile/:uid',
         component:ProfileComponent
+      },
+      {
+        path: 'booster-menu',
+        component:BoosterComponent
+      },
+      {
+        path: 'adviser-menu',
+        component:AdviserComponent
+      },
+      {
+        path: 'admin-menu',
+        component:AdminComponent
       },
       {
         path: 'error',

@@ -43,17 +43,17 @@ export class HomeComponent implements OnInit {
       },
       {
         title: 'Booster Menu',
-        url: 'error',
+        url: 'booster-menu',
         icon: 'work'
       },
       {
         title: 'Adviser Menu',
-        url: 'error',
+        url: 'adviser-menu',
         icon: 'assignment_ind'
       },
       {
         title: 'Admin Menu',
-        url: 'error',
+        url: 'admin-menu',
         icon: 'security'
       }
     ]
