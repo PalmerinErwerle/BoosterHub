@@ -9,6 +9,7 @@ import { RaiderIoService } from 'src/app/services/raider-io.service';
 import { RaiderIoCharacter } from 'src/app/models/raiderio-character.model';
 import { catchError, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -18,6 +19,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class RegisterComponent {
 
   raiderIoData!: RaiderIoCharacter;
+  characterData!: User | null;
 
   form = new FormGroup({
     uid: new FormControl(''),
@@ -40,49 +42,58 @@ export class RegisterComponent {
   spinner = inject(SpinnerComponent);
   toaster = inject(ToasterComponent);
   raiderIo = inject(RaiderIoService);
+  userService = inject(UserService);
 
   async submit() {
     if (this.form.valid) {
       this.spinner.showSpinner();
+      this.characterData = await this.userService.getUserByCharacter(this.form.value.character_name as string, this.form.value.character_realm as string);
 
-      this.raiderIo.getCharacter(this.form.value.character_name, this.form.value.character_realm, "eu")
-        .pipe(
-          catchError((error: HttpErrorResponse) => {
-            if (error.status === 400) {
-              this.toaster.errorToast('This character does not exist in World of Warcraft');
-              this.spinner.hideSpinner(2000);
-              return throwError(() => new Error('ERROR 404: This Character does not exist in World of Warcraft'));
-            } else {
-              this.toaster.errorToast('Unexpected error while loading the character, please try again');
-              this.spinner.hideSpinner(2000);
-              return throwError(() => new Error('Unexpected error while loading the character, please try again'));
-            }
-          })
-        ).subscribe(data => {
-          this.raiderIoData = data;
+      if (this.characterData != null) {
+        this.toaster.errorToast('This character is already registered in BoosterHub');
+        this.spinner.hideSpinner(2000);
+      } else {
 
-          this.form.patchValue({
-            character_faction: this.raiderIoData?.faction,
-            character_race: this.raiderIoData?.race,
-            character_role: this.raiderIoData?.active_spec_role.toLowerCase(),
-            character_class: this.raiderIoData?.class,
-            character_ilevel: this.raiderIoData?.gear.item_level_equipped,
-            character_rio: this.raiderIoData?.mythic_plus_scores_by_season[0].scores.all
+        this.raiderIo.getCharacter(this.form.value.character_name, this.form.value.character_realm, "eu")
+          .pipe(
+            catchError((error: HttpErrorResponse) => {
+              if (error.status === 400) {
+                this.toaster.errorToast('This character does not exist in World of Warcraft');
+                this.spinner.hideSpinner(2000);
+                return throwError(() => new Error('ERROR 404: This Character does not exist in World of Warcraft'));
+              } else {
+                this.toaster.errorToast('Unexpected error while loading the character, please try again');
+                this.spinner.hideSpinner(2000);
+                return throwError(() => new Error('Unexpected error while loading the character, please try again'));
+              }
+            })
+          ).subscribe(data => {
+            this.raiderIoData = data;
+
+            this.form.patchValue({
+              character_faction: this.raiderIoData?.faction,
+              character_race: this.raiderIoData?.race,
+              character_role: this.raiderIoData?.active_spec_role.toLowerCase(),
+              character_class: this.raiderIoData?.class,
+              character_ilevel: this.raiderIoData?.gear.item_level_equipped,
+              character_rio: this.raiderIoData?.mythic_plus_scores_by_season[0].scores.all
+            });
+
+            this.firebaseService.signUp(this.form.value as User).then(async res => {
+              await this.firebaseService.updateUser(this.form.value.character_name);
+
+              let uid = res.user.uid;
+              this.form.controls.uid.setValue(uid);
+              this.setUserInfo(uid);
+            }).catch(er => {
+              this.toaster.errorToast("This booster mail is already registered");
+            }).finally(() => {
+              this.spinner.hideSpinner(2000);
+            });
+
           });
 
-          this.firebaseService.signUp(this.form.value as User).then(async res => {
-            await this.firebaseService.updateUser(this.form.value.character_name);
-
-            let uid = res.user.uid;
-            this.form.controls.uid.setValue(uid);
-            this.setUserInfo(uid);
-          }).catch(er => {
-            this.toaster.errorToast("This booster mail is already registered");
-          }).finally(() => {
-            this.spinner.hideSpinner(2000);
-          });
-
-        });
+      }
     }
   }
 
