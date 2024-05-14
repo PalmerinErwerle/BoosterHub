@@ -10,8 +10,8 @@
     <mat-drawer class="sidenav" #drawer [opened]="screenWidth > 598" [mode]="(screenWidth > 598) ? 'side' : 'over'">
         <mat-nav-list>
 
-            <mat-list-item *ngFor="let p of pages">
-                <button mat-button [routerLink]="p.url" routerDirection="root" (click)="this.screenWidth < 599 && drawer.toggle()">
+            <mat-list-item *ngFor="let p of pages" [routerLink]="p.url">
+                <button mat-button (click)="this.screenWidth < 599 && drawer.toggle()">
                     <mat-icon class="nav-button">{{p.icon}}</mat-icon>
                     <span class="nav-button">{{p.title}}</span>
                 </button>
