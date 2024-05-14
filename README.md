@@ -9,16 +9,16 @@ En algún momento haré este readme en condiciones xd.
 
 ### Por hacer 🚧
 
- - Creación de subvistas de Home restantes.
- - Logica de datos de subvistas restantes.
+ - Vista y Logica de datos de Booster Menu.
+ - Vista y lógica de datos de Admin Menu.
 
  - Lógica general de status (User).
- - Lógica de Guards de status (User).
+ - Guards de control de status (User).
 
 ### En proceso 🏗️
 
- - Lógica de validación de correo en BD en Change pwd.
- - Lógica de validación de personaje en BD en registro.
+ - Vista de Adviser Menu.
+ - Lógica de datos de Adviser Menu.
 
 ### Ya terminado ✅
 
@@ -32,11 +32,13 @@ En algún momento haré este readme en condiciones xd.
  - Componente loader.
 
  - Vista, animaciones y responsiveness de Login, register & Change pwd.
- - Lógica de Login & register & Change pwd (falta validacion de correo en esta ultima).
- - Lógica de registro con Raider.IO API.
+ - Lógica de Login, Register & Change pwd (falta validacion de correo en esta ultima).
+ - Lógica de Register con Raider.IO API.
+ - Lógica de validación de correo en BD en Change pwd.
+ - Lógica de validación de personaje en BD en Register.
  - Guards de control de sesión.
 
- - Vista, animaciones y responsiveness de Header & Sidebar.
+ - Vista, animaciones y responsiveness de Header & Sidenav.
  - Vista principal de Home.
 
  - Vista, cards y responsiveness de Profile.
