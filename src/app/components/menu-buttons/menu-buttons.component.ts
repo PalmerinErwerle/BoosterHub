@@ -12,9 +12,7 @@ export class MenuButtonsComponent {
   view = "general";
 
   getView(view: string) {
-    console.log("Antes: " + this.view);
     this.view = view;
-    console.log("Despues: " + this.view);
   }
 
 }
