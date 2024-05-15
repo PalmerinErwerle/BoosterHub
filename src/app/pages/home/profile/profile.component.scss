@@ -57,9 +57,10 @@
     margin: 0 auto;
     width: 98%;
     margin-bottom: 40px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    place-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .card-block {
