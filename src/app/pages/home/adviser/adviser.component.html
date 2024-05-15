@@ -2,8 +2,33 @@
 
 <div [ngSwitch]="view">
     <p *ngSwitchCase="'general'">test {{view}}</p>
-    <p *ngSwitchCase="'mythic'">test {{view}}</p>
-    <p *ngSwitchCase="'raid'">test {{view}}</p>
-    <p *ngSwitchCase="'legacy'">test {{view}}</p>
-    <p *ngSwitchCase="'leveling'">test {{view}}</p>
+
+    <div *ngSwitchCase="'mythic'">
+        <div class="button-block">
+            <button mat-stroked-button class="head-button">New M+</button>
+        </div>
+        <p>test {{view}}</p>
+    </div>
+
+    <div *ngSwitchCase="'raid'">
+        <div class="button-block">
+            <button mat-stroked-button class="head-button">New Raid</button>
+        </div>
+        <p>test {{view}}</p>
+    </div>
+
+    <div *ngSwitchCase="'legacy'">
+        <div class="button-block">
+            <button mat-stroked-button class="head-button">New LR</button>
+        </div>
+        <p>test {{view}}</p>
+    </div>
+
+    <div *ngSwitchCase="'leveling'">
+        <div class="button-block">
+            <button mat-stroked-button class="head-button">New Lvl</button>
+        </div>
+        <p>test {{view}}</p>
+    </div>
+
 </div>
