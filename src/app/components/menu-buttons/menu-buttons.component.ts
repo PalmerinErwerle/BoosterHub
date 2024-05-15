@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-menu-buttons',
@@ -8,11 +8,12 @@ import { Component, Input } from '@angular/core';
 export class MenuButtonsComponent {
 
   @Input() buttons!: any[];
+  @Output() getViewEvent = new EventEmitter<string>()
 
-  view = "general";
+  view!: string;
 
   getView(view: string) {
-    this.view = view;
+    this.getViewEvent.emit(view)
   }
 
 }

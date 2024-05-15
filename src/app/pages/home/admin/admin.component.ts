@@ -9,12 +9,14 @@ export class AdminComponent implements OnInit {
   
   buttons!: any[];
 
+  view = "user";
+
   ngOnInit() {
     
     this.buttons = [
       {
         title: 'Users',
-        view: 'general'
+        view: 'user'
       },
       {
         title: 'Mythic +',
@@ -38,6 +40,10 @@ export class AdminComponent implements OnInit {
       },
     ]
     
+  }
+
+  changeView(view: string) {
+    this.view = view;
   }
 
 }

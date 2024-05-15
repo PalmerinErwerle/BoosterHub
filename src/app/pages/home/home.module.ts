@@ -19,6 +19,9 @@ import { MenuButtonsComponent } from 'src/app/components/menu-buttons/menu-butto
     AdminComponent,
     MenuButtonsComponent
   ],
+  providers: [
+      MenuButtonsComponent
+  ],
   imports: [
     CommonModule,
     HomeRoutingModule,

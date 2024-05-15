@@ -9,6 +9,8 @@ export class AdviserComponent implements OnInit {
 
   buttons!: any[];
 
+  view = "general";
+
   ngOnInit() {
     
     this.buttons = [
@@ -34,6 +36,10 @@ export class AdviserComponent implements OnInit {
       },
     ]
     
+  }
+
+  changeView(view: string) {
+    this.view = view;
   }
 
 }

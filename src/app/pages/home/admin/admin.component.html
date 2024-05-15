@@ -1,1 +1,10 @@
-<app-menu-buttons [buttons]="buttons"></app-menu-buttons>
+<app-menu-buttons [buttons]="buttons" (getViewEvent)="changeView($event)"></app-menu-buttons>
+
+<div [ngSwitch]="view">
+    <p *ngSwitchCase="'user'">test {{view}}</p>
+    <p *ngSwitchCase="'mythic'">test {{view}}</p>
+    <p *ngSwitchCase="'raid'">test {{view}}</p>
+    <p *ngSwitchCase="'legacy'">test {{view}}</p>
+    <p *ngSwitchCase="'leveling'">test {{view}}</p>
+    <p *ngSwitchCase="'strike'">test {{view}}</p>
+</div>

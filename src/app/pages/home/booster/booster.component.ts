@@ -9,6 +9,8 @@ export class BoosterComponent implements OnInit {
 
   buttons!: any[];
 
+  view = "general";
+
   ngOnInit() {
     
     this.buttons = [
@@ -38,6 +40,10 @@ export class BoosterComponent implements OnInit {
       },
     ]
     
+  }
+
+  changeView(view: string) {
+    this.view = view;
   }
 
 }
