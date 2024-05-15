@@ -29,3 +29,9 @@
     opacity: 0.8;
     width: 60px;
 }
+
+@media (max-width: 599px) {
+    .body-block {
+        margin-top: 10px;
+    }
+}
