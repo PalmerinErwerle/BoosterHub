@@ -1,6 +1,4 @@
-<div class="loader" *ngIf="!loader">
-    <img id="spinner" src='../../../../assets/img/spinner.svg' />
-</div>
+<app-loader *ngIf="!loader"></app-loader>
 
 <div class="main-block" *ngIf="loader">
 
@@ -17,7 +15,7 @@
 
     <div class="body-block">
         <mat-card *ngFor="let c of cards" class="card-block">
-            <mat-card-content class="card-content">
+            <mat-card-content>
                 <img mat-card-sm-image src={{c.image}} *ngIf="c.image != null">
                 <mat-card-title class="card-head" *ngIf="c.head != null">{{c.head}}</mat-card-title>
                 <mat-card-title [ngClass]="(c.head!=null)?'head-title':'card-title'">{{c.title}}</mat-card-title>

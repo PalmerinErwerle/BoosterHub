@@ -1,0 +1,31 @@
+.body-block {
+    margin: auto;
+    margin-top: 40px;
+    width: 92%;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    place-items: center;
+}
+
+.card-block {
+    border: #F59A7B 3px solid;
+    border-radius: 30px;
+    box-shadow: none;
+    background-color: transparent;
+    min-width: 240px;
+    width: 90%;
+    height: 120px;
+    color: #21264D;
+    margin: 2%;
+    display: flex;
+    cursor: pointer;
+}
+
+.card-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0.8;
+    width: 60px;
+}

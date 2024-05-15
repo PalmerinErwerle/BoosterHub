@@ -10,6 +10,20 @@ export class UserService {
     angularFire = inject(AngularFirestore);
     usersCollection: AngularFirestoreCollection<User> = this.angularFire.collection<User>('users');
 
+    getUsers(): Promise<User[]> {
+        const query = this.usersCollection.ref.orderBy('character_name', 'asc');
+        return query.get().then((querySnapshot) => {
+            const users: User[] = [];
+        
+            querySnapshot.forEach((docSnapshot) => {
+              const user = docSnapshot.data();
+              users.push(user);
+            });
+        
+            return users;
+          });
+    }
+
     getUserByUid(uid: string) {
         const query = this.usersCollection.ref.where('uid', '==', uid);
 

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { User } from 'src/app/models/user.model';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-admin',
@@ -6,12 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+
+  loader = false;
   
   buttons!: any[];
-
   view = "user";
 
-  ngOnInit() {
+  users!: User[];
+
+  userService = inject(UserService);
+
+  async ngOnInit(): Promise<void> {
     
     this.buttons = [
       {
@@ -39,6 +46,12 @@ export class AdminComponent implements OnInit {
         view: 'strike'
       },
     ]
+
+    this.users = await this.userService.getUsers();
+
+    setTimeout(() => {
+      this.loader = true;
+    }, 1500);
     
   }
 

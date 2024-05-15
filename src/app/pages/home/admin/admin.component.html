@@ -1,7 +1,9 @@
 <app-menu-buttons [buttons]="buttons" (getViewEvent)="changeView($event)"></app-menu-buttons>
 
-<div [ngSwitch]="view">
-    <p *ngSwitchCase="'user'">test {{view}}</p>
+<app-loader *ngIf="!loader"></app-loader>
+
+<div [ngSwitch]="view" *ngIf="loader">
+    <app-user-list  *ngSwitchCase="'user'" [users]="users"></app-user-list>
     <p *ngSwitchCase="'mythic'">test {{view}}</p>
     <p *ngSwitchCase="'raid'">test {{view}}</p>
     <p *ngSwitchCase="'legacy'">test {{view}}</p>

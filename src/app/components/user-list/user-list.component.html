@@ -1,0 +1,11 @@
+<div class="body-block">
+    <mat-card *ngFor="let user of users" class="card-block"  [routerLink]="'../profile/' + user.uid">
+      <mat-card-header>
+        <mat-card-title>{{user.character_name}}-{{user.character_realm}}</mat-card-title>
+        <mat-card-subtitle>{{user.character_race}} {{user.character_class}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <img class="card-image" src="../../../../assets/img/characters/roles/{{user.character_role}}.png">
+      </mat-card-content>
+    </mat-card>
+</div>

@@ -9,6 +9,8 @@ import { AdminComponent } from './admin/admin.component';
 import { BoosterComponent } from './booster/booster.component';
 
 import { MenuButtonsComponent } from 'src/app/components/menu-buttons/menu-buttons.component';
+import { UserListComponent } from 'src/app/components/user-list/user-list.component';
+import { LoaderComponent } from 'src/app/components/loader/loader.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { MenuButtonsComponent } from 'src/app/components/menu-buttons/menu-butto
     BoosterComponent,
     AdviserComponent,
     AdminComponent,
-    MenuButtonsComponent
+    LoaderComponent,
+    MenuButtonsComponent,
+    UserListComponent
   ],
   providers: [
       MenuButtonsComponent
