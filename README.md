@@ -9,16 +9,22 @@ En algún momento haré este readme en condiciones xd.
 
 ### Por hacer 🚧
 
- - Vista y Logica de datos de Booster Menu.
- - Vista y lógica de datos de Admin Menu.
-
  - Lógica general de status (User).
  - Guards de control de status (User).
 
+ - Vista y lógica de componente General.
+ - Implementación gráficas ApexChartJS.
+
+ - Vista y lógica de componente [Service]List.
+ - Vista y lógica de modal create[Service].
+
+ - Implementación de barras de búsqueda.
+
 ### En proceso 🏗️
 
- - Vista de Adviser Menu.
- - Lógica de datos de Adviser Menu.
+ - Vista y lógica de componente MythicList.
+ - Vista y lógica de modal createMythic.
+ - Implementación de selects con búsqueda.
 
 ### Ya terminado ✅
 
@@ -43,3 +49,7 @@ En algún momento haré este readme en condiciones xd.
 
  - Vista, cards y responsiveness de Profile.
  - Lógica de Profile & funcionamiento de "My Profile".
+
+ - Vista preliminar de Booster, Adviser y Admin.
+
+ - Vista y lógica de componente UserList.
