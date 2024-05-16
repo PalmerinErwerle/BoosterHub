@@ -9,7 +9,7 @@ import { Mythic } from '../models/mythic.model';
 @Injectable({
     providedIn: 'root'
 })
-export class UserService {
+export class MythicService {
 
     spinner = inject(SpinnerComponent);
     toaster = inject(ToasterComponent);
