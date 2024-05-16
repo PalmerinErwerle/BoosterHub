@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MythicFormComponent } from 'src/app/components/mythic-form/mythic-form.component';
 
 @Component({
   selector: 'app-adviser',
@@ -8,8 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class AdviserComponent implements OnInit {
 
   buttons!: any[];
-
   view = "general";
+
+  modal = inject(MatDialog);
 
   ngOnInit() {
     
@@ -40,6 +43,10 @@ export class AdviserComponent implements OnInit {
 
   changeView(view: string) {
     this.view = view;
+  }
+
+  newMythic() {
+    this.modal.open(MythicFormComponent);
   }
 
 }

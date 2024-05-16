@@ -21,6 +21,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { SpinnerComponent } from "./components/spinner/spinner.component";
 import { ToasterComponent } from './components/toaster/toaster.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MythicFormComponent } from './components/mythic-form/mythic-form.component';
 
 
 const firebaseConfig = {
@@ -42,7 +43,8 @@ const firebaseConfig = {
         ForgotPasswordComponent,
         HomeComponent,
         SpinnerComponent,
-        ToasterComponent
+        ToasterComponent,
+        MythicFormComponent
     ],
     providers: [
         SpinnerComponent,
