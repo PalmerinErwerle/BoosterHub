@@ -13,6 +13,12 @@
         </div>
     </div>
 
+    <div class="button-block" *ngIf="this.uid == this.utilsService.getUserUid()">
+        <button mat-stroked-button class="update-button" (click)="updateUser(character?.character_name, character?.character_realm)">
+            <mat-icon>autorenew</mat-icon> Update profile
+        </button>
+    </div>
+
     <div class="body-block">
         <mat-card *ngFor="let c of cards" class="card-block">
             <mat-card-content>
