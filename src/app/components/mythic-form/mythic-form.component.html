@@ -1,37 +1,71 @@
 <div class="modal-block">
     <h1 mat-dialog-title>New Mythic+</h1>
 
-    <mat-dialog-content>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-        <p>messi</p>
-    </mat-dialog-content>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <mat-dialog-content>
+            <p>falta poner estilos y que los inputs sean selects con busqueda</p>
 
-    <mat-dialog-actions align="end">
-        <button mat-button id="cancel-button" mat-dialog-close>Cancel</button>
-        <button mat-button id="create-button" [mat-dialog-close]="true" cdkFocusInitial>Create</button>
-      </mat-dialog-actions>
+            <div>
+                <input type="text" placeholder="Run Lvl." required [formControl]="form.controls.run_level">
+            </div>
+            <div *ngIf="form.controls.run_level.errors && form.controls.run_level.touched">
+                <div *ngIf="form.controls.run_level.errors?.['required']">Run level cannot be empty</div>
+            </div>
+
+            <div>
+                <input type="number" placeholder="Run number" required [formControl]="form.controls.run_number">
+            </div>
+            <div *ngIf="form.controls.run_number.errors && form.controls.run_number.touched">
+                <div *ngIf="form.controls.run_number.errors?.['required']">Run number cannot be empty</div>
+            </div>
+
+            <div>
+                <input type="text" placeholder="Tank" required [formControl]="form.controls.tank_id">
+            </div>
+            <div *ngIf="form.controls.tank_id.errors && form.controls.tank_id.touched">
+                <div *ngIf="form.controls.tank_id.errors?.['required']">Tank cannot be empty</div>
+            </div>
+
+            <div>
+                <input type="text" placeholder="Healer" required [formControl]="form.controls.healer_id">
+            </div>
+            <div *ngIf="form.controls.healer_id.errors && form.controls.healer_id.touched">
+                <div *ngIf="form.controls.healer_id.errors?.['required']">Healer cannot be empty</div>
+            </div>
+
+            <div>
+                <input type="text" placeholder="DPS 1" required [formControl]="form.controls.dps1_id">
+            </div>
+            <div *ngIf="form.controls.dps1_id.errors && form.controls.dps1_id.touched">
+                <div *ngIf="form.controls.dps1_id.errors?.['required']">DPS 1 cannot be empty</div>
+            </div>
+
+            <div>
+                <input type="text" placeholder="DPS 2" required [formControl]="form.controls.dps2_id">
+            </div>
+            <div *ngIf="form.controls.dps2_id.errors && form.controls.dps2_id.touched">
+                <div *ngIf="form.controls.dps2_id.errors?.['required']">DPS 2 cannot be empty</div>
+            </div>
+
+            <div>
+                <textarea placeholder="Description" required [formControl]="form.controls.description"></textarea>
+            </div>
+            <div *ngIf="form.controls.description.errors && form.controls.description.touched">
+                <div *ngIf="form.controls.description.errors?.['required']">Description cannot be empty</div>
+            </div>
+
+            <div>
+                <input type="number" placeholder="Run price" required [formControl]="form.controls.price">
+            </div>
+            <div *ngIf="form.controls.price.errors && form.controls.price.touched">
+                <div *ngIf="form.controls.price.errors?.['required']">Run price cannot be empty</div>
+            </div>
+            
+        </mat-dialog-content>
+
+        <mat-dialog-actions align="end">
+            <button mat-button id="cancel-button" mat-dialog-close>Cancel</button>
+            <button mat-button id="create-button" type="submit" [disabled]="form.invalid" [mat-dialog-close]="true" cdkFocusInitial>Create</button>
+        </mat-dialog-actions>
+    </form>
 </div>
