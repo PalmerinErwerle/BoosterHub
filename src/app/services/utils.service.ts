@@ -13,6 +13,15 @@ export class UtilsService {
         return this.router.navigateByUrl(url);
     }
 
+    //Routing reload
+    reload(url: string, time: number) {
+        setTimeout(() => {
+            this.router.navigateByUrl('/home', { skipLocationChange: true }).then(() => {
+                this.router.navigate([url]);
+            }); 
+          }, time);
+    }
+
     // LocalStorage POST
     saveInLocalStorage(key: string, value: any) {
         return localStorage.setItem(key, JSON.stringify(value));
