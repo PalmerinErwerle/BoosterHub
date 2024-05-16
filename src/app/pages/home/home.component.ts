@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
       this.screenWidth = window.innerWidth;
     };
 
-    this.uid = this.getUserUid();
+    this.uid = this.utilsService.getUserUid();
 
     this.pages = [
       {
@@ -57,13 +57,6 @@ export class HomeComponent implements OnInit {
         icon: 'security'
       }
     ]
-  }
-  
-
-  getUserUid() {
-    let localUser = this.utilsService.getFromLocalStorage('user');
-    let uid = localUser.uid;
-    return uid;
   }
 
   // Cerrar sesión

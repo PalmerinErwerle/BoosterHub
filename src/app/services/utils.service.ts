@@ -31,5 +31,12 @@ export class UtilsService {
     isLoggedIn() {
         return localStorage.getItem('user');
     }
+    
+    // LocalStorage GET UID
+    getUserUid() {
+        let localUser = this.getFromLocalStorage('user');
+        let uid = localUser.uid;
+        return uid;
+      }
 
 }
