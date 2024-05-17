@@ -7,6 +7,8 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from "@angular/material/list";
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
     exports: [
@@ -17,7 +19,9 @@ import { MatDialogModule } from '@angular/material/dialog';
         MatSidenavModule,
         MatListModule,
         MatCardModule,
-        MatDialogModule
+        MatDialogModule,
+        MatFormFieldModule,
+        MatAutocompleteModule
     ]
 })
 export class MaterialModule{}
