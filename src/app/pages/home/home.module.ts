@@ -11,6 +11,7 @@ import { BoosterComponent } from './booster/booster.component';
 import { MenuButtonsComponent } from 'src/app/components/menu-buttons/menu-buttons.component';
 import { UserListComponent } from 'src/app/components/user-list/user-list.component';
 import { LoaderComponent } from 'src/app/components/loader/loader.component';
+import { MythicListComponent } from 'src/app/components/mythic-list/mythic-list.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { LoaderComponent } from 'src/app/components/loader/loader.component';
     AdminComponent,
     LoaderComponent,
     MenuButtonsComponent,
-    UserListComponent
+    UserListComponent,
+    MythicListComponent
   ],
   providers: [
       MenuButtonsComponent

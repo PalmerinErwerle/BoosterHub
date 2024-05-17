@@ -1,0 +1,9 @@
+<div class="body-block">
+    <mat-card *ngFor="let mythic of mythics" class="card-block"  [routerLink]="'../mythic/' + mythic.id">
+      <mat-card-header>
+        <mat-card-title *ngIf="mythic.run_level != 'DotI HardMode'">{{mythic.run_level}} x {{mythic.run_number}}</mat-card-title>
+        <mat-card-title *ngIf="mythic.run_level == 'DotI HardMode'">{{mythic.run_level}}</mat-card-title>
+        <mat-card-subtitle>ID: {{mythic.id}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+</div>
