@@ -106,8 +106,8 @@ export class MythicService {
         return mythics;
     }
 
-    getMythicsByTank(booster_id: string): Promise<Mythic[]> {
-        const query = this.usersCollection.ref.where('tank_id', '==', booster_id);
+    getMythicsByTank(tank_id: string): Promise<Mythic[]> {
+        const query = this.usersCollection.ref.where('tank_id', '==', tank_id);
 
         return query.get().then((querySnapshot) => {
             const mythics: Mythic[] = [];
@@ -121,8 +121,8 @@ export class MythicService {
         });
     }
 
-    getMythicsByHealer(booster_id: string): Promise<Mythic[]> {
-        const query = this.usersCollection.ref.where('healer_id', '==', booster_id);
+    getMythicsByHealer(healer_id: string): Promise<Mythic[]> {
+        const query = this.usersCollection.ref.where('healer_id', '==', healer_id);
 
         return query.get().then((querySnapshot) => {
             const mythics: Mythic[] = [];
@@ -136,8 +136,8 @@ export class MythicService {
         });
     }
 
-    getMythicsByDps1(booster_id: string): Promise<Mythic[]> {
-        const query = this.usersCollection.ref.where('dps1_id', '==', booster_id);
+    getMythicsByDps1(dps1_id: string): Promise<Mythic[]> {
+        const query = this.usersCollection.ref.where('dps1_id', '==', dps1_id);
 
         return query.get().then((querySnapshot) => {
             const mythics: Mythic[] = [];
@@ -151,8 +151,8 @@ export class MythicService {
         });
     }
 
-    getMythicsByDps2(booster_id: string): Promise<Mythic[]> {
-        const query = this.usersCollection.ref.where('dps2_id', '==', booster_id);
+    getMythicsByDps2(dps2_id: string): Promise<Mythic[]> {
+        const query = this.usersCollection.ref.where('dps2_id', '==', dps2_id);
 
         return query.get().then((querySnapshot) => {
             const mythics: Mythic[] = [];
