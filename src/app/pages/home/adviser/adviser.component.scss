@@ -3,7 +3,7 @@
     height: fit-content;
     width: 86%;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
     gap: 6%;
@@ -23,7 +23,7 @@
 
 @media (max-width: 599px) {
     .button-block {
-        margin-top: 10px;
+        margin-bottom: 20px;
     }
 
     .head-button {

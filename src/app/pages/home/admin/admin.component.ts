@@ -1,5 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { Mythic } from 'src/app/models/mythic.model';
 import { User } from 'src/app/models/user.model';
+import { MythicService } from 'src/app/services/mythic.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -15,8 +17,10 @@ export class AdminComponent implements OnInit {
   view = "user";
 
   users!: User[];
+  mythics!: Mythic[];
 
   userService = inject(UserService);
+  mythicService = inject(MythicService);
 
   async ngOnInit(): Promise<void> {
     
@@ -45,9 +49,11 @@ export class AdminComponent implements OnInit {
         title: 'Strikes',
         view: 'strike'
       },
-    ]
+    ];
 
     this.users = await this.userService.getUsers();
+
+    this.mythics = await this.mythicService.getMythics();
 
     setTimeout(() => {
       this.loader = true;

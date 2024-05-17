@@ -3,10 +3,17 @@
 <app-loader *ngIf="!loader"></app-loader>
 
 <div [ngSwitch]="view" *ngIf="loader">
+
     <app-user-list  *ngSwitchCase="'user'" [users]="users"></app-user-list>
-    <p *ngSwitchCase="'mythic'">test {{view}}</p>
+
+    <app-mythic-list *ngSwitchCase="'mythic'" [mythics]="mythics"></app-mythic-list>
+
     <p *ngSwitchCase="'raid'">test {{view}}</p>
+
     <p *ngSwitchCase="'legacy'">test {{view}}</p>
+
     <p *ngSwitchCase="'leveling'">test {{view}}</p>
+
     <p *ngSwitchCase="'strike'">test {{view}}</p>
+    
 </div>

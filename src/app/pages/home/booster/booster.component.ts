@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { Mythic } from 'src/app/models/mythic.model';
+import { MythicService } from 'src/app/services/mythic.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-booster',
@@ -7,11 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoosterComponent implements OnInit {
 
+  loader = false;
+
+  uid!: string;
   buttons!: any[];
-
   view = "general";
+  
+  mythics!: Mythic[];
 
-  ngOnInit() {
+  utilsService = inject(UtilsService);
+  mythicService = inject(MythicService);
+
+  async ngOnInit() {
+
+    this.uid = await this.utilsService.getUserUid();
     
     this.buttons = [
       {
@@ -38,7 +50,13 @@ export class BoosterComponent implements OnInit {
         title: 'Strikes',
         view: 'strike'
       },
-    ]
+    ];
+
+    this.mythics = await this.mythicService.getMythicsByBooster(this.uid);
+
+    setTimeout(() => {
+      this.loader = true;
+    }, 1500);
     
   }
 
