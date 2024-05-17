@@ -32,6 +32,15 @@ mat-dialog-content::-webkit-scrollbar-thumb {
     border-radius: 10px;
 }
 
+.form-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-block {
+    color: #21264D;
+}
+
 #cancel-button {
     border: #21264D 1px solid;
     border-radius: 8px;

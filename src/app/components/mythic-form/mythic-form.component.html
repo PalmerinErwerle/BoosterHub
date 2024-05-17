@@ -2,70 +2,79 @@
     <h1 mat-dialog-title>New Mythic+</h1>
 
     <form [formGroup]="form" (ngSubmit)="submit()">
-        <mat-dialog-content>
-            <p>falta poner estilos y que los inputs sean selects con busqueda</p>
+        <mat-dialog-content class="form-block">
 
-            <div>
-                <input type="text" placeholder="Run Lvl." required [formControl]="form.controls.run_level">
-            </div>
-            <div *ngIf="form.controls.run_level.errors && form.controls.run_level.touched">
-                <div *ngIf="form.controls.run_level.errors?.['required']">Run level cannot be empty</div>
-            </div>
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>Run Level</mat-label>
+                <input #inputRunLevel type="text" matInput [formControl]="form.controls.run_level" [matAutocomplete]="autoRunLevel" 
+                    (input)="filterRunLevel()" (focus)="filterRunLevel()">
+                <mat-autocomplete requireSelection #autoRunLevel="matAutocomplete">
+                    <mat-option *ngFor="let runLevel of filteredRunLevels" [value]="runLevel">{{runLevel}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
 
-            <div>
-                <input type="number" placeholder="Run number" required [formControl]="form.controls.run_number">
-            </div>
-            <div *ngIf="form.controls.run_number.errors && form.controls.run_number.touched">
-                <div *ngIf="form.controls.run_number.errors?.['required']">Run number cannot be empty</div>
-            </div>
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>Run Level</mat-label>
+                <input #inputRunNumber type="text" matInput [formControl]="form.controls.run_number" [matAutocomplete]="autoRunNumber" 
+                    (input)="filterRunNumber()" (focus)="filterRunNumber()">
+                <mat-autocomplete requireSelection #autoRunNumber="matAutocomplete">
+                    <mat-option *ngFor="let runNumber of filteredRunNumbers" [value]="runNumber">{{runNumber}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
 
-            <div>
-                <input type="text" placeholder="Tank" required [formControl]="form.controls.tank_id">
-            </div>
-            <div *ngIf="form.controls.tank_id.errors && form.controls.tank_id.touched">
-                <div *ngIf="form.controls.tank_id.errors?.['required']">Tank cannot be empty</div>
-            </div>
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>Tank</mat-label>
+                <input #inputTank type="text" matInput [formControl]="form.controls.tank_id" [matAutocomplete]="autoTank"
+                    (input)="filterTank()" (focus)="filterTank()">
+                <mat-autocomplete requireSelection #autoTank="matAutocomplete">
+                    <mat-option *ngFor="let tank of filteredCharacters" [value]="tank">{{tank}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
 
-            <div>
-                <input type="text" placeholder="Healer" required [formControl]="form.controls.healer_id">
-            </div>
-            <div *ngIf="form.controls.healer_id.errors && form.controls.healer_id.touched">
-                <div *ngIf="form.controls.healer_id.errors?.['required']">Healer cannot be empty</div>
-            </div>
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>Healer</mat-label>
+                <input #inputHealer type="text" matInput [formControl]="form.controls.healer_id" [matAutocomplete]="autoHealer"
+                    (input)="filterHealer()" (focus)="filterHealer()">
+                <mat-autocomplete requireSelection #autoHealer="matAutocomplete">
+                    <mat-option *ngFor="let healer of filteredCharacters" [value]="healer">{{healer}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
 
-            <div>
-                <input type="text" placeholder="DPS 1" required [formControl]="form.controls.dps1_id">
-            </div>
-            <div *ngIf="form.controls.dps1_id.errors && form.controls.dps1_id.touched">
-                <div *ngIf="form.controls.dps1_id.errors?.['required']">DPS 1 cannot be empty</div>
-            </div>
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>DPS 1</mat-label>
+                <input #inputDps1 type="text" matInput [formControl]="form.controls.dps1_id" [matAutocomplete]="autoDps1"
+                    (input)="filterDps1()" (focus)="filterDps1()">
+                <mat-autocomplete requireSelection #autoDps1="matAutocomplete">
+                    <mat-option *ngFor="let dps1 of filteredCharacters" [value]="dps1">{{dps1}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
 
-            <div>
-                <input type="text" placeholder="DPS 2" required [formControl]="form.controls.dps2_id">
-            </div>
-            <div *ngIf="form.controls.dps2_id.errors && form.controls.dps2_id.touched">
-                <div *ngIf="form.controls.dps2_id.errors?.['required']">DPS 2 cannot be empty</div>
-            </div>
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>DPS 2</mat-label>
+                <input #inputDps2 type="text" matInput [formControl]="form.controls.dps2_id" [matAutocomplete]="autoDps2"
+                    (input)="filterDps2()" (focus)="filterDps2()">
+                <mat-autocomplete requireSelection #autoDps2="matAutocomplete">
+                    <mat-option *ngFor="let dps2 of filteredCharacters" [value]="dps2">{{dps2}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
 
-            <div>
-                <textarea placeholder="Description" required [formControl]="form.controls.description"></textarea>
-            </div>
-            <div *ngIf="form.controls.description.errors && form.controls.description.touched">
-                <div *ngIf="form.controls.description.errors?.['required']">Description cannot be empty</div>
-            </div>
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>Description</mat-label>
+                <textarea matInput required [formControl]="form.controls.description"></textarea>
+            </mat-form-field>
 
-            <div>
-                <input type="number" placeholder="Run price" required [formControl]="form.controls.price">
-            </div>
-            <div *ngIf="form.controls.price.errors && form.controls.price.touched">
-                <div *ngIf="form.controls.price.errors?.['required']">Run price cannot be empty</div>
-            </div>
-            
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>Run price</mat-label>
+                <input matInput type="number" required [formControl]="form.controls.price">
+                <span matTextSuffix>gold</span>
+            </mat-form-field>
+
         </mat-dialog-content>
 
         <mat-dialog-actions align="end">
             <button mat-button id="cancel-button" mat-dialog-close>Cancel</button>
-            <button mat-button id="create-button" type="submit" [disabled]="form.invalid" [mat-dialog-close]="true" cdkFocusInitial>Create</button>
+            <button mat-button id="create-button" type="submit" [disabled]="form.invalid"
+                [mat-dialog-close]="true">Create</button>
         </mat-dialog-actions>
     </form>
 </div>
