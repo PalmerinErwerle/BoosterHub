@@ -119,12 +119,13 @@ export class ProfileComponent implements OnInit {
         this.firebaseService.updateDocument(path, this.character).then(async () => {
         }).catch(er => {
           this.toaster.errorToast("Incorrect booster data gathering, try again");
-        });
+        }).finally(() => {
+          this.toaster.successToast("User updated successfully");
+          this.spinner.hideSpinner(2000);
+          this.utilsService.reload("/home/profile/" + this.uid, 2000);
+        })
       });
 
-    this.toaster.successToast("User updated successfully");
-    this.spinner.hideSpinner(2000);
-    this.utilsService.reload("/home/profile/" + this.uid, 2000);
   }
 
 }
