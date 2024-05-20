@@ -96,7 +96,6 @@ export class MythicFormComponent implements OnInit {
     });
 
     this.mythicService.createMythic(this.form);
-    this.form.reset();
   }
 
   filterRunLevel() {
