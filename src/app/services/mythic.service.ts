@@ -5,6 +5,7 @@ import { ToasterComponent } from '../components/toaster/toaster.component';
 import { FormGroup } from '@angular/forms';
 import { FirestoreBaasService } from './firestore-baas.service';
 import { Mythic } from '../models/mythic.model';
+import { UtilsService } from './utils.service';
 
 @Injectable({
     providedIn: 'root'
@@ -13,10 +14,11 @@ export class MythicService {
 
     spinner = inject(SpinnerComponent);
     toaster = inject(ToasterComponent);
+    utilsService = inject(UtilsService);
     firebaseService = inject(FirestoreBaasService);
     angularFire = inject(AngularFirestore);
 
-    usersCollection: AngularFirestoreCollection<Mythic> = this.angularFire.collection<Mythic>('mythics');
+    mythicsCollection: AngularFirestoreCollection<Mythic> = this.angularFire.collection<Mythic>('mythics');
 
     createMythic(form: FormGroup) {
         let path = "mythics";
@@ -27,6 +29,7 @@ export class MythicService {
             this.firebaseService.updateDocument((path + "/" + res.id), form.value);
 
             this.toaster.successToast("Mythic+ service created succesfully");
+            this.utilsService.reload("/home/mythic/" + res.id, 2000);
         }).catch(er => {
             this.toaster.errorToast('Unexpected error while creating the service, please try again');
         }).finally(() => {
@@ -48,7 +51,7 @@ export class MythicService {
     }
 
     getMythics(): Promise<Mythic[]> {
-        const query = this.usersCollection.ref;
+        const query = this.mythicsCollection.ref;
 
         return query.get().then((querySnapshot) => {
             const mythics: Mythic[] = [];
@@ -63,7 +66,7 @@ export class MythicService {
     }
 
     getMythicsByAdviser(adviser_id: string): Promise<Mythic[]> {
-        const query = this.usersCollection.ref.where('adviser_id', '==', adviser_id);
+        const query = this.mythicsCollection.ref.where('adviser_id', '==', adviser_id);
         return query.get().then((querySnapshot) => {
             const mythics: Mythic[] = [];
 
@@ -107,7 +110,7 @@ export class MythicService {
     }
 
     getMythicsByTank(tank_id: string): Promise<Mythic[]> {
-        const query = this.usersCollection.ref.where('tank_id', '==', tank_id);
+        const query = this.mythicsCollection.ref.where('tank_id', '==', tank_id);
 
         return query.get().then((querySnapshot) => {
             const mythics: Mythic[] = [];
@@ -122,7 +125,7 @@ export class MythicService {
     }
 
     getMythicsByHealer(healer_id: string): Promise<Mythic[]> {
-        const query = this.usersCollection.ref.where('healer_id', '==', healer_id);
+        const query = this.mythicsCollection.ref.where('healer_id', '==', healer_id);
 
         return query.get().then((querySnapshot) => {
             const mythics: Mythic[] = [];
@@ -137,7 +140,7 @@ export class MythicService {
     }
 
     getMythicsByDps1(dps1_id: string): Promise<Mythic[]> {
-        const query = this.usersCollection.ref.where('dps1_id', '==', dps1_id);
+        const query = this.mythicsCollection.ref.where('dps1_id', '==', dps1_id);
 
         return query.get().then((querySnapshot) => {
             const mythics: Mythic[] = [];
@@ -152,7 +155,7 @@ export class MythicService {
     }
 
     getMythicsByDps2(dps2_id: string): Promise<Mythic[]> {
-        const query = this.usersCollection.ref.where('dps2_id', '==', dps2_id);
+        const query = this.mythicsCollection.ref.where('dps2_id', '==', dps2_id);
 
         return query.get().then((querySnapshot) => {
             const mythics: Mythic[] = [];
@@ -163,6 +166,19 @@ export class MythicService {
             });
 
             return mythics;
+        });
+    }
+
+    getMythicById(id: string) {
+        const query = this.mythicsCollection.ref.where('id', '==', id);
+
+        return query.get().then(querySnapshot => {
+            if (querySnapshot.size === 0) {
+                return null;
+            }
+
+            const userDoc = querySnapshot.docs[0].data();
+            return userDoc;
         });
     }
 
