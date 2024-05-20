@@ -1,0 +1,217 @@
+.main-block {
+    position: relative;
+    height: fit-content;
+}
+
+.head-block {
+    margin: auto;
+    width: 97%;
+    margin-top: 2%;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    background-color: #F59A7B;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#service-name {
+    padding-top: 50px;
+    padding-bottom: 60px;
+    color: #21264D;
+    font-size: 58px;
+    font-weight: 500;
+    cursor: default;
+}
+
+#doti1 {
+    padding-top: 40px;
+    color: #21264D;
+    font-size: 48px;
+    font-weight: 500;
+    cursor: default;
+}
+
+#doti2 {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    color: #21264D;
+    font-size: 30px;
+    font-weight: 500;
+    cursor: default;
+}
+
+.warcraftlogs{
+    position: absolute;
+    right: 30px;
+    top: 74px;
+    margin: 0.5%;
+}
+
+#wl-image {
+    width: 40px;
+    height: 40px;
+}
+
+.button-block {
+    position: relative;
+    height: fit-content;
+    width: 97%;
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6%;
+    justify-content: flex-end;
+}
+
+.update-button {
+    background-color: #21264D;
+    text-align: center;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.body-block {
+    margin: 0 auto;
+    width: 98%;
+    margin-bottom: 40px;
+    display: flex;
+}
+
+.left-card {
+    padding: 10px;
+    border: #F59A7B 3px solid;
+    border-radius: 30px;
+    box-shadow: none;
+    background-color: transparent;
+    width: 300px;
+    height: fit-content;
+    color: #21264D;
+    margin: 2%;
+    display: flex;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.right-card {
+    padding: 10px;
+    border: #F59A7B 3px solid;
+    border-radius: 30px;
+    box-shadow: none;
+    background-color: transparent;
+    min-width: 300px;
+    flex: 1;
+    height: fit-content;
+    color: #21264D;
+    margin: 2%;
+    display: flex;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#content-separator {
+    margin-bottom: 20px;
+}
+
+.group-head {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.group-subhead {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #21264D;
+}
+
+.member-block {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+    margin-bottom: 6px;
+    cursor: pointer;
+}
+
+.character-image {
+    width: 30px;
+    height: 30px;
+}
+
+.character-name {
+    font-size: 20px;
+    margin-left: 4px;
+}
+
+.adviser-icon {
+    font-size: 24px;
+    margin-top: 4px;
+}
+
+.space-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.price-icon {
+    font-size: 32px;
+}
+
+#price-qty {
+    font-weight: 600;
+}
+
+.text-block {
+    border: 1px solid #21264D;
+    border-radius: 10px;
+    margin: auto;
+    width: 100%;
+    min-height: 60px;
+    height: fit-content;
+    padding: 8px;
+    font-size: 18px;
+}
+
+#created {
+    font-weight: 800;
+    color: #E8A852;
+}
+
+#completed {
+    font-weight: 800;
+    color: #73D673;
+}
+
+#depleted {
+    font-weight: 800;
+    color: #D55455;
+}
+
+#issues {
+    font-weight: 800;
+    color: #C65300;
+}
+
+@media (max-width: 890px) {
+    .body-block {
+        flex-direction: column;
+    }
+
+    .left-card {
+        align-self: center;
+    }
+    .right-card {
+        align-self: center;
+        width: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    #spinner {
+        width: 200px;
+    }
+
+    .warcraftlogs {
+        right: 20px;
+    }
+}

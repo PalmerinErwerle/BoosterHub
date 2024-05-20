@@ -1,0 +1,96 @@
+<app-loader *ngIf="!loader"></app-loader>
+
+<div class="main-block" *ngIf="loader">
+
+    <div class="head-block">
+        <p id="service-name" *ngIf="mythic?.run_level != 'DotI HardMode'">{{mythic?.run_level}} X {{mythic?.run_number}}</p>
+        <div *ngIf="mythic?.run_level == 'DotI HardMode'">
+            <p id="doti1">DotI</p>
+            <p id="doti2">HardMode</p>
+        </div>
+
+        <div class="warcraftlogs" *ngIf="mythic?.logs_link != null">
+            <a href={{mythic?.logs_link}} target="_blank">
+                <img id="wl-image" src="../../../../assets/img/warcraftlogs.png" title="Service's WarcraftLogs">
+            </a>
+        </div>
+    </div>
+
+    <div class="button-block" *ngIf="this.mythic?.status == 'created'">
+        <button mat-stroked-button class="update-button" (click)="completeMythic(mythic)">
+            <mat-icon>add_task</mat-icon> Complete M+
+        </button>
+    </div>
+
+    <div class="body-block">
+
+            <mat-card class="left-card">
+                <mat-card-content id="content-separator">
+                    <mat-card-title class="group-head">Adviser:</mat-card-title>
+                    <div class="member-block" [routerLink]="'../../profile/' + adviser?.uid">
+                        <mat-icon class="adviser-icon">assignment_ind</mat-icon>
+                        <mat-card-title class="character-name">{{adviser?.character_name}}-{{adviser?.character_realm}}</mat-card-title>
+                    </div>
+                </mat-card-content>
+
+                <mat-card-content>
+                    <mat-card-title class="group-head">Group:</mat-card-title>
+                    <div class="member-block" *ngFor="let m of members" [routerLink]="'../../profile/' + m.uid">
+                        <img mat-card-sm-image class="character-image" src={{m.image}}>
+                        <mat-card-title class="character-name">{{m.name}}</mat-card-title>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+            
+            <mat-card class="right-card">
+
+                <mat-card-content id="content-separator">
+                    <div class="space-block">
+                        <mat-card-title class="group-head">Status:</mat-card-title>
+                        <mat-card-title class="group-head" id="created" *ngIf="mythic?.status == 'created'">On due</mat-card-title>
+                        <mat-card-title class="group-head" id="completed" *ngIf="mythic?.status == 'completed'">Completed</mat-card-title>
+                        <mat-card-title class="group-head" id="depleted" *ngIf="mythic?.status == 'depleted'">Depleted</mat-card-title>
+                        <mat-card-title class="group-head" id="issues" *ngIf="mythic?.status == 'issues'">With issues</mat-card-title>
+                    </div>
+                </mat-card-content>
+
+                <mat-card-content id="content-separator">
+                    <div class="space-block">
+                        <mat-card-title class="group-head">Price:</mat-card-title>
+                        <mat-card-title class="group-head" id="price-qty">{{mythic?.price}}g</mat-card-title>
+                    </div>
+                    <div class="space-block">
+                        <mat-card-subtitle class="group-subhead">
+                            <mat-icon class="price-icon">chevron_right</mat-icon>Booster cut:
+                        </mat-card-subtitle>
+                        <mat-card-title class="group-subhead" id="price-qty">{{booster_cut}}g</mat-card-title>
+                    </div>
+                    <div class="space-block">
+                        <mat-card-subtitle class="group-subhead">
+                            <mat-icon class="price-icon">chevron_right</mat-icon>Adviser cut:
+                        </mat-card-subtitle>
+                        <mat-card-title class="group-subhead" id="price-qty">{{adviser_cut}}g</mat-card-title>
+                    </div>
+                </mat-card-content>
+                
+                <mat-card-content id="content-separator">
+                    <mat-card-title class="group-head">Description:</mat-card-title>
+                    <div class="text-block">
+                        <p>{{mythic?.description}}</p>
+                    </div>
+                </mat-card-content>
+                
+                <mat-card-content id="content-separator" *ngIf="mythic?.feedback != null">
+                    <mat-card-title class="group-head">Adviser Feedback:</mat-card-title>
+                    <div class="text-block">
+                        <p>{{mythic?.feedback}}</p>
+                    </div>
+                </mat-card-content>
+
+            </mat-card>
+
+        </div>
+
+
+</div>
