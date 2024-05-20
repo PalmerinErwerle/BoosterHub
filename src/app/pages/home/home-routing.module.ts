@@ -7,6 +7,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { BoosterComponent } from './booster/booster.component';
 import { AdviserComponent } from './adviser/adviser.component';
 import { AdminComponent } from './admin/admin.component';
+import { MythicComponent } from './mythic/mythic.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: 'profile/:uid',
         component:ProfileComponent
+      },
+      {
+        path: 'mythic/:id',
+        component:MythicComponent
       },
       {
         path: 'booster-menu',

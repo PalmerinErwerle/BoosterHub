@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from './material.module';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxSonnerToaster } from 'ngx-sonner';
+
+import { SpinnerComponent } from "./components/spinner/spinner.component";
+import { ToasterComponent } from './components/toaster/toaster.component';
 
 import { AngularFireModule } from '@angular/fire/compat';
 
@@ -18,10 +22,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { SpinnerComponent } from "./components/spinner/spinner.component";
-import { ToasterComponent } from './components/toaster/toaster.component';
-import { HttpClientModule } from '@angular/common/http';
 import { MythicFormComponent } from './components/mythic-form/mythic-form.component';
+import { CompleteMythicFormComponent } from './components/complete-mythic-form/complete-mythic-form.component';
 
 
 const firebaseConfig = {
@@ -44,7 +46,8 @@ const firebaseConfig = {
         HomeComponent,
         SpinnerComponent,
         ToasterComponent,
-        MythicFormComponent
+        MythicFormComponent,
+        CompleteMythicFormComponent
     ],
     providers: [
         SpinnerComponent,
