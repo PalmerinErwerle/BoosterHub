@@ -37,19 +37,22 @@
 }
 
 #color-completed {
-    border-radius: 100%;
+    border: 1px solid grey;
+    border-radius: 20px;
     background-color: #73D673;
     color: #73D673;
 }
 
 #color-depleted {
-    border-radius: 100%;
+    border: 1px solid grey;
+    border-radius: 20px;
     background-color: #D55455;
     color: #D55455;
 }
 
 #color-issues {
-    border-radius: 100%;
+    border: 1px solid grey;
+    border-radius: 20px;
     background-color: #E8A852;
     color: #E8A852;
 }
