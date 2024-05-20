@@ -6,6 +6,7 @@ import { Mythic } from 'src/app/models/mythic.model';
 import { User } from 'src/app/models/user.model';
 import { MythicService } from 'src/app/services/mythic.service';
 import { UserService } from 'src/app/services/user.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-mythic',
@@ -28,6 +29,7 @@ export class MythicComponent implements OnInit {
   
   route = inject(ActivatedRoute);
   modal = inject(MatDialog);
+  utilsService = inject(UtilsService);
   userService = inject(UserService);
   mythicService = inject(MythicService);
 

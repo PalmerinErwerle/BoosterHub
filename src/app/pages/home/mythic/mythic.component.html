@@ -9,14 +9,14 @@
             <p id="doti2">HardMode</p>
         </div>
 
-        <div class="warcraftlogs" *ngIf="mythic?.logs_link != null">
+        <div class="warcraftlogs" *ngIf="mythic?.logs_link != null && mythic?.logs_link != ''">
             <a href={{mythic?.logs_link}} target="_blank">
                 <img id="wl-image" src="../../../../assets/img/warcraftlogs.png" title="Service's WarcraftLogs">
             </a>
         </div>
     </div>
 
-    <div class="button-block" *ngIf="this.mythic?.status == 'created'">
+    <div class="button-block" *ngIf="this.mythic?.status == 'created' && this.mythic?.adviser_id == this.utilsService.getUserUid()">
         <button mat-stroked-button class="update-button" (click)="completeMythic(mythic)">
             <mat-icon>add_task</mat-icon> Complete M+
         </button>

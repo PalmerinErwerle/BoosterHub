@@ -43,6 +43,7 @@ export class MythicService {
 
         this.firebaseService.updateDocument(path, form.value).then(async () => {
             this.toaster.successToast("Mythic+ service updated succesfully");
+            this.utilsService.reload("/home/mythic/" + id, 2000);
         }).catch(er => {
             this.toaster.errorToast('Unexpected error while updating the service, please try again');
         }).finally(() => {
