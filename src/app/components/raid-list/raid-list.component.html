@@ -1,0 +1,23 @@
+<div class="search-block">
+    <mat-form-field appearance="outline" class="searchbar">
+      <input matInput placeholder="Search by Raid ID" [(ngModel)]="filterRaidsValue" (keyup)="filterRaid()">
+    </mat-form-field>
+  </div>
+  
+  <div class="body-block">
+        <mat-card *ngFor="let raid of filteredRaids" class="card-block"  [routerLink]="'../raid/' + raid.id">
+        <mat-card-header>
+          
+          <mat-card-title>{{raid.raid_level}}</mat-card-title>
+          <mat-card-subtitle>ID: {{raid.id}}</mat-card-subtitle>
+  
+          <div [ngSwitch]="raid.status" class="status-footer">
+            <div *ngSwitchCase="'created'" id="color-created">messi</div>
+            <div *ngSwitchCase="'completed'" id="color-completed">messi</div>
+            <div *ngSwitchCase="'depleted'" id="color-depleted">messi</div>
+            <div *ngSwitchCase="'issues'" id="color-issues">messi</div>
+          </div>
+  
+        </mat-card-header>
+      </mat-card>
+  </div>

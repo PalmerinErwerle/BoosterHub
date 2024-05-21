@@ -14,6 +14,7 @@ import { UserListComponent } from 'src/app/components/user-list/user-list.compon
 import { LoaderComponent } from 'src/app/components/loader/loader.component';
 import { MythicListComponent } from 'src/app/components/mythic-list/mythic-list.component';
 import { FormsModule } from '@angular/forms';
+import { RaidListComponent } from 'src/app/components/raid-list/raid-list.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     LoaderComponent,
     MenuButtonsComponent,
     UserListComponent,
-    MythicListComponent
+    MythicListComponent,
+    RaidListComponent
   ],
   providers: [
       MenuButtonsComponent
