@@ -1,7 +1,15 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { Legacy } from 'src/app/models/legacy.model';
+import { Leveling } from 'src/app/models/leveling.model';
 import { Mythic } from 'src/app/models/mythic.model';
+import { Raid } from 'src/app/models/raid.model';
+import { Strike } from 'src/app/models/strike.model';
 import { User } from 'src/app/models/user.model';
+import { LegacyService } from 'src/app/services/legacy.service';
+import { LevelingService } from 'src/app/services/leveling.service';
 import { MythicService } from 'src/app/services/mythic.service';
+import { RaidService } from 'src/app/services/raid.service';
+import { StrikeService } from 'src/app/services/strike.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -18,9 +26,17 @@ export class AdminComponent implements OnInit {
 
   users!: User[];
   mythics!: Mythic[];
+  raids!: Raid[];
+  legacies!: Legacy[];
+  levelings!:Leveling[];
+  strikes!: Strike[];
 
   userService = inject(UserService);
   mythicService = inject(MythicService);
+  raidService = inject(RaidService);
+  legacyService = inject(LegacyService);
+  levelingService = inject(LevelingService);
+  strikeService = inject(StrikeService);
 
   async ngOnInit(): Promise<void> {
     
@@ -54,6 +70,10 @@ export class AdminComponent implements OnInit {
     this.users = await this.userService.getUsers();
 
     this.mythics = await this.mythicService.getMythics();
+    this.raids = await this.raidService.getRaids();
+    this.legacies = await this.legacyService.getRaids();
+    this.levelings = await this.levelingService.getLevelings();
+    this.strikes = await this.strikeService.getStrikes();
 
     setTimeout(() => {
       this.loader = true;
