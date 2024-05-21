@@ -13,6 +13,7 @@ import { MenuButtonsComponent } from 'src/app/components/menu-buttons/menu-butto
 import { UserListComponent } from 'src/app/components/user-list/user-list.component';
 import { LoaderComponent } from 'src/app/components/loader/loader.component';
 import { MythicListComponent } from 'src/app/components/mythic-list/mythic-list.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { MythicListComponent } from 'src/app/components/mythic-list/mythic-list.
   imports: [
     CommonModule,
     HomeRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ]
 })
 export class HomeModule { }
