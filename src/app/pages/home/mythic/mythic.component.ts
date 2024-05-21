@@ -36,41 +36,46 @@ export class MythicComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.id = this.route.snapshot.params['id'];
     this.mythic = await this.mythicService.getMythicById(this.id);
-    this.tank = await this.userService.getUserByUid(this.mythic?.tank_id as string);
-    this.healer = await this.userService.getUserByUid(this.mythic?.healer_id as string);
-    this.dps_1 = await this.userService.getUserByUid(this.mythic?.dps1_id as string);
-    this.dps_2 = await this.userService.getUserByUid(this.mythic?.dps2_id as string);
-    this.adviser = await this.userService.getUserByUid(this.mythic?.adviser_id as string);
 
-    this.booster_cut = (this.mythic?.price as number / 8);
-    this.adviser_cut = (this.mythic?.price as number / 4);
+    if (this.mythic == null) {
+      this.utilsService.routerLink('/home/error');
+    } else {
+      this.tank = await this.userService.getUserByUid(this.mythic?.tank_id as string);
+      this.healer = await this.userService.getUserByUid(this.mythic?.healer_id as string);
+      this.dps_1 = await this.userService.getUserByUid(this.mythic?.dps1_id as string);
+      this.dps_2 = await this.userService.getUserByUid(this.mythic?.dps2_id as string);
+      this.adviser = await this.userService.getUserByUid(this.mythic?.adviser_id as string);
 
-    setTimeout(() => {
-      this.loader = true;
-    }, 1500);
+      this.booster_cut = (this.mythic?.price as number / 8);
+      this.adviser_cut = (this.mythic?.price as number / 4);
 
-    this.members = [
-      {
-        uid: this.tank?.uid,
-        image: '../../../../assets/img/characters/roles/tank.png',
-        name: this.tank?.character_name + "-" + this.tank?.character_realm
-      },
-      {
-        uid: this.healer?.uid,
-        image: '../../../../assets/img/characters/roles/healing.png',
-        name: this.healer?.character_name + "-" + this.healer?.character_realm
-      },
-      {
-        uid: this.dps_1?.uid,
-        image: '../../../../assets/img/characters/roles/dps.png',
-        name: this.dps_1?.character_name + "-" + this.dps_1?.character_realm
-      },
-      {
-        uid: this.dps_2?.uid,
-        image: '../../../../assets/img/characters/roles/dps.png',
-        name: this.dps_2?.character_name + "-" + this.dps_2?.character_realm
-      }
-    ]
+      setTimeout(() => {
+        this.loader = true;
+      }, 1500);
+
+      this.members = [
+        {
+          uid: this.tank?.uid,
+          image: '../../../../assets/img/characters/roles/tank.png',
+          name: this.tank?.character_name + "-" + this.tank?.character_realm
+        },
+        {
+          uid: this.healer?.uid,
+          image: '../../../../assets/img/characters/roles/healing.png',
+          name: this.healer?.character_name + "-" + this.healer?.character_realm
+        },
+        {
+          uid: this.dps_1?.uid,
+          image: '../../../../assets/img/characters/roles/dps.png',
+          name: this.dps_1?.character_name + "-" + this.dps_1?.character_realm
+        },
+        {
+          uid: this.dps_2?.uid,
+          image: '../../../../assets/img/characters/roles/dps.png',
+          name: this.dps_2?.character_name + "-" + this.dps_2?.character_realm
+        }
+      ]
+    }
   }
 
   completeMythic(mythic: Mythic | null) {
