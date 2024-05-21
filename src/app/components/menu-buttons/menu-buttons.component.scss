@@ -12,7 +12,6 @@
 }
 
 .head-button {
-    background-color: #F59A7B;
     width: 160px;
     height: 60px;
     border-radius: 12px;
@@ -21,6 +20,14 @@
     font-weight: 500;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     margin-bottom: 30px;
+}
+
+.base-color {
+    background-color: #F59A7B;
+}
+
+.indent-color {
+    background-color: #BB6A4D;
 }
 
 @media (max-width: 599px) {

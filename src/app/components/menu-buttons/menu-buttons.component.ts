@@ -8,9 +8,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class MenuButtonsComponent {
 
   @Input() buttons!: any[];
+  @Input() view!: string;
   @Output() getViewEvent = new EventEmitter<string>()
-
-  view!: string;
 
   getView(view: string) {
     this.getViewEvent.emit(view)
