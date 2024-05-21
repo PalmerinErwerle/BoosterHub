@@ -15,6 +15,7 @@
 .body-block {
     margin: auto;
     width: 92%;
+    margin-top: 20px;
     margin-bottom: 40px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -46,7 +47,11 @@
 }
 
 @media (max-width: 599px) {
+    .search-block {
+        margin-top: 20px;
+    }
+
     .body-block {
-        margin-top: 10px;
+        margin-top: 0;
     }
 }
