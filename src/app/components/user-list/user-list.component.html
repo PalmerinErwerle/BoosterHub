@@ -1,5 +1,11 @@
+<div class="search-block">
+  <mat-form-field appearance="outline" class="searchbar">
+    <input matInput placeholder="Search by character name" [(ngModel)]="filterUsersValue" (keyup)="filterUser()">
+  </mat-form-field>
+</div>
+
 <div class="body-block">
-    <mat-card *ngFor="let user of users" class="card-block"  [routerLink]="'../profile/' + user.uid">
+    <mat-card *ngFor="let user of filteredUsers" class="card-block"  [routerLink]="'../profile/' + user.uid">
       <mat-card-header>
         <mat-card-title>{{user.character_name}}-{{user.character_realm}}</mat-card-title>
         <mat-card-subtitle>{{user.character_race}} {{user.character_class}}</mat-card-subtitle>

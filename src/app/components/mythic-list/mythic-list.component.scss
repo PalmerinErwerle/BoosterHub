@@ -1,6 +1,19 @@
-.body-block {
+.search-block {
+    display: flex;
+    width: 92%;
     margin: auto;
     margin-top: 40px;
+    align-items: center;
+}
+
+.searchbar {
+    margin: auto;
+    width: 90%;
+    color: #21264D;
+}
+
+.body-block {
+    margin: auto;
     width: 92%;
     margin-bottom: 40px;
     display: grid;
@@ -58,7 +71,7 @@
 }
 
 @media (max-width: 599px) {
-    .body-block {
+    .searchbar {
         margin-top: 10px;
     }
 }

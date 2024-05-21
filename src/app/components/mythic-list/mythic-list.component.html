@@ -1,5 +1,11 @@
+<div class="search-block">
+  <mat-form-field appearance="outline" class="searchbar">
+    <input matInput placeholder="Search by M+ ID" [(ngModel)]="filterMythicsValue" (keyup)="filterMythic()">
+  </mat-form-field>
+</div>
+
 <div class="body-block">
-    <mat-card *ngFor="let mythic of mythics" class="card-block"  [routerLink]="'../mythic/' + mythic.id">
+      <mat-card *ngFor="let mythic of filteredMythics" class="card-block"  [routerLink]="'../mythic/' + mythic.id">
       <mat-card-header>
         
         <mat-card-title *ngIf="mythic.run_level != 'DotI HardMode'">{{mythic.run_level}} x {{mythic.run_number}}</mat-card-title>
