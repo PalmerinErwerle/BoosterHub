@@ -21,7 +21,6 @@ export class MythicListComponent implements OnInit {
 
   filterMythic() {
     this.filteredMythics = this.mythics.filter(mythic => {
-      // Recorrer las propiedades del objeto mythic y verificar si alguna coincide con filterValue
       for (const property in mythic) {
         if (typeof mythic.id === 'string' && mythic.id.toLowerCase().includes(this.filterMythicsValue.toLowerCase())) {
           return true;
