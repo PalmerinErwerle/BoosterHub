@@ -10,14 +10,14 @@
         <div class="button-block">
             <button mat-stroked-button class="head-button" (click)="newMythic()">New M+</button>
         </div>
-        <app-mythic-list *ngSwitchCase="'mythic'" [mythics]="mythics"></app-mythic-list>
+        <app-mythic-list [mythics]="mythics"></app-mythic-list>
     </div>
 
     <div *ngSwitchCase="'raid'">
         <div class="button-block">
             <button mat-stroked-button class="head-button">New Raid</button>
         </div>
-        <p>test {{view}}</p>
+        <app-raid-list [raids]="raids"></app-raid-list>
     </div>
 
     <div *ngSwitchCase="'legacy'">
