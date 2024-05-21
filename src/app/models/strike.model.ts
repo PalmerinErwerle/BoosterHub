@@ -6,6 +6,7 @@ export interface Strike {
     admin_id: string,
     
     //Strike data
+    status: string,
     description: string,
     penalty: number
 }
