@@ -10,6 +10,7 @@ import { MythicService } from 'src/app/services/mythic.service';
 import { RaidService } from 'src/app/services/raid.service';
 import { StrikeService } from 'src/app/services/strike.service';
 import { UtilsService } from 'src/app/services/utils.service';
+import { HomeComponent } from '../home.component';
 
 @Component({
   selector: 'app-booster',
@@ -30,6 +31,7 @@ export class BoosterComponent implements OnInit {
   levelings!:Leveling[];
   strikes!: Strike[];
 
+  home = inject(HomeComponent);
   utilsService = inject(UtilsService);
   mythicService = inject(MythicService);
   raidService = inject(RaidService);
@@ -38,6 +40,7 @@ export class BoosterComponent implements OnInit {
   strikeService = inject(StrikeService);
 
   async ngOnInit() {
+    this.home.title = "Booster Menu";
 
     this.uid = await this.utilsService.getUserUid();
     

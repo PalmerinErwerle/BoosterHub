@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { AfterContentChecked, ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { SpinnerComponent } from 'src/app/components/spinner/spinner.component';
 import { ToasterComponent } from 'src/app/components/toaster/toaster.component';
 import { FirestoreBaasService } from 'src/app/services/firestore-baas.service';
@@ -9,9 +9,9 @@ import { UtilsService } from 'src/app/services/utils.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterContentChecked {
 
-  title = "BoosterHub";
+  title!: string;
   screenWidth!: number;
   uid!: string;
 
@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   spinner = inject(SpinnerComponent);
   toaster = inject(ToasterComponent);
   utilsService = inject(UtilsService);
+  cdref = inject(ChangeDetectorRef);
 
   ngOnInit() {
     this.screenWidth = window.innerWidth;
@@ -57,6 +58,10 @@ export class HomeComponent implements OnInit {
         icon: 'security'
       }
     ]
+  }
+
+  ngAfterContentChecked() {
+    this.cdref.detectChanges();
   }
 
   // Cerrar sesión

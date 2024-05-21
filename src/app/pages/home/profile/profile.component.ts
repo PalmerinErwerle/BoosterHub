@@ -10,6 +10,7 @@ import { FirestoreBaasService } from 'src/app/services/firestore-baas.service';
 import { RaiderIoService } from 'src/app/services/raider-io.service';
 import { UserService } from 'src/app/services/user.service';
 import { UtilsService } from 'src/app/services/utils.service';
+import { HomeComponent } from '../home.component';
 
 @Component({
   selector: 'app-profile',
@@ -25,6 +26,7 @@ export class ProfileComponent implements OnInit {
   raiderIoLink!: string;
   cards: any[] = [];
 
+  home = inject(HomeComponent);
   route = inject(ActivatedRoute);
   spinner = inject(SpinnerComponent);
   toaster = inject(ToasterComponent);
@@ -35,6 +37,13 @@ export class ProfileComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.uid = this.route.snapshot.params['uid'];
+
+    if (this.uid == this.utilsService.getUserUid()) {
+      this.home.title = "My Profile";
+    } else {
+      this.home.title = "Profile";
+    }
+
     this.character = await this.userService.getUserByUid(this.uid);
 
     setTimeout(() => {

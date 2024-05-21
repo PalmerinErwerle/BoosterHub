@@ -11,6 +11,7 @@ import { MythicService } from 'src/app/services/mythic.service';
 import { RaidService } from 'src/app/services/raid.service';
 import { StrikeService } from 'src/app/services/strike.service';
 import { UserService } from 'src/app/services/user.service';
+import { HomeComponent } from '../home.component';
 
 @Component({
   selector: 'app-admin',
@@ -31,6 +32,7 @@ export class AdminComponent implements OnInit {
   levelings!:Leveling[];
   strikes!: Strike[];
 
+  home = inject(HomeComponent);
   userService = inject(UserService);
   mythicService = inject(MythicService);
   raidService = inject(RaidService);
@@ -39,6 +41,7 @@ export class AdminComponent implements OnInit {
   strikeService = inject(StrikeService);
 
   async ngOnInit(): Promise<void> {
+    this.home.title = "Admin Menu";
     
     this.buttons = [
       {

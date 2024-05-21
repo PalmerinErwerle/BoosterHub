@@ -10,6 +10,7 @@ import { LevelingService } from 'src/app/services/leveling.service';
 import { MythicService } from 'src/app/services/mythic.service';
 import { RaidService } from 'src/app/services/raid.service';
 import { UtilsService } from 'src/app/services/utils.service';
+import { HomeComponent } from '../home.component';
 
 @Component({
   selector: 'app-adviser',
@@ -29,6 +30,7 @@ export class AdviserComponent implements OnInit {
   legacies!: Legacy[];
   levelings!:Leveling[];
 
+  home = inject(HomeComponent);
   modal = inject(MatDialog);
   utilsService = inject(UtilsService);
   mythicService = inject(MythicService);
@@ -37,6 +39,8 @@ export class AdviserComponent implements OnInit {
   levelingService = inject(LevelingService);
 
   async ngOnInit() {
+    this.home.title = "Adviser Menu";
+
     this.uid = await this.utilsService.getUserUid();
     
     this.buttons = [

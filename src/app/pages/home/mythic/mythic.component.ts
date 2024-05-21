@@ -7,6 +7,7 @@ import { User } from 'src/app/models/user.model';
 import { MythicService } from 'src/app/services/mythic.service';
 import { UserService } from 'src/app/services/user.service';
 import { UtilsService } from 'src/app/services/utils.service';
+import { HomeComponent } from '../home.component';
 
 @Component({
   selector: 'app-mythic',
@@ -27,6 +28,7 @@ export class MythicComponent implements OnInit {
   adviser!: User | null;
   members: any[] = [];
   
+  home = inject(HomeComponent);
   route = inject(ActivatedRoute);
   modal = inject(MatDialog);
   utilsService = inject(UtilsService);
@@ -34,6 +36,8 @@ export class MythicComponent implements OnInit {
   mythicService = inject(MythicService);
 
   async ngOnInit(): Promise<void> {
+    this.home.title = "Mythic+";
+
     this.id = this.route.snapshot.params['id'];
     this.mythic = await this.mythicService.getMythicById(this.id);
 
