@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { CompleteMythicFormComponent } from 'src/app/components/complete-mythic-form/complete-mythic-form.component';
+import { CompleteRaidFormComponent } from 'src/app/components/complete-raid-form/complete-raid-form.component';
 import { Raid } from 'src/app/models/raid.model';
 import { User } from 'src/app/models/user.model';
 import { RaidService } from 'src/app/services/raid.service';
@@ -125,7 +125,9 @@ export class RaidComponent implements OnInit {
   }
 
   completeRaid(raid: Raid | null) {
-    
+    this.modal.open(CompleteRaidFormComponent, {
+      data: {raid: raid}
+    });
   }
 
 }
