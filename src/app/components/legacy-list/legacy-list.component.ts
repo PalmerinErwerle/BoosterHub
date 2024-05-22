@@ -8,8 +8,6 @@ import { Legacy } from 'src/app/models/legacy.model';
 })
 export class LegacyListComponent implements OnInit {
 
-  loader = false;
-
   @Input() legacies!: Legacy[];
   @Input() filterLegaciesValue!: string;
 

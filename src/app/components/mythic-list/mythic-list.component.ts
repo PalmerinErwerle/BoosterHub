@@ -8,8 +8,6 @@ import { Mythic } from 'src/app/models/mythic.model';
 })
 export class MythicListComponent implements OnInit {
 
-  loader = false;
-
   @Input() mythics!: Mythic[];
   @Input() filterMythicsValue!: string;
 

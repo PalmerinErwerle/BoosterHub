@@ -8,8 +8,6 @@ import { Raid } from 'src/app/models/raid.model';
 })
 export class RaidListComponent implements OnInit {
 
-  loader = false;
-
   @Input() raids!: Raid[];
   @Input() filterRaidsValue!: string;
 

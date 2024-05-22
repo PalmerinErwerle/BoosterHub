@@ -8,8 +8,6 @@ import { User } from 'src/app/models/user.model';
 })
 export class UserListComponent {
 
-  loader = false;
-
   @Input() users!: User[];
   @Input() filterUsersValue!: string;
 

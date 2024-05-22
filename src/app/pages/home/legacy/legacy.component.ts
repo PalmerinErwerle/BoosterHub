@@ -14,7 +14,7 @@ import { HomeComponent } from '../home.component';
   templateUrl: './legacy.component.html',
   styleUrls: ['./legacy.component.scss']
 })
-export class LegacyComponent {
+export class LegacyComponent implements OnInit {
 
   loader = false;
   id!: string;
