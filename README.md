@@ -12,44 +12,37 @@ En algún momento haré este readme en condiciones xd.
  - Lógica general de status (User).
  - Guards de control de status (User).
 
- - Vista y lógica de componente General.
+ - Vista y lógica de componente General (gráficas).
  - Implementación gráficas ApexChartJS.
-
- - Vista y lógica de componente [Service]List.
- - Vista y lógica de modal create[Service].
-
- - Implementación de barras de búsqueda.
 
 ### En proceso 🏗️
 
- - Vista y lógica de componente MythicList.
- - Vista y lógica de modal createMythic.
- - Implementación de selects con búsqueda.
+ - Funcionalidad de Levelings
+ - Funcionalidad de Strikes
 
 ### Ya terminado ✅
 
- - Estructura de Servicios BaaS & API.
- - Estructura preliminar de la aplicación.
+ - Estructura preliminar de la aplicación
 
- - Guards de estado de sesión y 404.
- - VIsta y control de página 404.
+ - Guards de control de sesión y error 404
  
- - Componente toast.
- - Componente loader.
+ - Componentes toast y loader implementados
+ - Sistema de botones de navegacion implementado
+ - Barras de búsqueda en tiempo real implementadas
 
- - Vista, animaciones y responsiveness de Login, register & Change pwd.
- - Lógica de Login, Register & Change pwd (falta validacion de correo en esta ultima).
- - Lógica de Register con Raider.IO API.
- - Lógica de validación de correo en BD en Change pwd.
- - Lógica de validación de personaje en BD en Register.
- - Guards de control de sesión.
+ - Vista y lógica de Auth 100% funcional
+ - Vista y lógica de Home (header & sidenav) 100% funcional
 
- - Vista, animaciones y responsiveness de Header & Sidenav.
- - Vista principal de Home.
+ - Vista y lógica de Profile 100% funcional
+ - Vista y lógica de Mythic 100% funcional
+ - Vista y lógica de Raid 100% funcional
+ - Vista y lógica de Legacy 100% funcional
 
- - Vista, cards y responsiveness de Profile.
- - Lógica de Profile & funcionamiento de "My Profile".
+ - Vista y lógica de Booster Menu 100% funcional
+ - Vista y lógica de Adviser Menu 100% funcional
+ - Vista y lógica de Admin Menu 100% funcional
 
- - Vista preliminar de Booster, Adviser y Admin.
-
- - Vista y lógica de componente UserList.
+ - Funcionalidad de Users al 100%
+ - Funcionalidad de Mythics al 100%
+ - Funcionalidad de Raids al 100%
+ - Funcionalidad de Legacies al 100%
