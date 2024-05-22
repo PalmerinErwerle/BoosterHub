@@ -1,0 +1,125 @@
+<div class="modal-block">
+    <h1 mat-dialog-title>New Raid</h1>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <mat-dialog-content class="form-block">
+
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>Raid Level</mat-label>
+                <input #inputRaidLevel type="text" matInput [formControl]="form.controls.raid_level" [matAutocomplete]="autoRaidLevel" 
+                    (input)="filterRaidLevel()" (focus)="filterRaidLevel()">
+                <mat-autocomplete requireSelection #autoRaidLevel="matAutocomplete">
+                    <mat-option *ngFor="let raidLevel of filteredRaidLevels" [value]="raidLevel">{{raidLevel}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>Tank 1</mat-label>
+                <input #inputTank1 type="text" matInput [formControl]="form.controls.tank1_id" [matAutocomplete]="autoTank1"
+                    (input)="filterTank1()" (focus)="filterTank1()">
+                <mat-autocomplete requireSelection #autoTank1="matAutocomplete">
+                    <mat-option *ngFor="let tank1 of filteredCharacters" [value]="tank1">{{tank1}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>Tank 2</mat-label>
+                <input #inputTank2 type="text" matInput [formControl]="form.controls.tank2_id" [matAutocomplete]="autoTank2"
+                    (input)="filterTank2()" (focus)="filterTank2()">
+                <mat-autocomplete requireSelection #autoTank2="matAutocomplete">
+                    <mat-option *ngFor="let tank2 of filteredCharacters" [value]="tank2">{{tank2}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>Healer 1</mat-label>
+                <input #inputHealer1 type="text" matInput [formControl]="form.controls.healer1_id" [matAutocomplete]="autoHealer1"
+                    (input)="filterHealer1()" (focus)="filterHealer1()">
+                <mat-autocomplete requireSelection #autoHealer1="matAutocomplete">
+                    <mat-option *ngFor="let healer1 of filteredCharacters" [value]="healer1">{{healer1}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>Healer 2</mat-label>
+                <input #inputHealer2 type="text" matInput [formControl]="form.controls.healer2_id" [matAutocomplete]="autoHealer2"
+                    (input)="filterHealer2()" (focus)="filterHealer2()">
+                <mat-autocomplete requireSelection #autoHealer2="matAutocomplete">
+                    <mat-option *ngFor="let healer2 of filteredCharacters" [value]="healer2">{{healer2}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>DPS 1</mat-label>
+                <input #inputDps1 type="text" matInput [formControl]="form.controls.dps1_id" [matAutocomplete]="autoDps1"
+                    (input)="filterDps1()" (focus)="filterDps1()">
+                <mat-autocomplete requireSelection #autoDps1="matAutocomplete">
+                    <mat-option *ngFor="let dps1 of filteredCharacters" [value]="dps1">{{dps1}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>DPS 2</mat-label>
+                <input #inputDps2 type="text" matInput [formControl]="form.controls.dps2_id" [matAutocomplete]="autoDps2"
+                    (input)="filterDps2()" (focus)="filterDps2()">
+                <mat-autocomplete requireSelection #autoDps2="matAutocomplete">
+                    <mat-option *ngFor="let dps2 of filteredCharacters" [value]="dps2">{{dps2}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>DPS 3</mat-label>
+                <input #inputDps3 type="text" matInput [formControl]="form.controls.dps3_id" [matAutocomplete]="autoDps3"
+                    (input)="filterDps3()" (focus)="filterDps3()">
+                <mat-autocomplete requireSelection #autoDps3="matAutocomplete">
+                    <mat-option *ngFor="let dps3 of filteredCharacters" [value]="dps3">{{dps3}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>DPS 4</mat-label>
+                <input #inputDps4 type="text" matInput [formControl]="form.controls.dps4_id" [matAutocomplete]="autoDps4"
+                    (input)="filterDps4()" (focus)="filterDps4()">
+                <mat-autocomplete requireSelection #autoDps4="matAutocomplete">
+                    <mat-option *ngFor="let dps4 of filteredCharacters" [value]="dps4">{{dps4}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>DPS 5</mat-label>
+                <input #inputDps5 type="text" matInput [formControl]="form.controls.dps5_id" [matAutocomplete]="autoDps5"
+                    (input)="filterDps5()" (focus)="filterDps5()">
+                <mat-autocomplete requireSelection #autoDps5="matAutocomplete">
+                    <mat-option *ngFor="let dps5 of filteredCharacters" [value]="dps5">{{dps5}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>DPS 6</mat-label>
+                <input #inputDps6 type="text" matInput [formControl]="form.controls.dps6_id" [matAutocomplete]="autoDps6"
+                    (input)="filterDps6()" (focus)="filterDps6()">
+                <mat-autocomplete requireSelection #autoDps6="matAutocomplete">
+                    <mat-option *ngFor="let dps6 of filteredCharacters" [value]="dps6">{{dps6}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>Description</mat-label>
+                <textarea matInput required [formControl]="form.controls.description"></textarea>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>Raid total price</mat-label>
+                <input matInput type="number" required [formControl]="form.controls.price">
+                <span matTextSuffix>gold</span>
+            </mat-form-field>
+
+        </mat-dialog-content>
+
+        <mat-dialog-actions align="end">
+            <button mat-button id="cancel-button" mat-dialog-close>Cancel</button>
+            <button mat-button id="create-button" type="submit" [disabled]="form.invalid"
+                [mat-dialog-close]="true">Create</button>
+        </mat-dialog-actions>
+    </form>
+</div>

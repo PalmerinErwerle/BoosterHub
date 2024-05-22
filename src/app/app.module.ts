@@ -24,6 +24,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { MythicFormComponent } from './components/mythic-form/mythic-form.component';
 import { CompleteMythicFormComponent } from './components/complete-mythic-form/complete-mythic-form.component';
+import { RaidFormComponent } from './components/raid-form/raid-form.component';
 
 
 const firebaseConfig = {
@@ -47,7 +48,8 @@ const firebaseConfig = {
         SpinnerComponent,
         ToasterComponent,
         MythicFormComponent,
-        CompleteMythicFormComponent
+        CompleteMythicFormComponent,
+        RaidFormComponent
     ],
     providers: [
         SpinnerComponent,

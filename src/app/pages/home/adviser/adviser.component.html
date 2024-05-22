@@ -15,7 +15,7 @@
 
     <div *ngSwitchCase="'raid'">
         <div class="button-block">
-            <button mat-stroked-button class="head-button">New Raid</button>
+            <button mat-stroked-button class="head-button" (click)="newRaid()">New Raid</button>
         </div>
         <app-raid-list [raids]="raids"></app-raid-list>
     </div>
