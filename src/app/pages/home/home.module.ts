@@ -17,6 +17,7 @@ import { LoaderComponent } from 'src/app/components/loader/loader.component';
 import { MythicListComponent } from 'src/app/components/mythic-list/mythic-list.component';
 import { RaidListComponent } from 'src/app/components/raid-list/raid-list.component';
 import { LegacyListComponent } from 'src/app/components/legacy-list/legacy-list.component';
+import { LegacyComponent } from './legacy/legacy.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { LegacyListComponent } from 'src/app/components/legacy-list/legacy-list.
     ProfileComponent,
     MythicComponent,
     RaidComponent,
+    LegacyComponent,
     BoosterComponent,
     AdviserComponent,
     AdminComponent,
