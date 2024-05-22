@@ -22,7 +22,7 @@
 
     <div *ngSwitchCase="'legacy'">
         <div class="button-block">
-            <button mat-stroked-button class="head-button">New LR</button>
+            <button mat-stroked-button class="head-button" (click)="newLegacy()">New LR</button>
         </div>
         <app-legacy-list [legacies]="legacies"></app-legacy-list>
     </div>

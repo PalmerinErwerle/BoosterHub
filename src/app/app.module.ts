@@ -26,6 +26,7 @@ import { MythicFormComponent } from './components/mythic-form/mythic-form.compon
 import { CompleteMythicFormComponent } from './components/complete-mythic-form/complete-mythic-form.component';
 import { RaidFormComponent } from './components/raid-form/raid-form.component';
 import { CompleteRaidFormComponent } from './components/complete-raid-form/complete-raid-form.component';
+import { LegacyFormComponent } from './components/legacy-form/legacy-form.component';
 
 
 const firebaseConfig = {
@@ -51,7 +52,8 @@ const firebaseConfig = {
         MythicFormComponent,
         CompleteMythicFormComponent,
         RaidFormComponent,
-        CompleteRaidFormComponent
+        CompleteRaidFormComponent,
+        LegacyFormComponent
     ],
     providers: [
         SpinnerComponent,
