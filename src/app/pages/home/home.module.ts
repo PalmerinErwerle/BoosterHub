@@ -16,6 +16,7 @@ import { UserListComponent } from 'src/app/components/user-list/user-list.compon
 import { LoaderComponent } from 'src/app/components/loader/loader.component';
 import { MythicListComponent } from 'src/app/components/mythic-list/mythic-list.component';
 import { RaidListComponent } from 'src/app/components/raid-list/raid-list.component';
+import { LegacyListComponent } from 'src/app/components/legacy-list/legacy-list.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { RaidListComponent } from 'src/app/components/raid-list/raid-list.compon
     MenuButtonsComponent,
     UserListComponent,
     MythicListComponent,
-    RaidListComponent
+    RaidListComponent,
+    LegacyListComponent
   ],
   providers: [
       MenuButtonsComponent

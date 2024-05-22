@@ -1,0 +1,23 @@
+<div class="search-block">
+    <mat-form-field appearance="outline" class="searchbar">
+      <input matInput placeholder="Search by Legacy Raid ID" [(ngModel)]="filterLegaciesValue" (keyup)="filterLegacy()">
+    </mat-form-field>
+  </div>
+  
+  <div class="body-block">
+        <mat-card *ngFor="let legacy of filteredLegacies" class="card-block"  [routerLink]="'../legacy/' + legacy.id">
+        <mat-card-header>
+          
+          <mat-card-title>{{legacy.raid_name}}</mat-card-title>
+          <mat-card-subtitle>ID: {{legacy.id}}</mat-card-subtitle>
+  
+          <div [ngSwitch]="legacy.status" class="status-footer">
+            <div *ngSwitchCase="'created'" id="color-created">messi</div>
+            <div *ngSwitchCase="'completed'" id="color-completed">messi</div>
+            <div *ngSwitchCase="'depleted'" id="color-depleted">messi</div>
+            <div *ngSwitchCase="'issues'" id="color-issues">messi</div>
+          </div>
+  
+        </mat-card-header>
+      </mat-card>
+  </div>

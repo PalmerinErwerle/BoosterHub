@@ -10,7 +10,7 @@
 
     <app-raid-list *ngSwitchCase="'raid'" [raids]="raids"></app-raid-list>
 
-    <p *ngSwitchCase="'legacy'">test {{view}}</p>
+    <app-legacy-list *ngSwitchCase="'legacy'" [legacies]="legacies"></app-legacy-list>
 
     <p *ngSwitchCase="'leveling'">test {{view}}</p>
 
