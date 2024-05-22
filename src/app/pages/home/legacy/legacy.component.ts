@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { CompleteRaidFormComponent } from 'src/app/components/complete-raid-form/complete-raid-form.component';
+import { CompleteLegacyFormComponent } from 'src/app/components/complete-legacy-form/complete-legacy-form.component';
 import { Legacy } from 'src/app/models/legacy.model';
 import { User } from 'src/app/models/user.model';
 import { LegacyService } from 'src/app/services/legacy.service';
@@ -125,7 +125,7 @@ export class LegacyComponent {
   }
 
   completeLegacy(legacy: Legacy | null) {
-    this.modal.open(CompleteRaidFormComponent, {
+    this.modal.open(CompleteLegacyFormComponent, {
       data: {legacy: legacy}
     });
   }
