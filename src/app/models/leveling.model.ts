@@ -2,8 +2,7 @@ export interface Leveling {
     id: string,
 
     //Leveling specific data
-    start_level: number,
-    end_level: number,
+    level_range: string,
 
     //Related users data
     booster_id: string,
