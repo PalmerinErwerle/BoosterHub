@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Raid } from 'src/app/models/raid.model';
 
 @Component({
@@ -6,7 +6,7 @@ import { Raid } from 'src/app/models/raid.model';
   templateUrl: './raid-list.component.html',
   styleUrls: ['./raid-list.component.scss']
 })
-export class RaidListComponent {
+export class RaidListComponent implements OnInit {
 
   loader = false;
 

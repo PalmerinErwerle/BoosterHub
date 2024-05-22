@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Legacy } from 'src/app/models/legacy.model';
 
 @Component({
@@ -6,7 +6,7 @@ import { Legacy } from 'src/app/models/legacy.model';
   templateUrl: './legacy-list.component.html',
   styleUrls: ['./legacy-list.component.scss']
 })
-export class LegacyListComponent {
+export class LegacyListComponent implements OnInit {
 
   loader = false;
 
