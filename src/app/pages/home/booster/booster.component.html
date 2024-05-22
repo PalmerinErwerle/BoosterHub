@@ -14,6 +14,6 @@
 
     <app-leveling-list *ngSwitchCase="'leveling'" [levelings]="levelings"></app-leveling-list>
 
-    <p *ngSwitchCase="'strike'">test {{view}}</p>
+    <app-strike-list *ngSwitchCase="'strike'" [strikes]="strikes" [isAdmin]="false"></app-strike-list>
 
 </div>

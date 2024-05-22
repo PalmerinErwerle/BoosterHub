@@ -20,6 +20,7 @@ import { MythicListComponent } from 'src/app/components/mythic-list/mythic-list.
 import { RaidListComponent } from 'src/app/components/raid-list/raid-list.component';
 import { LegacyListComponent } from 'src/app/components/legacy-list/legacy-list.component';
 import { LevelingListComponent } from 'src/app/components/leveling-list/leveling-list.component';
+import { StrikeListComponent } from 'src/app/components/strike-list/strike-list.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { LevelingListComponent } from 'src/app/components/leveling-list/leveling
     MythicListComponent,
     RaidListComponent,
     LegacyListComponent,
-    LevelingListComponent
+    LevelingListComponent,
+    StrikeListComponent
   ],
   providers: [
       MenuButtonsComponent
