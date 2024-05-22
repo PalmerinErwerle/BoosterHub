@@ -25,7 +25,7 @@ export class RaidFormComponent implements OnInit {
   @ViewChild('inputDps5') inputDps5!: ElementRef<HTMLInputElement>;
   @ViewChild('inputDps6') inputDps6!: ElementRef<HTMLInputElement>;
 
-  raidLevels = ['Vault', 'Vault VIP', 'Aberrus', 'Aberrus VIP', 'Amirdrassil', 'Amirdrassil VIP'];
+  raidLevels = ['VOTI', 'VOTI VIP', 'ATSC', 'Aberrus VIP', 'ATDH', 'ATDH VIP'];
   filteredRaidLevels: string[] = [];
 
   users!: User[];
