@@ -29,9 +29,9 @@
 
     <div *ngSwitchCase="'leveling'">
         <div class="button-block">
-            <button mat-stroked-button class="head-button">New Lvl</button>
+            <button mat-stroked-button class="head-button" (click)="newLeveling()">New Lvl</button>
         </div>
-        <p>test {{view}}</p>
+        <app-leveling-list [levelings]="levelings"></app-leveling-list>
     </div>
 
 </div>

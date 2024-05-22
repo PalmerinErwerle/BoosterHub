@@ -10,6 +10,7 @@ import { AdminComponent } from './admin/admin.component';
 import { MythicComponent } from './mythic/mythic.component';
 import { RaidComponent } from './raid/raid.component';
 import { LegacyComponent } from './legacy/legacy.component';
+import { LevelingComponent } from './leveling/leveling.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,10 @@ const routes: Routes = [
       {
         path: 'legacy/:id',
         component:LegacyComponent
+      },
+      {
+        path: 'leveling/:id',
+        component:LevelingComponent
       },
       {
         path: 'booster-menu',

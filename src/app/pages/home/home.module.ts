@@ -7,6 +7,8 @@ import { HomeRoutingModule } from './home-routing.module';
 import { ProfileComponent } from './profile/profile.component';
 import { MythicComponent } from './mythic/mythic.component';
 import { RaidComponent } from './raid/raid.component';
+import { LegacyComponent } from './legacy/legacy.component';
+import { LevelingComponent } from './leveling/leveling.component';
 import { BoosterComponent } from './booster/booster.component';
 import { AdviserComponent } from './adviser/adviser.component';
 import { AdminComponent } from './admin/admin.component';
@@ -17,7 +19,7 @@ import { LoaderComponent } from 'src/app/components/loader/loader.component';
 import { MythicListComponent } from 'src/app/components/mythic-list/mythic-list.component';
 import { RaidListComponent } from 'src/app/components/raid-list/raid-list.component';
 import { LegacyListComponent } from 'src/app/components/legacy-list/legacy-list.component';
-import { LegacyComponent } from './legacy/legacy.component';
+import { LevelingListComponent } from 'src/app/components/leveling-list/leveling-list.component';
 
 
 @NgModule({
@@ -26,6 +28,7 @@ import { LegacyComponent } from './legacy/legacy.component';
     MythicComponent,
     RaidComponent,
     LegacyComponent,
+    LevelingComponent,
     BoosterComponent,
     AdviserComponent,
     AdminComponent,
@@ -34,7 +37,8 @@ import { LegacyComponent } from './legacy/legacy.component';
     UserListComponent,
     MythicListComponent,
     RaidListComponent,
-    LegacyListComponent
+    LegacyListComponent,
+    LevelingListComponent
   ],
   providers: [
       MenuButtonsComponent

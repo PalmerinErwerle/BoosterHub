@@ -28,6 +28,8 @@ import { RaidFormComponent } from './components/raid-form/raid-form.component';
 import { CompleteRaidFormComponent } from './components/complete-raid-form/complete-raid-form.component';
 import { LegacyFormComponent } from './components/legacy-form/legacy-form.component';
 import { CompleteLegacyFormComponent } from './components/complete-legacy-form/complete-legacy-form.component';
+import { LevelingFormComponent } from './components/leveling-form/leveling-form.component';
+import { CompleteLevelingFormComponent } from './components/complete-leveling-form/complete-leveling-form.component';
 
 
 const firebaseConfig = {
@@ -55,7 +57,9 @@ const firebaseConfig = {
         RaidFormComponent,
         CompleteRaidFormComponent,
         LegacyFormComponent,
-        CompleteLegacyFormComponent
+        CompleteLegacyFormComponent,
+        LevelingFormComponent,
+        CompleteLevelingFormComponent
     ],
     providers: [
         SpinnerComponent,

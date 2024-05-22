@@ -1,0 +1,86 @@
+<app-loader *ngIf="!loader"></app-loader>
+
+<div class="main-block" *ngIf="loader">
+
+    <div class="head-block">
+        <p id="service-name">{{leveling?.level_range}}</p>
+    </div>
+
+    <div class="button-block" *ngIf="this.leveling?.status == 'created' && this.leveling?.adviser_id == this.utilsService.getUserUid()">
+        <button mat-stroked-button class="update-button" (click)="completeLeveling(leveling)">
+            <mat-icon>add_task</mat-icon> Complete Lvl
+        </button>
+    </div>
+
+    <div class="body-block">
+
+            <mat-card class="left-card">
+                <mat-card-content id="content-separator">
+                    <mat-card-title class="group-head">Adviser:</mat-card-title>
+                    <div class="member-block" [routerLink]="'../../profile/' + adviser?.uid">
+                        <mat-icon class="adviser-icon">assignment_ind</mat-icon>
+                        <mat-card-title class="character-name">{{adviser?.character_name}}-{{adviser?.character_realm}}</mat-card-title>
+                    </div>
+                </mat-card-content>
+
+                <mat-card-content id="content-separator">
+                    <mat-card-title class="group-head">Booster:</mat-card-title>
+                    <div class="member-block" [routerLink]="'../../profile/' + booster?.uid">
+                        <mat-icon class="adviser-icon">work</mat-icon>
+                        <mat-card-title class="character-name">{{booster?.character_name}}-{{booster?.character_realm}}</mat-card-title>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+            
+            <mat-card class="right-card">
+
+                <mat-card-content id="content-separator">
+                    <div class="space-block">
+                        <mat-card-title class="group-head">Status:</mat-card-title>
+                        <mat-card-title class="group-head" id="created" *ngIf="leveling?.status == 'created'">On due</mat-card-title>
+                        <mat-card-title class="group-head" id="completed" *ngIf="leveling?.status == 'completed'">Completed</mat-card-title>
+                        <mat-card-title class="group-head" id="depleted" *ngIf="leveling?.status == 'depleted'">Depleted</mat-card-title>
+                        <mat-card-title class="group-head" id="issues" *ngIf="leveling?.status == 'issues'">With issues</mat-card-title>
+                    </div>
+                </mat-card-content>
+
+                <mat-card-content id="content-separator">
+                    <div class="space-block">
+                        <mat-card-title class="group-head">Price:</mat-card-title>
+                        <mat-card-title class="group-head" id="price-qty">{{leveling?.price}}g</mat-card-title>
+                    </div>
+                    <div class="space-block">
+                        <mat-card-subtitle class="group-subhead">
+                            <mat-icon class="price-icon">chevron_right</mat-icon>Booster cut:
+                        </mat-card-subtitle>
+                        <mat-card-title class="group-subhead" id="price-qty">{{booster_cut}}g</mat-card-title>
+                    </div>
+                    <div class="space-block">
+                        <mat-card-subtitle class="group-subhead">
+                            <mat-icon class="price-icon">chevron_right</mat-icon>Adviser cut:
+                        </mat-card-subtitle>
+                        <mat-card-title class="group-subhead" id="price-qty">{{adviser_cut}}g</mat-card-title>
+                    </div>
+                </mat-card-content>
+                
+                <mat-card-content id="content-separator">
+                    <mat-card-title class="group-head">Description:</mat-card-title>
+                    <div class="text-block">
+                        <p>{{leveling?.description}}</p>
+                    </div>
+                </mat-card-content>
+                
+                <mat-card-content id="content-separator" *ngIf="leveling?.feedback != null">
+                    <mat-card-title class="group-head">Adviser Feedback:</mat-card-title>
+                    <div class="text-block">
+                        <p>{{leveling?.feedback}}</p>
+                    </div>
+                </mat-card-content>
+
+            </mat-card>
+
+        </div>
+
+
+</div>

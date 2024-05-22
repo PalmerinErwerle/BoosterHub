@@ -1,0 +1,44 @@
+<div class="modal-block">
+    <h1 mat-dialog-title>New Leveling</h1>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <mat-dialog-content class="form-block">
+
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>Level Range</mat-label>
+                <input #inputLevelRange type="text" matInput [formControl]="form.controls.level_range" [matAutocomplete]="autoLevelRange" 
+                    (input)="filterLevelRange()" (focus)="filterLevelRange()">
+                <mat-autocomplete requireSelection #autoLevelRange="matAutocomplete">
+                    <mat-option *ngFor="let levelRange of filteredLevelRanges" [value]="levelRange">{{levelRange}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>Booster</mat-label>
+                <input #inputBooster type="text" matInput [formControl]="form.controls.booster_id" [matAutocomplete]="autoBooster"
+                    (input)="filterBooster()" (focus)="filterBooster()">
+                <mat-autocomplete requireSelection #autoBooster="matAutocomplete">
+                    <mat-option *ngFor="let booster of filteredCharacters" [value]="booster">{{booster}}</mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>Description</mat-label>
+                <textarea matInput required [formControl]="form.controls.description"></textarea>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>Run price</mat-label>
+                <input matInput type="number" required [formControl]="form.controls.price">
+                <span matTextSuffix>gold</span>
+            </mat-form-field>
+
+        </mat-dialog-content>
+
+        <mat-dialog-actions align="end">
+            <button mat-button id="cancel-button" mat-dialog-close>Cancel</button>
+            <button mat-button id="create-button" type="submit" [disabled]="form.invalid"
+                [mat-dialog-close]="true">Create</button>
+        </mat-dialog-actions>
+    </form>
+</div>

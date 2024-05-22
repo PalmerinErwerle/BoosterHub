@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MythicFormComponent } from 'src/app/components/mythic-form/mythic-form.component';
 import { RaidFormComponent } from 'src/app/components/raid-form/raid-form.component';
 import { LegacyFormComponent } from 'src/app/components/legacy-form/legacy-form.component';
+import { LevelingFormComponent } from 'src/app/components/leveling-form/leveling-form.component';
 import { Legacy } from 'src/app/models/legacy.model';
 import { Leveling } from 'src/app/models/leveling.model';
 import { Mythic } from 'src/app/models/mythic.model';
@@ -95,7 +96,7 @@ export class AdviserComponent implements OnInit {
   }
 
   newLeveling() {
-    
+    this.modal.open(LevelingFormComponent);
   }
 
 }

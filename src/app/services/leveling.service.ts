@@ -18,7 +18,7 @@ export class LevelingService {
   firebaseService = inject(FirestoreBaasService);
   angularFire = inject(AngularFirestore);
 
-  levelingsCollection: AngularFirestoreCollection<Leveling> = this.angularFire.collection<Leveling>('leveling');
+  levelingsCollection: AngularFirestoreCollection<Leveling> = this.angularFire.collection<Leveling>('levelings');
 
   createLeveling(form: FormGroup) {
       let path = "levelings";
