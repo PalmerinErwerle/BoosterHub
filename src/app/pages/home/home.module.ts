@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material.module';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { ProfileComponent } from './profile/profile.component';
 import { MythicComponent } from './mythic/mythic.component';
+import { RaidComponent } from './raid/raid.component';
 import { BoosterComponent } from './booster/booster.component';
 import { AdviserComponent } from './adviser/adviser.component';
 import { AdminComponent } from './admin/admin.component';
@@ -13,7 +15,6 @@ import { MenuButtonsComponent } from 'src/app/components/menu-buttons/menu-butto
 import { UserListComponent } from 'src/app/components/user-list/user-list.component';
 import { LoaderComponent } from 'src/app/components/loader/loader.component';
 import { MythicListComponent } from 'src/app/components/mythic-list/mythic-list.component';
-import { FormsModule } from '@angular/forms';
 import { RaidListComponent } from 'src/app/components/raid-list/raid-list.component';
 
 
@@ -21,6 +22,7 @@ import { RaidListComponent } from 'src/app/components/raid-list/raid-list.compon
   declarations: [
     ProfileComponent,
     MythicComponent,
+    RaidComponent,
     BoosterComponent,
     AdviserComponent,
     AdminComponent,

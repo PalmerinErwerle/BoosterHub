@@ -8,6 +8,7 @@ import { BoosterComponent } from './booster/booster.component';
 import { AdviserComponent } from './adviser/adviser.component';
 import { AdminComponent } from './admin/admin.component';
 import { MythicComponent } from './mythic/mythic.component';
+import { RaidComponent } from './raid/raid.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
       {
         path: 'mythic/:id',
         component:MythicComponent
+      },
+      {
+        path: 'raid/:id',
+        component:RaidComponent
       },
       {
         path: 'booster-menu',
