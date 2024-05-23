@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^17.3.6",
     "@angular/platform-browser-dynamic": "^17.3.6",
     "@angular/router": "^17.3.6",
+    "apexcharts": "^3.49.1",
     "firebase": "^10.10.0",
     "ngx-sonner": "^1.0.0",
     "ngx-spinner": "^16.0.2",
