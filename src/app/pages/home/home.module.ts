@@ -14,6 +14,7 @@ import { AdviserComponent } from './adviser/adviser.component';
 import { AdminComponent } from './admin/admin.component';
 
 import { MenuButtonsComponent } from 'src/app/components/menu-buttons/menu-buttons.component';
+import { GeneralChartsComponent } from 'src/app/components/general-charts/general-charts.component';
 import { UserListComponent } from 'src/app/components/user-list/user-list.component';
 import { LoaderComponent } from 'src/app/components/loader/loader.component';
 import { MythicListComponent } from 'src/app/components/mythic-list/mythic-list.component';
@@ -37,6 +38,7 @@ import { StrikeComponent } from './strike/strike.component';
     AdminComponent,
     LoaderComponent,
     MenuButtonsComponent,
+    GeneralChartsComponent,
     UserListComponent,
     MythicListComponent,
     RaidListComponent,

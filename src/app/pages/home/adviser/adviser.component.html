@@ -4,7 +4,9 @@
 
 <div [ngSwitch]="view" *ngIf="loader">
     
-    <p *ngSwitchCase="'general'">test {{view}}</p>
+    <app-general-charts *ngSwitchCase="'general'"
+        [mythics]="mythics" [raids]="raids" [legacies]="legacies" [levelings]="levelings">
+    </app-general-charts>
 
     <div *ngSwitchCase="'mythic'">
         <div class="button-block">
