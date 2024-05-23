@@ -24,3 +24,10 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+
+@media (max-width: 862px) {
+    .other-charts {
+        flex-direction: column;
+        align-items: center;
+    }
+}
