@@ -23,6 +23,8 @@ import { LegacyListComponent } from 'src/app/components/legacy-list/legacy-list.
 import { LevelingListComponent } from 'src/app/components/leveling-list/leveling-list.component';
 import { StrikeListComponent } from 'src/app/components/strike-list/strike-list.component';
 import { StrikeComponent } from './strike/strike.component';
+import { BoosterMainChartComponent } from 'src/app/components/charts/booster-main-chart/booster-main-chart.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 
 @NgModule({
@@ -44,7 +46,8 @@ import { StrikeComponent } from './strike/strike.component';
     RaidListComponent,
     LegacyListComponent,
     LevelingListComponent,
-    StrikeListComponent
+    StrikeListComponent,
+    BoosterMainChartComponent
   ],
   providers: [
       MenuButtonsComponent
@@ -53,7 +56,8 @@ import { StrikeComponent } from './strike/strike.component';
     CommonModule,
     HomeRoutingModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    NgApexchartsModule
   ]
 })
 export class HomeModule { }

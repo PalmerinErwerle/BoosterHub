@@ -1,12 +1,15 @@
 <div class="body-block">
     <mat-card class="main-card">
         <mat-card-content>
-            <p>general-charts works! ({{view}})</p>
-            <p>M+: {{mythicEarnings}}g</p>
-            <p>Raid: {{raidEarnings}}g</p>
-            <p>Legacy: {{legacyEarnings}}g</p>
-            <p>Leveling: {{levelingEarnings}}g</p>
-            <p *ngIf="view == 'booster'">Strike: -{{strikeTotalPenalty}}g</p>
+            <app-booster-main-chart *ngIf="view == 'booster'" [mythicEarnings]="mythicEarnings" [raidEarnings]="raidEarnings"
+                [legacyEarnings]="legacyEarnings" [levelingEarnings]="levelingEarnings" [strikeTotalPenalty]="strikeTotalPenalty">
+            </app-booster-main-chart>
+        </mat-card-content>
+
+        <mat-card-content>
+            <app-booster-main-chart *ngIf="view == 'adviser'" [mythicEarnings]="mythicEarnings" [raidEarnings]="raidEarnings"
+                [legacyEarnings]="legacyEarnings" [levelingEarnings]="levelingEarnings">
+            </app-booster-main-chart>
         </mat-card-content>
     </mat-card>
 
