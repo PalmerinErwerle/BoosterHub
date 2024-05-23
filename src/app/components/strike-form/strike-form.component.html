@@ -1,0 +1,26 @@
+<div class="modal-block">
+    <h1 mat-dialog-title>New Strike</h1>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <mat-dialog-content class="form-block">
+
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>Description</mat-label>
+                <textarea matInput required [formControl]="form.controls.description"></textarea>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="input-block">
+                <mat-label>Penalty</mat-label>
+                <input matInput type="number" required [formControl]="form.controls.penalty">
+                <span matTextSuffix>gold</span>
+            </mat-form-field>
+
+        </mat-dialog-content>
+
+        <mat-dialog-actions align="end">
+            <button mat-button id="cancel-button" mat-dialog-close>Cancel</button>
+            <button mat-button id="create-button" type="submit" [disabled]="form.invalid"
+                [mat-dialog-close]="true">Create</button>
+        </mat-dialog-actions>
+    </form>
+</div>

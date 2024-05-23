@@ -30,6 +30,7 @@ import { LegacyFormComponent } from './components/legacy-form/legacy-form.compon
 import { CompleteLegacyFormComponent } from './components/complete-legacy-form/complete-legacy-form.component';
 import { LevelingFormComponent } from './components/leveling-form/leveling-form.component';
 import { CompleteLevelingFormComponent } from './components/complete-leveling-form/complete-leveling-form.component';
+import { StrikeFormComponent } from './components/strike-form/strike-form.component';
 
 
 const firebaseConfig = {
@@ -59,7 +60,8 @@ const firebaseConfig = {
         LegacyFormComponent,
         CompleteLegacyFormComponent,
         LevelingFormComponent,
-        CompleteLevelingFormComponent
+        CompleteLevelingFormComponent,
+        StrikeFormComponent
     ],
     providers: [
         SpinnerComponent,

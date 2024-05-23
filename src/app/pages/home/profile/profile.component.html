@@ -13,8 +13,12 @@
         </div>
     </div>
 
-    <div class="button-block" *ngIf="this.uid == this.utilsService.getUserUid()">
-        <button mat-stroked-button class="update-button" (click)="updateUser(character?.character_name, character?.character_realm)">
+    <div class="button-block">
+        <button mat-stroked-button class="strike-button" (click)="newStrike()">
+            <mat-icon>sentiment_very_dissatisfied</mat-icon> Strike user
+        </button>
+
+        <button mat-stroked-button *ngIf="this.uid == this.utilsService.getUserUid()" class="update-button" (click)="updateUser(character?.character_name, character?.character_realm)">
             <mat-icon>autorenew</mat-icon> Update profile
         </button>
     </div>

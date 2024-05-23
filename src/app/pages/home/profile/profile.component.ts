@@ -11,6 +11,8 @@ import { RaiderIoService } from 'src/app/services/raider-io.service';
 import { UserService } from 'src/app/services/user.service';
 import { UtilsService } from 'src/app/services/utils.service';
 import { HomeComponent } from '../home.component';
+import { MatDialog } from '@angular/material/dialog';
+import { StrikeFormComponent } from 'src/app/components/strike-form/strike-form.component';
 
 @Component({
   selector: 'app-profile',
@@ -27,6 +29,7 @@ export class ProfileComponent implements OnInit {
   cards: any[] = [];
 
   home = inject(HomeComponent);
+  modal = inject(MatDialog);
   route = inject(ActivatedRoute);
   spinner = inject(SpinnerComponent);
   toaster = inject(ToasterComponent);
@@ -135,6 +138,12 @@ export class ProfileComponent implements OnInit {
         })
       });
 
+  }
+
+  newStrike() {
+    this.modal.open(StrikeFormComponent, {
+      data: {striked_id: this.uid}
+    });
   }
 
 }
