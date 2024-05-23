@@ -82,7 +82,7 @@ export class BoosterMainChartComponent implements OnInit {
         categories: [
           ["Mythic+"],
           ["Raids"],
-          ["Legacy", "Raids"],
+          ["Legacy Raids"],
           ["Leveling"],
           ["Strikes"]
         ],

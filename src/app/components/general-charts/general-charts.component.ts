@@ -19,6 +19,8 @@ export class GeneralChartsComponent implements OnInit {
   @Input() levelings!: Leveling[];
   @Input() strikes!: Strike[];
 
+  totalEarnings!: number;
+
   mythicEarnings = 0;
   raidEarnings = 0;
   legacyEarnings = 0;
@@ -52,6 +54,7 @@ export class GeneralChartsComponent implements OnInit {
           this.strikeTotalPenalty = this.strikeTotalPenalty + (strike.penalty);
         }
       });
+      this.totalEarnings = this.mythicEarnings + this.raidEarnings + this.legacyEarnings + this.levelingEarnings - this.strikeTotalPenalty;
 
     } else {
       this.mythics.forEach(mythic => {
@@ -74,7 +77,7 @@ export class GeneralChartsComponent implements OnInit {
           this.levelingEarnings = this.levelingEarnings + (leveling.price / 4);
         }
       });
-
+      this.totalEarnings = this.mythicEarnings + this.raidEarnings + this.legacyEarnings + this.levelingEarnings;
     }
   }
 

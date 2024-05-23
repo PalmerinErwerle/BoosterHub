@@ -80,7 +80,7 @@ export class AdviserMainChartComponent implements OnInit {
         categories: [
           ["Mythic+"],
           ["Raids"],
-          ["Legacy", "Raids"],
+          ["Legacy Raids"],
           ["Leveling"]
         ],
         labels: {
