@@ -12,6 +12,7 @@ import { Strike } from 'src/app/models/strike.model';
 })
 export class GeneralChartsComponent {
 
+  @Input() view!: string;
   @Input() mythics!: Mythic[];
   @Input() raids!: Raid[];
   @Input() legacies!: Legacy[];
