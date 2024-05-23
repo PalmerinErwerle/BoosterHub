@@ -9,12 +9,12 @@ En algún momento haré este readme en condiciones xd.
 
 ### Por hacer 🚧
 
- - Lógica general de status (User).
- - Guards de control de status (User).
+ - Nada mas por hacer!!
 
 ### En proceso 🏗️
 
- - Implementación gráficas ApexCharts.
+ - Lógica general de status (User).
+ - Guards de control de status (User).
 
 ### Ya terminado ✅
 
@@ -34,12 +34,11 @@ En algún momento haré este readme en condiciones xd.
  - Vista y lógica de Raid 100% funcional
  - Vista y lógica de Legacy 100% funcional
 
- - Vista y lógica de Booster Menu 75% funcional (a de falta GeneralCharts)
- - Vista y lógica de Adviser Menu 80% funcional (a de falta GeneralCharts)
+ - Vista y lógica de Booster Menu 100% funcional
+ - Vista y lógica de Adviser Menu 100% funcional
  - Vista y lógica de Admin Menu 100% funcional
 
- - Vista y lógica de componente GeneralCharts (a falta de implementar ApexCharts)
-
+ - Funcionalidad de GeneralCharts al 100%
  - Funcionalidad de User al 100%
  - Funcionalidad de Mythic al 100%
  - Funcionalidad de Raid al 100%
