@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxSonnerToaster } from 'ngx-sonner';
-import * as ApexCharts from 'apexcharts';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 import { SpinnerComponent } from "./components/spinner/spinner.component";
 import { ToasterComponent } from './components/toaster/toaster.component';
@@ -76,7 +76,7 @@ const firebaseConfig = {
         MaterialModule,
         NgxSpinnerModule,
         NgxSonnerToaster,
-        ApexCharts,
+        NgApexchartsModule,
         FormsModule,
         ReactiveFormsModule,
         AngularFireModule.initializeApp(firebaseConfig),
