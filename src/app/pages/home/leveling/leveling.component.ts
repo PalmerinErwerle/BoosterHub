@@ -33,7 +33,7 @@ export class LevelingComponent implements OnInit {
   levelingService = inject(LevelingService);
 
   async ngOnInit(): Promise<void> {
-    this.home.title = "Mythic+";
+    this.home.title = "Leveling";
 
     this.id = this.route.snapshot.params['id'];
     this.leveling = await this.levelingService.getLevelingById(this.id);

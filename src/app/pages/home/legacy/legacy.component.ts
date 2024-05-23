@@ -42,7 +42,7 @@ export class LegacyComponent implements OnInit {
   legacyService = inject(LegacyService);
 
   async ngOnInit(): Promise<void> {
-    this.home.title = "Raid";
+    this.home.title = "Legacy Raid";
 
     this.id = this.route.snapshot.params['id'];
     this.legacy = await this.legacyService.getRaidById(this.id);
