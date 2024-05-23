@@ -14,7 +14,7 @@
     </div>
 
     <div class="button-block">
-        <button mat-stroked-button class="strike-button" (click)="newStrike()">
+        <button mat-stroked-button *ngIf="this.uid != this.utilsService.getUserUid()" class="strike-button" (click)="newStrike()">
             <mat-icon>sentiment_very_dissatisfied</mat-icon> Strike user
         </button>
 
