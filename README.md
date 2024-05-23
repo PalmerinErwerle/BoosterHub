@@ -14,8 +14,7 @@ En algún momento haré este readme en condiciones xd.
 
 ### En proceso 🏗️
 
- - Vista y lógica de componente General (gráficas).
- - Implementación gráficas ApexChartJS.
+ - Implementación gráficas ApexCharts.
 
 ### Ya terminado ✅
 
@@ -35,9 +34,11 @@ En algún momento haré este readme en condiciones xd.
  - Vista y lógica de Raid 100% funcional
  - Vista y lógica de Legacy 100% funcional
 
- - Vista y lógica de Booster Menu 100% funcional
- - Vista y lógica de Adviser Menu 100% funcional
+ - Vista y lógica de Booster Menu 75% funcional (a de falta GeneralCharts)
+ - Vista y lógica de Adviser Menu 80% funcional (a de falta GeneralCharts)
  - Vista y lógica de Admin Menu 100% funcional
+
+ - Vista y lógica de componente GeneralCharts (a falta de implementar ApexCharts)
 
  - Funcionalidad de User al 100%
  - Funcionalidad de Mythic al 100%
