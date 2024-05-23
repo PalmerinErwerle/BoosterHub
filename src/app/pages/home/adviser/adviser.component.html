@@ -4,7 +4,7 @@
 
 <div [ngSwitch]="view" *ngIf="loader">
     
-    <app-general-charts *ngSwitchCase="'general'" [view]="adviser"
+    <app-general-charts *ngSwitchCase="'general'" [view]="'adviser'"
         [mythics]="mythics" [raids]="raids" [legacies]="legacies" [levelings]="levelings">
     </app-general-charts>
 
