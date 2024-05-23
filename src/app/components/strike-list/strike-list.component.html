@@ -1,21 +1,21 @@
 <div class="search-block" *ngIf="isAdmin">
-    <mat-form-field appearance="outline" class="searchbar">
-      <input matInput placeholder="Search by Leveling ID" [(ngModel)]="filterLevelingsValue" (keyup)="filterLeveling()">
-    </mat-form-field>
-  </div>
+  <mat-form-field appearance="outline" class="searchbar">
+    <input matInput placeholder="Search by Leveling ID" [(ngModel)]="filterStrikesValue" (keyup)="filterStrike()">
+  </mat-form-field>
+</div>
   
-  <div class="body-block">
-        <mat-card *ngFor="let strike of filteredStrikes" class="card-block"  [routerLink]="'../strike/' + strike.id">
-        <mat-card-header>
+<div class="body-block">
+  <mat-card *ngFor="let strike of filteredStrikes" class="card-block"  [routerLink]="'../strike/' + strike.id">
+    <mat-card-header>
           
-          <mat-card-title>{{strike.id}}</mat-card-title>
-          <mat-card-subtitle>{{this.userService.getUserByUid(strike.striked_id)}}</mat-card-subtitle>
+      <mat-card-title>ID: {{strike.id}}</mat-card-title>
+      <mat-card-subtitle>Penalty: <span id="color-penalty">{{strike.penalty}}g</span></mat-card-subtitle>
   
-          <div [ngSwitch]="strike.status" class="status-footer">
-            <div *ngSwitchCase="'unpaid'" id="color-unpaid">messi</div>
-            <div *ngSwitchCase="'paid'" id="color-paid">messi</div>
-          </div>
+      <div [ngSwitch]="strike.status" class="status-footer">
+        <div *ngSwitchCase="'unpaid'" id="color-unpaid">messi</div>
+        <div *ngSwitchCase="'paid'" id="color-paid">messi</div>
+      </div>
   
-        </mat-card-header>
-      </mat-card>
-  </div>
+    </mat-card-header>
+  </mat-card>
+</div>

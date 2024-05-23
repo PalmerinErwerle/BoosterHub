@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { Strike } from 'src/app/models/strike.model';
+import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class StrikeListComponent implements OnInit {
 
   @Input() isAdmin!: boolean;
   @Input() strikes!: Strike[];
-  @Input() filterLevelingsValue!: string;
+  @Input() filterStrikesValue!: string;
 
   filteredStrikes!: Strike[];
   
@@ -21,16 +22,21 @@ export class StrikeListComponent implements OnInit {
     this.filteredStrikes = this.strikes;
   }
 
-  filterLeveling() {
-    this.filteredStrikes = this.strikes.filter(strike => {
-      for (const property in strike) {
-        const strikedName = this.userService.getUserByUid(strike.striked_id) as unknown as string;
-        if (typeof strikedName === 'string' && strikedName.toLowerCase().includes(this.filterLevelingsValue.toLowerCase())) {
-          return true;
-        }
-      }
-      return false;
+  filterStrike() {
+    const promises = this.strikes.map(async (strike) => {
+      return {
+        strike,
+        includesFilter: (await this.getStrikedName(strike.striked_id)).toLowerCase().includes(this.filterStrikesValue.toLowerCase())
+      };
     });
+    Promise.all(promises).then(results => {
+        this.filteredStrikes = results.filter(result => result.includesFilter).map(result => result.strike);
+    });
+  }
+
+  async getStrikedName(striked_id: string) {
+    const strikedUser = await this.userService.getUserByUid(striked_id) as unknown as User;
+    return strikedUser.character_name;
   }
 
 }
