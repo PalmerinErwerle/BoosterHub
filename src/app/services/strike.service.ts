@@ -51,6 +51,22 @@ export class StrikeService {
       });
   }
 
+  updateStrikeStatus(strike: Strike, id: string, newStatus: string) {
+      let path = "strikes/" + id;
+      this.spinner.showSpinner();
+
+      strike.status = newStatus;
+
+      this.firebaseService.updateDocument(path, strike).then(async () => {
+          this.toaster.successToast("Strike checked as paid succesfully");
+          this.utilsService.reload("/home/strike/" + id, 2000);
+      }).catch(er => {
+          this.toaster.errorToast('Unexpected error while updating the strike, please try again');
+      }).finally(() => {
+          this.spinner.hideSpinner(2000);
+      });
+  }
+
   getStrikes(): Promise<Strike[]> {
     const query = this.strikesCollection.ref;
 

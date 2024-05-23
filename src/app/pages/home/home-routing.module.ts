@@ -11,6 +11,7 @@ import { MythicComponent } from './mythic/mythic.component';
 import { RaidComponent } from './raid/raid.component';
 import { LegacyComponent } from './legacy/legacy.component';
 import { LevelingComponent } from './leveling/leveling.component';
+import { StrikeComponent } from './strike/strike.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,10 @@ const routes: Routes = [
       {
         path: 'leveling/:id',
         component:LevelingComponent
+      },
+      {
+        path: 'strike/:id',
+        component:StrikeComponent
       },
       {
         path: 'booster-menu',

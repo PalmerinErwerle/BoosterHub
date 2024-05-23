@@ -21,6 +21,7 @@ import { RaidListComponent } from 'src/app/components/raid-list/raid-list.compon
 import { LegacyListComponent } from 'src/app/components/legacy-list/legacy-list.component';
 import { LevelingListComponent } from 'src/app/components/leveling-list/leveling-list.component';
 import { StrikeListComponent } from 'src/app/components/strike-list/strike-list.component';
+import { StrikeComponent } from './strike/strike.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { StrikeListComponent } from 'src/app/components/strike-list/strike-list.
     RaidComponent,
     LegacyComponent,
     LevelingComponent,
+    StrikeComponent,
     BoosterComponent,
     AdviserComponent,
     AdminComponent,

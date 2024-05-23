@@ -1,0 +1,65 @@
+<app-loader *ngIf="!loader"></app-loader>
+
+<div class="main-block" *ngIf="loader">
+
+    <div class="head-block">
+        <p id="service-name">Strike</p>
+    </div>
+
+    <div class="button-block" *ngIf="this.strike?.status == 'unpaid' && this.strike?.admin_id == this.utilsService.getUserUid()">
+        <button mat-stroked-button class="update-button" (click)="checkAsPaid()">
+            <mat-icon>payments</mat-icon> Check as paid
+        </button>
+    </div>
+
+    <div class="body-block">
+
+            <mat-card class="left-card">
+                <mat-card-content id="content-separator">
+                    <mat-card-title class="group-head">Admin:</mat-card-title>
+                    <div class="member-block" [routerLink]="'../../profile/' + admin?.uid">
+                        <mat-icon class="adviser-icon">security</mat-icon>
+                        <mat-card-title class="character-name">{{admin?.character_name}}-{{admin?.character_realm}}</mat-card-title>
+                    </div>
+                </mat-card-content>
+
+                <mat-card-content id="content-separator">
+                    <mat-card-title class="group-head">Striked User:</mat-card-title>
+                    <div class="member-block" [routerLink]="'../../profile/' + striked?.uid">
+                        <mat-icon class="adviser-icon">personal_injury</mat-icon>
+                        <mat-card-title class="character-name">{{striked?.character_name}}-{{striked?.character_realm}}</mat-card-title>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+            
+            <mat-card class="right-card">
+
+                <mat-card-content id="content-separator">
+                    <div class="space-block">
+                        <mat-card-title class="group-head">Status:</mat-card-title>
+                        <mat-card-title class="group-head" id="paid" *ngIf="strike?.status == 'paid'">Paid</mat-card-title>
+                        <mat-card-title class="group-head" id="unpaid" *ngIf="strike?.status == 'unpaid'">Unpaid</mat-card-title>
+                    </div>
+                </mat-card-content>
+
+                <mat-card-content id="content-separator">
+                    <div class="space-block">
+                        <mat-card-title class="group-head">Penalty:</mat-card-title>
+                        <mat-card-title class="group-head" id="price-qty">{{strike?.penalty}}g</mat-card-title>
+                    </div>
+                </mat-card-content>
+                
+                <mat-card-content id="content-separator">
+                    <mat-card-title class="group-head">Description:</mat-card-title>
+                    <div class="text-block">
+                        <p>{{strike?.description}}</p>
+                    </div>
+                </mat-card-content>
+
+            </mat-card>
+
+        </div>
+
+
+</div>
