@@ -60,9 +60,26 @@
     background-color: transparent;
     flex: 1;
     height: fit-content;
-    padding: 1%;
     margin-bottom: 2%;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.percent-head {
+    width: 100%;
+    padding: 1%;
+    padding-bottom: 10px;
+    border-bottom: #21264D dashed 2px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #21264D;
+    text-align: center;
 }
 
 @media (max-width: 873px) {

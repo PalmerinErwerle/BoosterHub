@@ -2,7 +2,7 @@
     <mat-card class="main-card">
         <mat-card-content>
             <div class="space-block">
-                <mat-card-title class="total-head">Earnings:</mat-card-title>
+                <mat-card-title class="total-head">Total earnings:</mat-card-title>
                 <mat-card-title class="total-head" *ngIf="totalEarnings == 0">{{totalEarnings}}g</mat-card-title>
                 <mat-card-title class="total-head" *ngIf="totalEarnings > 0" id="earnings-qty">{{totalEarnings}}g</mat-card-title>
                 <mat-card-title class="total-head" *ngIf="totalEarnings < 0" id="penalty-qty">{{totalEarnings}}g</mat-card-title>
@@ -11,25 +11,29 @@
             <app-booster-main-chart *ngIf="view == 'booster'" [mythicEarnings]="mythicEarnings" [raidEarnings]="raidEarnings"
                 [legacyEarnings]="legacyEarnings" [levelingEarnings]="levelingEarnings" [strikeTotalPenalty]="strikeTotalPenalty">
             </app-booster-main-chart>
-        </mat-card-content>
-
-        <mat-card-content>
-            <app-booster-main-chart *ngIf="view == 'adviser'" [mythicEarnings]="mythicEarnings" [raidEarnings]="raidEarnings"
+            
+            <app-adviser-main-chart *ngIf="view == 'adviser'" [mythicEarnings]="mythicEarnings" [raidEarnings]="raidEarnings"
                 [legacyEarnings]="legacyEarnings" [levelingEarnings]="levelingEarnings">
-            </app-booster-main-chart>
+            </app-adviser-main-chart>
         </mat-card-content>
     </mat-card>
 
     <div class="other-charts">
         <mat-card class="sub-card">
-            <mat-card-content>
-                <p>prueba</p>
+            <mat-card-content class="card-content">
+                <mat-card-title class="percent-head">Earning %</mat-card-title>
+                <app-percent-chart [mythicEarnings]="mythicEarnings" [raidEarnings]="raidEarnings"
+                    [legacyEarnings]="legacyEarnings" [levelingEarnings]="levelingEarnings">
+                </app-percent-chart>
             </mat-card-content>
         </mat-card>
 
         <mat-card class="sub-card">
-            <mat-card-content>
-                <p>prueba</p>
+            <mat-card-content class="card-content">
+                <mat-card-title class="percent-head">Services done</mat-card-title>
+                <app-run-num-chart [mythicNum]="mythicNum" [raidNum]="raidNum"
+                    [legacyNum]="legacyNum" [levelingNum]="levelingNum">
+                </app-run-num-chart>
             </mat-card-content>
         </mat-card>
     </div>
