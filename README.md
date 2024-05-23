@@ -12,13 +12,10 @@ En algún momento haré este readme en condiciones xd.
  - Lógica general de status (User).
  - Guards de control de status (User).
 
- - Vista y lógica de componente General (gráficas).
- - Implementación gráficas ApexChartJS.
-
 ### En proceso 🏗️
 
- - Funcionalidad de Levelings
- - Funcionalidad de Strikes
+ - Vista y lógica de componente General (gráficas).
+ - Implementación gráficas ApexChartJS.
 
 ### Ya terminado ✅
 
@@ -42,7 +39,9 @@ En algún momento haré este readme en condiciones xd.
  - Vista y lógica de Adviser Menu 100% funcional
  - Vista y lógica de Admin Menu 100% funcional
 
- - Funcionalidad de Users al 100%
- - Funcionalidad de Mythics al 100%
- - Funcionalidad de Raids al 100%
- - Funcionalidad de Legacies al 100%
+ - Funcionalidad de User al 100%
+ - Funcionalidad de Mythic al 100%
+ - Funcionalidad de Raid al 100%
+ - Funcionalidad de Legaciy al 100%
+ - Funcionalidad de Leveling al 100%
+ - Funcionalidad de Strike al 100%
