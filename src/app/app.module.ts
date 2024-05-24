@@ -31,6 +31,7 @@ import { CompleteLegacyFormComponent } from './components/complete-legacy-form/c
 import { LevelingFormComponent } from './components/leveling-form/leveling-form.component';
 import { CompleteLevelingFormComponent } from './components/complete-leveling-form/complete-leveling-form.component';
 import { StrikeFormComponent } from './components/strike-form/strike-form.component';
+import { OnHoldComponent } from './pages/on-hold/on-hold.component';
 
 
 const firebaseConfig = {
@@ -61,7 +62,8 @@ const firebaseConfig = {
         CompleteLegacyFormComponent,
         LevelingFormComponent,
         CompleteLevelingFormComponent,
-        StrikeFormComponent
+        StrikeFormComponent,
+        OnHoldComponent
     ],
     providers: [
         SpinnerComponent,
