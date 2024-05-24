@@ -9,6 +9,7 @@ import { User } from 'src/app/models/user.model';
 export class UserListComponent {
 
   @Input() users!: User[];
+  @Input() onHoldUsers!: User[];
   @Input() filterUsersValue!: string;
 
   filteredUsers!: User[];
@@ -19,7 +20,6 @@ export class UserListComponent {
 
   filterUser() {
     this.filteredUsers = this.users.filter(user => {
-      // Recorrer las propiedades del objeto mythic y verificar si alguna coincide con filterValue
       for (const property in user) {
         if (typeof user.character_name === 'string' && user.character_name.toLowerCase().includes(this.filterUsersValue.toLowerCase())) {
           return true;

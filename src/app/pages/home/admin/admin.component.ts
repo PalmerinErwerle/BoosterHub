@@ -26,6 +26,7 @@ export class AdminComponent implements OnInit {
   view = "user";
 
   users!: User[];
+  onHoldUsers!: User[];
   mythics!: Mythic[];
   raids!: Raid[];
   legacies!: Legacy[];
@@ -71,6 +72,7 @@ export class AdminComponent implements OnInit {
     ];
 
     this.users = await this.userService.getUsers();
+    this.onHoldUsers = await this.userService.getUsersOnHold();
 
     this.mythics = await this.mythicService.getMythics();
     this.raids = await this.raidService.getRaids();

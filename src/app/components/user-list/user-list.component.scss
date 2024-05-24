@@ -25,7 +25,6 @@
 .card-block {
     border: #F59A7B 3px solid;
     border-radius: 30px;
-    box-shadow: none;
     background-color: transparent;
     min-width: 240px;
     max-width: 310px;
@@ -44,6 +43,51 @@
     right: 0;
     opacity: 0.8;
     width: 60px;
+}
+
+.hold-block {
+    margin: auto;
+    padding: 20px;
+    width: 92%;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    border: #21264D dashed 3px;
+    border-radius: 30px;
+}
+
+.hold-title {
+    font-size: 26px;
+    color: #21264D;
+    margin-bottom: 20px;
+}
+
+.hold-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    place-items: center;
+}
+
+.hold-card {
+    border: #F59A7B 3px solid;
+    border-radius: 30px;
+    background-color: transparent;
+    min-width: 220px;
+    max-width: 290px;
+    width: 90%;
+    height: 120px;
+    color: #21264D;
+    margin: 1.6%;
+    display: flex;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    cursor: pointer;
+}
+
+.hold-image {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    opacity: 0.8;
+    width: 50px;
 }
 
 @media (max-width: 599px) {

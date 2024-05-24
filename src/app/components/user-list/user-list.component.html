@@ -1,3 +1,18 @@
+<div class="hold-block" *ngIf="onHoldUsers.length != 0">
+  <p class="hold-title">Users on hold:</p>
+  <div class="hold-cards">
+    <mat-card *ngFor="let user of onHoldUsers" class="hold-card"  [routerLink]="'../profile/' + user.uid">
+      <mat-card-header>
+        <mat-card-title>{{user.character_name}}-{{user.character_realm}}</mat-card-title>
+        <mat-card-subtitle>{{user.character_race}} {{user.character_class}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <img class="hold-image" src="../../../../assets/img/characters/roles/{{user.character_role}}.png">
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
 <div class="search-block">
   <mat-form-field appearance="outline" class="searchbar">
     <input matInput placeholder="Search by character name" [(ngModel)]="filterUsersValue" (keyup)="filterUser()">
