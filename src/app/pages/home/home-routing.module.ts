@@ -12,6 +12,7 @@ import { RaidComponent } from './raid/raid.component';
 import { LegacyComponent } from './legacy/legacy.component';
 import { LevelingComponent } from './leveling/leveling.component';
 import { StrikeComponent } from './strike/strike.component';
+import { AuthGuard } from 'src/app/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -20,47 +21,58 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component:WelcomeComponent
+        component:WelcomeComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'profile/:uid',
-        component:ProfileComponent
+        component:ProfileComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'mythic/:id',
-        component:MythicComponent
+        component:MythicComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'raid/:id',
-        component:RaidComponent
+        component:RaidComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'legacy/:id',
-        component:LegacyComponent
+        component:LegacyComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'leveling/:id',
-        component:LevelingComponent
+        component:LevelingComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'strike/:id',
-        component:StrikeComponent
+        component:StrikeComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'booster-menu',
-        component:BoosterComponent
+        component:BoosterComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'adviser-menu',
-        component:AdviserComponent
+        component:AdviserComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin-menu',
-        component:AdminComponent
+        component:AdminComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'error',
-        component:ErrorComponent
+        component:ErrorComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: '**',
