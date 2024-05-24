@@ -29,22 +29,17 @@ const routes: Routes = [
   {
     path: 'onHold',
     component:OnHoldComponent,
-    canActivate:[OnHoldGuard]
+    //canActivate:[OnHoldGuard]
   },
   {
     path: 'denied',
     component:DeniedComponent,
-    canActivate:[DeniedGuard]
+    //canActivate:[DeniedGuard]
   },
   {
     path: 'banned',
     component:BannedComponent,
-    canActivate:[BannedGuard]
-  },
-  {
-    path: 'onHold',
-    component:OnHoldComponent,
-    canActivate:[OnHoldGuard]
+    //canActivate:[BannedGuard]
   },
   {
     path: '**',

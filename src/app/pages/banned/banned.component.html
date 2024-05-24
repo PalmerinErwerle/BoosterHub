@@ -1,1 +1,18 @@
-<p>banned works!</p>
+<div class="main-content">
+    <div id="bg-blur">
+        <div id="main-block">
+            <div class="text-block">
+                <div class="main-text-block">
+                    <p class="main-text">The user {{user.character_name}}-{{user.character_realm}} has been banned due to:</p>
+                    <div class="ban-block">
+                        <p>messi!!</p>
+                        <p>{{user.ban_message}}</p>
+                    </div>
+                </div>
+                <button mat-stroked-button class="signOut-button" (click)="signOut()">
+                    <mat-icon id="button-text">logout</mat-icon><div id="button-text">Log Out</div>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

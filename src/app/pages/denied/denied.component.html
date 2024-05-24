@@ -1,1 +1,23 @@
-<p>denied works!</p>
+<div class="main-content">
+    <div id="bg-blur">
+        <div id="main-block">
+            <div class="text-block">
+                <div class="main-text-block">
+                    <p class="main-text">We... are pretty sorry to say this, but...</p>
+                    <p class="main-text">Your character wasn't selected as worthy to join the community yet...</p>
+                    <p class="main-text">When you reach a higher rank and/or empower your character, you can update your profile with your latest scores and apply again using the button below this text</p>
+                    <p class="main-text">Keep on your character progress until then!</p>
+                </div>
+
+                <div class="button-block">
+                    <button mat-stroked-button class="signOut-button" (click)="updateUser(user.character_name, user.character_realm)">
+                        <mat-icon id="button-text">autorenew</mat-icon><div id="button-text">Update profile</div>
+                    </button>
+                    <button mat-stroked-button class="signOut-button" (click)="signOut()">
+                        <mat-icon id="button-text">logout</mat-icon><div id="button-text">Log Out</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
