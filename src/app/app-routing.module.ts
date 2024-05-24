@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './pages/auth/auth.component';
+import { OnHoldComponent } from './pages/on-hold/on-hold.component';
+import { DeniedComponent } from './pages/denied/denied.component';
+import { BannedComponent } from './pages/banned/banned.component';
 import { NoAuthGuard } from './guards/no-auth.guard';
 import { AuthGuard } from './guards/auth.guard';
-import { OnHoldComponent } from './pages/on-hold/on-hold.component';
+import { OnHoldGuard } from './guards/on-hold.guard';
+import { DeniedGuard } from './guards/denied.guard';
+import { BannedGuard } from './guards/banned.guard';
 
 const routes: Routes = [
   {
@@ -23,7 +28,23 @@ const routes: Routes = [
   },
   {
     path: 'onHold',
-    component:OnHoldComponent
+    component:OnHoldComponent,
+    canActivate:[OnHoldGuard]
+  },
+  {
+    path: 'denied',
+    component:DeniedComponent,
+    canActivate:[DeniedGuard]
+  },
+  {
+    path: 'banned',
+    component:BannedComponent,
+    canActivate:[BannedGuard]
+  },
+  {
+    path: 'onHold',
+    component:OnHoldComponent,
+    canActivate:[OnHoldGuard]
   },
   {
     path: '**',

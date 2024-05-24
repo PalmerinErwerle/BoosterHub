@@ -7,7 +7,7 @@ import { User } from '../models/user.model';
 @Injectable({
   providedIn: 'root'
 })
-export class NoAuthGuard implements CanActivate {
+export class DeniedGuard implements CanActivate {
 
   user!: User;
   role!: string;
@@ -16,10 +16,7 @@ export class NoAuthGuard implements CanActivate {
   userService = inject(UserService);
 
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this.utilsService.isLoggedIn() == null) {
-      return true;
-
-    } else {
+    if (this.utilsService.isLoggedIn() != null) {
       this.user = await this.userService.getUserByUid(this.utilsService.getUserUid()) as User;
       this.role = this.user.role;
 
@@ -28,8 +25,7 @@ export class NoAuthGuard implements CanActivate {
         return false;
 
       } else if (this.role == "denied") {
-        this.utilsService.routerLink("/denied");
-        return false;
+        return true;
 
       } else if (this.role == "banned") {
         this.utilsService.routerLink("/banned");
@@ -40,6 +36,10 @@ export class NoAuthGuard implements CanActivate {
         return false;
 
       }
+
+    } else {
+      this.utilsService.routerLink("/auth");
+      return false;
     }
   }
 
