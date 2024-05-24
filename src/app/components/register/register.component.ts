@@ -28,6 +28,7 @@ export class RegisterComponent {
     character_realm: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{0,}$/)]),
+    role: new FormControl(''),
 
     character_faction: new FormControl(''),
     character_race: new FormControl(''),
@@ -84,6 +85,7 @@ export class RegisterComponent {
 
               let uid = res.user.uid;
               this.form.controls.uid.setValue(uid);
+              this.form.controls.role.setValue('onHold');
               this.setUserInfo(uid);
             }).catch(er => {
               this.toaster.errorToast("This booster mail is already registered");
