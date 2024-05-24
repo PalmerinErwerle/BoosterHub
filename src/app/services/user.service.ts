@@ -26,7 +26,12 @@ export class UserService {
   
         this.firebaseService.updateDocument(path, user).then(async () => {
             this.toaster.successToast("User updated succesfully");
-            this.utilsService.reload("/home/profile/" + user.uid, 2000);
+            
+            if (role == "denied" || role == "banned") {
+                this.utilsService.reload("/home/admin-menu", 2000);
+            } else {
+                this.utilsService.reload("/home/profile/" + user.uid, 2000);
+            }
         }).catch(er => {
             this.toaster.errorToast('Unexpected error while updating the user, please try again');
         }).finally(() => {

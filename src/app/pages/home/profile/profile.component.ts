@@ -55,7 +55,7 @@ export class ProfileComponent implements OnInit {
       this.loader = true;
     }, 1500);
 
-    if (this.character == null || this.character?.role == 'banned') {
+    if (this.character == null || this.character?.role == 'banned' || this.character?.role == 'denied') {
       this.utilsService.routerLink('/error');
     }
 

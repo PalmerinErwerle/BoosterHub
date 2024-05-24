@@ -28,13 +28,18 @@
                     <mat-icon>person_off</mat-icon> Ban User
                 </button>
                 <button mat-stroked-button class="strike-button" (click)="newStrike()">
-                    <mat-icon>sentiment_very_dissatisfied</mat-icon> Strike user
+                    <mat-icon>sentiment_very_dissatisfied</mat-icon> Strike User
                 </button>
             </div>
 
-            <button mat-stroked-button *ngIf="this.character?.role == 'onHold'" class="update-button" (click)="updateRole('booster')">
-                <mat-icon>person_add</mat-icon> Accept user
-            </button>
+            <div class="sub-button-block" *ngIf="this.character?.role == 'onHold'">
+                <button mat-stroked-button class="update-button" (click)="updateRole('booster')">
+                    <mat-icon>person_add</mat-icon> Accept User
+                </button>
+                <button mat-stroked-button class="strike-button" (click)="updateRole('denied')">
+                    <mat-icon>person_remove</mat-icon> Deny User
+                </button>
+            </div>
         </div>
 
         <button mat-stroked-button *ngIf="this.uid == this.utilsService.getUserUid()" class="update-button" (click)="updateUser(character?.character_name, character?.character_realm)">
