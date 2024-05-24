@@ -23,6 +23,7 @@ export class ProfileComponent implements OnInit {
 
   loader = false;
   uid!: string;
+  user!: User;
   character!: User | null;
   raiderIoData!: RaiderIoCharacter;
   raiderIoLink!: string;
@@ -40,6 +41,7 @@ export class ProfileComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.uid = this.route.snapshot.params['uid'];
+    this.user = await this.userService.getUserByUid(this.utilsService.getUserUid()) as User;
 
     if (this.uid == this.utilsService.getUserUid()) {
       this.home.title = "My Profile";
@@ -53,7 +55,11 @@ export class ProfileComponent implements OnInit {
       this.loader = true;
     }, 1500);
 
-    if (this.character == null) {
+    if (this.character == null || this.character?.role == 'banned') {
+      this.utilsService.routerLink('/error');
+    }
+
+    if (this.user.role != "admin" && this.character?.role == 'onHold') {
       this.utilsService.routerLink('/error');
     }
 
@@ -84,6 +90,10 @@ export class ProfileComponent implements OnInit {
       {
         title: Math.round(this.character?.character_rio as unknown as number),
         head: "Raider.IO Score"
+      },
+      {
+        title: this.boosterhubRole(this.character?.role),
+        head: "BoosterHub Role"
       }
     ]
   }
@@ -103,6 +113,20 @@ export class ProfileComponent implements OnInit {
       return "Tank"
     } else {
       return "Healer"
+    }
+  }
+
+  boosterhubRole(role: string | undefined) {
+    switch (role) {
+      case 'booster':
+        return 'Booster'
+      case 'adviser':
+        return 'Adviser'
+      case 'admin':
+        return 'Admin'
+    
+      default:
+        return 'On hold'
     }
   }
 
@@ -138,6 +162,10 @@ export class ProfileComponent implements OnInit {
         })
       });
 
+  }
+
+  updateRole(role: string) {
+    this.userService.updateUserRole(this.character as User, role);
   }
 
   newStrike() {

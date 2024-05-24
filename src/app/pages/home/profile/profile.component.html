@@ -14,9 +14,28 @@
     </div>
 
     <div class="button-block">
-        <button mat-stroked-button *ngIf="this.uid != this.utilsService.getUserUid()" class="strike-button" (click)="newStrike()">
-            <mat-icon>sentiment_very_dissatisfied</mat-icon> Strike user
-        </button>
+        <div class="sub-button-block" *ngIf="this.uid != this.utilsService.getUserUid() && this.user.role == 'admin'">
+            <button mat-stroked-button class="update-button" *ngIf="this.character?.role == 'booster'" (click)="updateRole('adviser')">
+                <mat-icon>person_add</mat-icon> Promote to Adviser
+            </button>
+
+            <button mat-stroked-button class="strike-button" *ngIf="this.character?.role == 'adviser'" (click)="updateRole('booster')">
+                <mat-icon>person_remove</mat-icon> Demote to Booster
+            </button>
+
+            <div class="sub-button-block" *ngIf="this.character?.role == 'booster' || this.character?.role == 'adviser'">
+                <button mat-stroked-button class="strike-button" (click)="updateRole('banned')">
+                    <mat-icon>person_off</mat-icon> Ban User
+                </button>
+                <button mat-stroked-button class="strike-button" (click)="newStrike()">
+                    <mat-icon>sentiment_very_dissatisfied</mat-icon> Strike user
+                </button>
+            </div>
+
+            <button mat-stroked-button *ngIf="this.character?.role == 'onHold'" class="update-button" (click)="updateRole('booster')">
+                <mat-icon>person_add</mat-icon> Accept user
+            </button>
+        </div>
 
         <button mat-stroked-button *ngIf="this.uid == this.utilsService.getUserUid()" class="update-button" (click)="updateUser(character?.character_name, character?.character_realm)">
             <mat-icon>autorenew</mat-icon> Update profile
