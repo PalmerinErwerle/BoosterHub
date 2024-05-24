@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { ErrorComponent } from './error/error.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BoosterComponent } from './booster/booster.component';
@@ -67,6 +68,11 @@ const routes: Routes = [
       {
         path: 'admin-menu',
         component:AdminComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'unauthorized',
+        component:UnauthorizedComponent,
         canActivate: [AuthGuard]
       },
       {
