@@ -68,7 +68,7 @@ export class DeniedComponent implements OnInit {
         }).finally(() => {
           this.toaster.successToast("User updated successfully");
           this.spinner.hideSpinner(2000);
-          this.utilsService.reload("/denied", 2000);
+          this.utilsService.reload("/onHold", 2000);
         })
       });
 
