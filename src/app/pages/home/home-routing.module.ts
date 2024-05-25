@@ -14,6 +14,8 @@ import { LegacyComponent } from './legacy/legacy.component';
 import { LevelingComponent } from './leveling/leveling.component';
 import { StrikeComponent } from './strike/strike.component';
 import { AuthGuard } from 'src/app/guards/auth.guard';
+import { AdviserGuard } from 'src/app/guards/adviser.guard';
+import { AdminGuard } from 'src/app/guards/admin.guard';
 
 const routes: Routes = [
   {
@@ -63,12 +65,12 @@ const routes: Routes = [
       {
         path: 'adviser-menu',
         component:AdviserComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard, AdviserGuard]
       },
       {
         path: 'admin-menu',
         component:AdminComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard, AdminGuard]
       },
       {
         path: 'unauthorized',
