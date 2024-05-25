@@ -13,14 +13,14 @@ En algún momento haré este readme en condiciones xd.
 
 ### En proceso 🏗️
 
- - Lógica general de status (User).
- - Guards de control de status (User).
+ - Nada mas por hacer!!
 
 ### Ya terminado ✅
 
  - Estructura preliminar de la aplicación
 
- - Guards de control de sesión y error 404
+ - Guards de control de sesión y errores 401 & 404
+ - Guards de control y acceso de UserRole.
  
  - Componentes toast y loader implementados
  - Sistema de botones de navegacion implementado
