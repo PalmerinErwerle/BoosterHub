@@ -17,6 +17,7 @@ import { HomeComponent } from '../home.component';
 export class RaidComponent implements OnInit {
 
   loader = false;
+  user!: User;
   id!: string;
   booster_cut!: number;
   adviser_cut!: number;
@@ -45,7 +46,17 @@ export class RaidComponent implements OnInit {
     this.home.title = "Raid";
 
     this.id = this.route.snapshot.params['id'];
+
+    this.user = await this.userService.getUserByUid(this.utilsService.getUserUid()) as User;
     this.raid = await this.raidService.getRaidById(this.id);
+
+    if (this.user.role != 'admin' && this.user.uid != this.raid?.adviser_id && this.user.uid != this.raid?.tank1_id
+        && this.user.uid != this.raid?.tank2_id && this.user.uid != this.raid?.healer1_id && this.user.uid != this.raid?.healer2_id
+        && this.user.uid != this.raid?.dps1_id && this.user.uid != this.raid?.dps2_id && this.user.uid != this.raid?.dps3_id
+        && this.user.uid != this.raid?.dps4_id && this.user.uid != this.raid?.dps5_id && this.user.uid != this.raid?.dps6_id
+    ) {
+      this.utilsService.routerLink('/home/unauthorized');
+    }
 
     if (this.raid == null) {
       this.utilsService.routerLink('/home/error');

@@ -17,6 +17,7 @@ import { HomeComponent } from '../home.component';
 export class LegacyComponent implements OnInit {
 
   loader = false;
+  user!: User;
   id!: string;
   booster_cut!: number;
   adviser_cut!: number;
@@ -45,7 +46,17 @@ export class LegacyComponent implements OnInit {
     this.home.title = "Legacy Raid";
 
     this.id = this.route.snapshot.params['id'];
+
+    this.user = await this.userService.getUserByUid(this.utilsService.getUserUid()) as User;
     this.legacy = await this.legacyService.getRaidById(this.id);
+
+    if (this.user.role != 'admin' && this.user.uid != this.legacy?.adviser_id && this.user.uid != this.legacy?.tank1_id
+        && this.user.uid != this.legacy?.tank2_id && this.user.uid != this.legacy?.healer1_id && this.user.uid != this.legacy?.healer2_id
+        && this.user.uid != this.legacy?.dps1_id && this.user.uid != this.legacy?.dps2_id && this.user.uid != this.legacy?.dps3_id
+        && this.user.uid != this.legacy?.dps4_id && this.user.uid != this.legacy?.dps5_id && this.user.uid != this.legacy?.dps6_id
+    ) {
+      this.utilsService.routerLink('/home/unauthorized');
+    }
 
     if (this.legacy == null) {
       this.utilsService.routerLink('/home/error');

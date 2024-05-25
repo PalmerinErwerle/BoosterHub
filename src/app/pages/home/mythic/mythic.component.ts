@@ -17,6 +17,7 @@ import { HomeComponent } from '../home.component';
 export class MythicComponent implements OnInit {
 
   loader = false;
+  user!: User;
   id!: string;
   booster_cut!: number;
   adviser_cut!: number;
@@ -39,7 +40,15 @@ export class MythicComponent implements OnInit {
     this.home.title = "Mythic+";
 
     this.id = this.route.snapshot.params['id'];
+
+    this.user = await this.userService.getUserByUid(this.utilsService.getUserUid()) as User;
     this.mythic = await this.mythicService.getMythicById(this.id);
+
+    if (this.user.role != 'admin' && this.user.uid != this.mythic?.adviser_id && this.user.uid != this.mythic?.tank_id
+        && this.user.uid != this.mythic?.healer_id && this.user.uid != this.mythic?.dps1_id && this.user.uid != this.mythic?.dps2_id
+    ) {
+      this.utilsService.routerLink('/home/unauthorized');
+    }
 
     if (this.mythic == null) {
       this.utilsService.routerLink('/home/error');

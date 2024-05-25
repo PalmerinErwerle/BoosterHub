@@ -15,6 +15,7 @@ import { HomeComponent } from '../home.component';
 export class StrikeComponent {
 
   loader = false;
+  user!: User;
   id!: string;
   strike!: Strike | null;
   striked!: User | null;
@@ -31,7 +32,13 @@ export class StrikeComponent {
     this.home.title = "Strike";
 
     this.id = this.route.snapshot.params['id'];
+
+    this.user = await this.userService.getUserByUid(this.utilsService.getUserUid()) as User;
     this.strike = await this.strikeService.getStrikeById(this.id);
+
+    if (this.user.role != 'admin' && this.user.uid != this.strike?.admin_id && this.user.uid != this.strike?.striked_id) {
+      this.utilsService.routerLink('/home/unauthorized');
+    }
 
     if (this.strike == null) {
       this.utilsService.routerLink('/home/error');
