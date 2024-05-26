@@ -20,6 +20,7 @@ import { AuthComponent } from './pages/auth/auth.component';
 import { HomeComponent } from './pages/home/home.component';
 import { OnHoldComponent } from './pages/on-hold/on-hold.component';
 import { DeniedComponent } from './pages/denied/denied.component';
+import { BannedComponent } from './pages/banned/banned.component';
 
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -33,7 +34,7 @@ import { CompleteLegacyFormComponent } from './components/complete-legacy-form/c
 import { LevelingFormComponent } from './components/leveling-form/leveling-form.component';
 import { CompleteLevelingFormComponent } from './components/complete-leveling-form/complete-leveling-form.component';
 import { StrikeFormComponent } from './components/strike-form/strike-form.component';
-import { BannedComponent } from './pages/banned/banned.component';
+import { BanFormComponent } from './components/ban-form/ban-form.component';
 
 
 
@@ -54,6 +55,9 @@ const firebaseConfig = {
         LoginComponent,
         RegisterComponent,
         ForgotPasswordComponent,
+        OnHoldComponent,
+        DeniedComponent,
+        BannedComponent,
         HomeComponent,
         SpinnerComponent,
         ToasterComponent,
@@ -66,9 +70,7 @@ const firebaseConfig = {
         LevelingFormComponent,
         CompleteLevelingFormComponent,
         StrikeFormComponent,
-        OnHoldComponent,
-        DeniedComponent,
-        BannedComponent
+        BanFormComponent
     ],
     providers: [
         SpinnerComponent,

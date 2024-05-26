@@ -13,6 +13,7 @@ import { UtilsService } from 'src/app/services/utils.service';
 import { HomeComponent } from '../home.component';
 import { MatDialog } from '@angular/material/dialog';
 import { StrikeFormComponent } from 'src/app/components/strike-form/strike-form.component';
+import { BanFormComponent } from 'src/app/components/ban-form/ban-form.component';
 
 @Component({
   selector: 'app-profile',
@@ -166,6 +167,12 @@ export class ProfileComponent implements OnInit {
 
   updateRole(role: string) {
     this.userService.updateUserRole(this.character as User, role);
+  }
+
+  banUser() {
+    this.modal.open(BanFormComponent, {
+      data: {user: this.character}
+    });
   }
 
   newStrike() {

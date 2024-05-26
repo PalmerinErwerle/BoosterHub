@@ -24,7 +24,7 @@
             </button>
 
             <div class="sub-button-block" *ngIf="this.character?.role == 'booster' || this.character?.role == 'adviser'">
-                <button mat-stroked-button class="strike-button" (click)="updateRole('banned')">
+                <button mat-stroked-button class="strike-button" (click)="banUser()">
                     <mat-icon>person_off</mat-icon> Ban User
                 </button>
                 <button mat-stroked-button class="strike-button" (click)="newStrike()">
