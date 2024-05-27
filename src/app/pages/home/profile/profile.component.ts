@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { catchError, throwError } from 'rxjs';
+import { catchError, map, throwError } from 'rxjs';
 import { SpinnerComponent } from 'src/app/components/spinner/spinner.component';
 import { ToasterComponent } from 'src/app/components/toaster/toaster.component';
 import { RaiderIoCharacter } from 'src/app/models/raiderio-character.model';
@@ -41,20 +41,30 @@ export class ProfileComponent implements OnInit {
   userService = inject(UserService);
 
   async ngOnInit(): Promise<void> {
-    this.uid = this.route.snapshot.params['uid'];
+    this.route.paramMap.pipe(
+      map(params => params.get('uid'))
+    ).subscribe(async uid => {
+      this.loader = false;
+
+      this.uid = uid!; // Assign the uid to the component property
+      await this.loadData(uid!);
+      
+      setTimeout(() => {
+        this.loader = true;
+      }, 1500);
+    });
+  }
+
+  async loadData(uid: string) {
     this.user = await this.userService.getUserByUid(this.utilsService.getUserUid()) as User;
 
-    if (this.uid == this.utilsService.getUserUid()) {
+    if (uid == this.utilsService.getUserUid()) {
       this.home.title = "My Profile";
     } else {
       this.home.title = "Profile";
     }
 
-    this.character = await this.userService.getUserByUid(this.uid);
-
-    setTimeout(() => {
-      this.loader = true;
-    }, 1500);
+    this.character = await this.userService.getUserByUid(uid);
 
     if (this.character == null || this.character?.role == 'banned' || this.character?.role == 'denied') {
       this.utilsService.routerLink('/error');
