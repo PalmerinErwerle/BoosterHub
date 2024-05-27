@@ -8,7 +8,7 @@
   <mat-card *ngFor="let strike of filteredStrikes" class="card-block"  [routerLink]="'../strike/' + strike.id">
     <mat-card-header>
           
-      <mat-card-title>ID: {{strike.id}}</mat-card-title>
+      <mat-card-title class="card-title">ID: {{strike.id}}</mat-card-title>
       <mat-card-subtitle>Penalty: <span id="color-penalty">{{strike.penalty}}g</span></mat-card-subtitle>
   
       <div [ngSwitch]="strike.status" class="status-footer">

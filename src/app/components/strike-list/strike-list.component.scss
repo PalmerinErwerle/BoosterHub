@@ -38,6 +38,13 @@
     cursor: pointer;
 }
 
+.card-title {
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 #color-penalty {
     color: #D55455;
 }
@@ -45,6 +52,8 @@
 .status-footer {
     position: absolute;
     bottom: 12px;
+    left: 5%;
+    right: 5%;
     width: 90%;
 }
 
