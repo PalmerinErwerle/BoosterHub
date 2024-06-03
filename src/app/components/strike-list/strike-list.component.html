@@ -1,21 +1,29 @@
-<div class="search-block" *ngIf="isAdmin">
-  <mat-form-field appearance="outline" class="searchbar">
-    <input matInput placeholder="Search by Striked user name" [(ngModel)]="filterStrikesValue" (keyup)="filterStrike()">
-  </mat-form-field>
+<div class="no-service" *ngIf="strikes.length == 0">
+  <p id="no-service-text">You have no strikes!</p>
 </div>
+
+<div *ngIf="strikes.length != 0">
   
-<div class="body-block">
-  <mat-card *ngFor="let strike of filteredStrikes" class="card-block"  [routerLink]="'../strike/' + strike.id">
-    <mat-card-header>
-          
-      <mat-card-title class="card-title">ID: {{strike.id}}</mat-card-title>
-      <mat-card-subtitle>Penalty: <span id="color-penalty">{{strike.penalty}}g</span></mat-card-subtitle>
-  
-      <div [ngSwitch]="strike.status" class="status-footer">
-        <div *ngSwitchCase="'unpaid'" id="color-unpaid">messi</div>
-        <div *ngSwitchCase="'paid'" id="color-paid">messi</div>
-      </div>
-  
-    </mat-card-header>
-  </mat-card>
+  <div class="search-block" *ngIf="isAdmin">
+    <mat-form-field appearance="outline" class="searchbar">
+      <input matInput placeholder="Search by Striked user name" [(ngModel)]="filterStrikesValue" (keyup)="filterStrike()">
+    </mat-form-field>
+  </div>
+    
+  <div class="body-block">
+    <mat-card *ngFor="let strike of filteredStrikes" class="card-block"  [routerLink]="'../strike/' + strike.id">
+      <mat-card-header>
+            
+        <mat-card-title class="card-title">ID: {{strike.id}}</mat-card-title>
+        <mat-card-subtitle>Penalty: <span id="color-penalty">{{strike.penalty}}g</span></mat-card-subtitle>
+    
+        <div [ngSwitch]="strike.status" class="status-footer">
+          <div *ngSwitchCase="'unpaid'" id="color-unpaid">messi</div>
+          <div *ngSwitchCase="'paid'" id="color-paid">messi</div>
+        </div>
+    
+      </mat-card-header>
+    </mat-card>
+  </div>
+
 </div>

@@ -1,4 +1,10 @@
-<div class="search-block">
+<div class="no-service" *ngIf="raids.length == 0">
+  <p id="no-service-text">There are no raids to load...</p>
+</div>
+
+<div *ngIf="raids.length != 0">
+
+  <div class="search-block">
     <mat-form-field appearance="outline" class="searchbar">
       <input matInput placeholder="Search by Raid ID" [(ngModel)]="filterRaidsValue" (keyup)="filterRaid()">
     </mat-form-field>
@@ -21,3 +27,5 @@
         </mat-card-header>
       </mat-card>
   </div>
+
+</div>

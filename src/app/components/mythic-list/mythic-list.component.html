@@ -1,24 +1,32 @@
-<div class="search-block">
-  <mat-form-field appearance="outline" class="searchbar">
-    <input matInput placeholder="Search by M+ ID" [(ngModel)]="filterMythicsValue" (keyup)="filterMythic()">
-  </mat-form-field>
+<div class="no-service" *ngIf="mythics.length == 0">
+  <p id="no-service-text">There are no M+ to load...</p>
 </div>
 
-<div class="body-block">
-      <mat-card *ngFor="let mythic of filteredMythics" class="card-block"  [routerLink]="'../mythic/' + mythic.id">
-      <mat-card-header>
-        
-        <mat-card-title *ngIf="mythic.run_level != 'DotI HardMode'">{{mythic.run_level}} x {{mythic.run_number}}</mat-card-title>
-        <mat-card-title *ngIf="mythic.run_level == 'DotI HardMode'">{{mythic.run_level}}</mat-card-title>
-        <mat-card-subtitle>ID: {{mythic.id}}</mat-card-subtitle>
+<div *ngIf="mythics.length != 0">
 
-        <div [ngSwitch]="mythic.status" class="status-footer">
-          <div *ngSwitchCase="'created'" id="color-created">messi</div>
-          <div *ngSwitchCase="'completed'" id="color-completed">messi</div>
-          <div *ngSwitchCase="'depleted'" id="color-depleted">messi</div>
-          <div *ngSwitchCase="'issues'" id="color-issues">messi</div>
-        </div>
+  <div class="search-block">
+    <mat-form-field appearance="outline" class="searchbar">
+      <input matInput placeholder="Search by M+ ID" [(ngModel)]="filterMythicsValue" (keyup)="filterMythic()">
+    </mat-form-field>
+  </div>
 
-      </mat-card-header>
-    </mat-card>
+  <div class="body-block">
+        <mat-card *ngFor="let mythic of filteredMythics" class="card-block"  [routerLink]="'../mythic/' + mythic.id">
+        <mat-card-header>
+          
+          <mat-card-title *ngIf="mythic.run_level != 'DotI HardMode'">{{mythic.run_level}} x {{mythic.run_number}}</mat-card-title>
+          <mat-card-title *ngIf="mythic.run_level == 'DotI HardMode'">{{mythic.run_level}}</mat-card-title>
+          <mat-card-subtitle>ID: {{mythic.id}}</mat-card-subtitle>
+
+          <div [ngSwitch]="mythic.status" class="status-footer">
+            <div *ngSwitchCase="'created'" id="color-created">messi</div>
+            <div *ngSwitchCase="'completed'" id="color-completed">messi</div>
+            <div *ngSwitchCase="'depleted'" id="color-depleted">messi</div>
+            <div *ngSwitchCase="'issues'" id="color-issues">messi</div>
+          </div>
+
+        </mat-card-header>
+      </mat-card>
+  </div>
+
 </div>
