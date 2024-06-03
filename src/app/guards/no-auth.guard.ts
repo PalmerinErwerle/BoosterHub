@@ -21,24 +21,30 @@ export class NoAuthGuard implements CanActivate {
 
     } else {
       this.user = await this.userService.getUserByUid(this.utilsService.getUserUid()) as User;
-      this.role = this.user.role;
-
-      if (this.role == "onHold") {
-        this.utilsService.routerLink("/onHold");
-        return false;
-
-      } else if (this.role == "denied") {
-        this.utilsService.routerLink("/denied");
-        return false;
-
-      } else if (this.role == "banned") {
-        this.utilsService.routerLink("/banned");
-        return false;
+      
+      if (this.user == null) {
+        return true;
 
       } else {
-        this.utilsService.routerLink("/home");
-        return false;
+        this.role = this.user.role;
+        
+        if (this.role == "onHold") {
+          this.utilsService.routerLink("/onHold");
+          return false;
 
+        } else if (this.role == "denied") {
+          this.utilsService.routerLink("/denied");
+          return false;
+
+        } else if (this.role == "banned") {
+          this.utilsService.routerLink("/banned");
+          return false;
+
+        } else {
+          this.utilsService.routerLink("/home");
+          return false;
+
+        }
       }
     }
   }

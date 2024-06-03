@@ -18,23 +18,30 @@ export class AuthGuard implements CanActivate {
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (this.utilsService.isLoggedIn() != null) {
       this.user = await this.userService.getUserByUid(this.utilsService.getUserUid()) as User;
-      this.role = this.user.role;
-
-      if (this.role == "onHold") {
-        this.utilsService.routerLink("/onHold");
-        return false;
-
-      } else if (this.role == "denied") {
-        this.utilsService.routerLink("/denied");
-        return false;
-
-      } else if (this.role == "banned") {
-        this.utilsService.routerLink("/banned");
+      
+      if (this.user == null) {
+        this.utilsService.routerLink("/auth");
         return false;
 
       } else {
-        return true;
+        this.role = this.user.role;
+        
+        if (this.role == "onHold") {
+          this.utilsService.routerLink("/onHold");
+          return false;
 
+        } else if (this.role == "denied") {
+          this.utilsService.routerLink("/denied");
+          return false;
+
+        } else if (this.role == "banned") {
+          this.utilsService.routerLink("/banned");
+          return false;
+
+        } else {
+          return true;
+
+        }
       }
 
     } else {
