@@ -44,8 +44,14 @@ export class LoginComponent {
 
       this.firebaseService.getDocument(path).then((user: DocumentData | undefined) => {
         if (user) {
+
+          const character_name = user['character_name'];
+          const character_realm = user['character_realm'];
           
           delete user['email'];
+          delete user['role'];
+          delete user['character_name'];
+          delete user['character_realm'];
           delete user['character_faction'];
           delete user['character_race'];
           delete user['character_role'];
@@ -59,8 +65,7 @@ export class LoginComponent {
           this.utilsService.routerLink('/home');
           this.form.reset();
 
-          let localUser = this.utilsService.getFromLocalStorage('user');
-          this.toaster.successToast("Welcome " + localUser?.character_name + "-" + localUser?.character_realm);
+          this.toaster.successToast("Welcome " + character_name + "-" + character_realm);
         } else {
           console.log("getDocument error...");
         }

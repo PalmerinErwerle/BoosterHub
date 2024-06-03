@@ -106,7 +106,13 @@ export class RegisterComponent {
 
       this.firebaseService.setDocument(path, this.form.value).then(async res => {
 
+        const character_name = this.form.value.character_name;
+        const character_realm = this.form.value.character_realm;
+
         delete this.form.value.email;
+        delete this.form.value.role;
+        delete this.form.value.character_name;
+        delete this.form.value.character_realm;
         delete this.form.value.character_faction;
         delete this.form.value.character_race;
         delete this.form.value.character_role;
@@ -118,8 +124,7 @@ export class RegisterComponent {
         this.utilsService.routerLink('/home');
         this.form.reset();
 
-        let localUser = this.utilsService.getFromLocalStorage('user');
-        this.toaster.successToast("Welcome " + localUser?.character_name + "-" + localUser?.character_realm);
+        this.toaster.successToast("Welcome " + character_name + "-" + character_realm);
       }).catch(er => {
         this.toaster.errorToast("Incorrect booster data gathering, try again");
       });
